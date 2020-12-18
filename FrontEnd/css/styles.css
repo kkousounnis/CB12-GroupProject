@@ -1,13 +1,28 @@
- 
- body{
-
-  background-color: #F1F1F1;
+ body {
+   background-color: #F1F1F1;
+   color: black;
  }
-.card{
-  background-color: AliceBlue;
 
-}
-.carousel-inner{
+ a:hover {
+   color: rgb(43, 43, 43) !important;
+ }
 
-  background-color: AliceBlue;
-}
+ .card {
+   background-color: AliceBlue;
+ }
+
+ .card:hover{
+  box-shadow: ;
+
+ }
+ .carousel-inner {
+   background-color: AliceBlue;
+ }
+
+ #search{
+
+  background-color: rgb(88,203,241);
+  
+ }
+
+ 
