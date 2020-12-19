@@ -16,13 +16,15 @@
     <header>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom box-shadow">
             <nav class="navbar navbar-expand-lg navbar-light my-2 my-md-0 mr-md-3  ml-auto">
-                
-                <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon "></span>
+
+                <button class="navbar-toggler " type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon "></span>
                 </button>
                 <div class="navbar-collapse collapse" id="navbarSupportedContent">
 
-                    <ul class="navbar-nav ">
+                    <ul id="example" class="navbar-nav ">
 
                         <li class="nav-item border-right">
                             <a class="btn nav-link text-muted " href="#">Login</a>
@@ -36,7 +38,6 @@
         </div>
     </header>
     <main>
-
         <div class="container">
 
             <div class="row ">
@@ -59,11 +60,18 @@
                             <div class=" col-sm-8 mx-auto ">
 
                                 <div class="input-group ">
-                                    <input id="searchbar" class="form-control form-control-sm " type="text" placeholder="Search"
-                                        aria-label="Search">
+                                    <input id="searchbar" class="form-control form-control-sm " type="text"
+                                        placeholder="Search" aria-label="Search">
                                     <div class="input-group-append">
-                                        <button id="search" class="btn btn-outline-secondary btn-sm text-white"
-                                            type="button">Search</button>
+
+                                        <button id="search"
+                                            class="btn btn-outline-secondary btn-default btn-sm text-white"
+                                            type="submit">
+                                            <div class="text-center col">
+                                                Search
+                                            </div>
+                                        </button>
+
                                     </div>
                                 </div>
 
@@ -92,9 +100,6 @@
             <!-- The slideshow -->
             <div class="carousel-inner">
                 <div id="1" class="carousel-item active bg-primary">
-
-
-
                 </div>
                 <div class="carousel-item bg-dark">
 
@@ -118,24 +123,68 @@
     <div class="container">
 
         <div class="card-deck">
-            <div class="card shadow p-3 mb-5 bg-white rounded">
-                <div class="card-body text-center">
-
+            <div id="card1" class="card shadow p-3 mb-5 rounded">
+                <div class="card-body pull-left text-white">
+                    <a href="" class="text-white">
+                        <h5 class="card-title">Auto-Moto</h5>
+                    </a>
+                    <div class="pull-left">
+                        <a href="" class="text-white">
+                            Cars
+                        </a>
+                        <br />
+                        <a href="" class="text-white">
+                            Motors
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="card shadow p-3 mb-5 bg-white rounded">
-                <div class="card-body text-center">
-
+            <div id="card2" class="card shadow p-3 mb-5 rounded">
+                <div class="card-body pull-left text-white">
+                    <a href="" class="text-white">
+                        <h5 class="card-title">Collectables</h5>
+                    </a>
+                    <div class="pull-left">
+                        <a href="#" class="text-white">
+                            Products
+                        </a>
+                        <br />
+                        <a href="" class="text-white">
+                            Other
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-body text-center">
-
+            <div id="card3" class="card shadow p-3 mb-5 rounded">
+                <div class="card-body pull-left text-white">
+                    <a href="" class="text-white">
+                        <h5 class="card-title">Electronics</h5>
+                    </a>
+                    <div class="pull-left">
+                        <a href="" class="text-white">
+                            Phones
+                        </a>
+                        <br />
+                        <a href="" class="text-white">
+                            Laptops
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="card ">
-                <div class="card-body text-center">
-
+            <div id="card4" class="card shadow p-3 mb-5 rounded">
+                <div class="card-body pull-left text-white">
+                    <a href="" class="text-white">
+                        <h5 class="card-title">Fashion</h5>
+                    </a>
+                    <div class="pull-left">
+                        <a href="" class="text-white">
+                            Women's handbags
+                        </a>
+                        <br />
+                        <a href="" class="text-white">
+                            Jewellery
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

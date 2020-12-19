@@ -3,7 +3,7 @@
    color: black;
  }
 
- a:hover {
+ a.btn.nav-link.text-muted:hover {
    color: rgb(43, 43, 43) !important;
  }
 
@@ -29,5 +29,21 @@
 
     padding-top:50%;
  }
+
+ #card1{
+    background-color: #1D84B0;
+ }
+
+ #card2{
+  background-color: #FEB555;
+}
+
+#card3{
+  background-color: #A2A2A2;
+}
+
+#card4{
+  background-color: #DD6C75;
+}
 
  

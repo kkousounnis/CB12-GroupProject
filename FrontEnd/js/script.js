@@ -11,6 +11,7 @@ $(document).ready(function () {
     }
   );
 
+
   $("#search").hover(
     function () {
       $(this).css("background-color", "rgb(33, 182, 231)");
