@@ -11,13 +11,6 @@
    background-color: AliceBlue;
  }
 
- .card:hover{
-  box-shadow: ;
-
- }
- .carousel-inner {
-   background-color: AliceBlue;
- }
 
  #search{
 
@@ -48,6 +41,11 @@
 
 #card4, #carousel4{
   background-color: #DD6C75;
+}
+
+#cardprofile{
+  background-color: #F1F1F1;
+
 }
 
 #textcolor1{
