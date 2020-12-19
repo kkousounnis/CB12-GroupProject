@@ -30,6 +30,10 @@
     padding-top:30%;
  }
 
+ #imghome{
+  width:80px;
+ }
+
  #card1, #carousel1{
     background-color: #1D84B0;
  }
