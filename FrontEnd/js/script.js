@@ -13,15 +13,20 @@ $(document).ready(function () {
 
   $("#search").hover(
     function () {
-      $(this).css("background-color", "rgb(24, 127, 161)");
+      $(this).css("background-color", "rgb(33, 182, 231)");
     }, function () {
       $(this).css("background-color", " rgb(88,203,241)");
     }
   );
 
-
-
-
+  $("#searchbar").hover(
+    function () {
+      $(this).css("border-color", "rgb(33, 182, 231)");
+    }, function () {
+      $(this).css("border-color", "");
+    }
+  );
+  
   // document ready  
 });
 
