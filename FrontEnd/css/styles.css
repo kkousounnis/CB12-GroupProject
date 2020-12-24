@@ -1,0 +1,69 @@
+ body {
+   background-color: #F1F1F1;
+   color: black;
+ }
+
+ a.btn.nav-link.text-muted:hover {
+   color: rgb(43, 43, 43) !important;
+ }
+
+ .card {
+   background-color: AliceBlue;
+ }
+
+
+ #search{
+
+  background-color: rgb(88,203,241);
+  
+ }
+
+ #img{
+
+    padding-top:30%;
+ }
+
+ #imghome{
+  width:120px;
+  padding-right: 5px;
+ }
+
+ #card1, #carousel1{
+    background-color: #1D84B0;
+ }
+
+ #card2, #carousel2{
+  background-color: #FEB555;
+}
+
+#card3, #carousel3{
+  background-color: #A2A2A2;
+}
+
+#card4, #carousel4{
+  background-color: #DD6C75;
+}
+
+#cardprofile{
+  background-color: #F1F1F1;
+
+}
+
+#textcolor1{
+  color: #1D84B0;
+
+}
+#textcolor2{
+  color: #FEB555;
+
+}
+#textcolor3{
+  color: #A2A2A2;
+
+}
+
+#textcolor4{
+  color: #DD6C75;
+
+}
+ 
