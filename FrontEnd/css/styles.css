@@ -7,6 +7,11 @@
    color: rgb(43, 43, 43) !important;
  }
 
+ button.btn.nav-link.text-muted.dropdown-toggle:hover {
+  color: rgb(43, 43, 43) !important;
+}
+
+
  .card {
    background-color: AliceBlue;
  }
@@ -65,5 +70,9 @@
 #textcolor4{
   color: #DD6C75;
 
+}
+
+.dropdown-menu{
+  background-color: #F1F1F1;
 }
  
