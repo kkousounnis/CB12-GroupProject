@@ -22,41 +22,18 @@ public class UserRegistrationController {
         this.userService = userService;
     }
 
-    @ModelAttribute("user")
-    public UserRegistrationDto userRegistratioDto() {
-        return new UserRegistrationDto();
-    }
-
-//    @GetMapping
-//    public String showRegistrationForm(){
-//        return "registration";  
-//    }
-    @GetMapping
-    public ModelAndView registration() {
-        ModelAndView modelAndView = new ModelAndView();
-        UserRegistrationDto registrationDto = new UserRegistrationDto();
-        modelAndView.addObject("user", registrationDto);
-        modelAndView.setViewName("registration");
-        return modelAndView;
-    }
-
-//    @PostMapping
-//    public String registerUserAccount(@Valid UserRegistrationDto registrationDto, BindingResult bindingResult){
-//        userService.save(registrationDto);
-//        return "redirect:/registration?success";    
-//    }
     @PostMapping
-    public ModelAndView registerUserAccount(@Valid @ModelAttribute("user") UserRegistrationDto registrationDto, BindingResult bindingResult, ModelMap modelMap) {
+    public ModelAndView registerUserAccount(@Valid @ModelAttribute("userdto") UserRegistrationDto registrationDto, BindingResult bindingResult, ModelMap modelMap) {
         ModelAndView modelAndView = new ModelAndView();
-       
+
         if (bindingResult.hasErrors()) {
-            
-            modelAndView.setViewName("registration");
+
+            modelAndView.setViewName("loginsignup");
             modelMap.addAttribute("bindingResult", bindingResult);
-            
-        }else{
+
+        } else {
             userService.save(registrationDto);
-            modelAndView.setViewName("registration");
+            modelAndView.setViewName("loginsignup");
         }
         return modelAndView;
     }
