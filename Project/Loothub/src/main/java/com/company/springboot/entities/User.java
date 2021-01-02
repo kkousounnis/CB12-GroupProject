@@ -42,16 +42,14 @@ public class User {
                     name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
 
-    //Change to be deleted if wrong
-    @ManyToMany( cascade = CascadeType.ALL)
+    
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "users_contact_numbers",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "contact_number_id", referencedColumnName = "id"))
     private Collection<ContactNumber> contactNumbers;
-    
-    
 
     public User() {
     }
@@ -71,7 +69,7 @@ public class User {
         this.password = password;
         this.roles = roles;
         this.contactNumbers = contactNumbers;
-    }   
+    }
 
     public Long getId() {
         return id;
@@ -128,7 +126,5 @@ public class User {
     public void setContactNumber(Collection<ContactNumber> contactNumbers) {
         this.contactNumbers = contactNumbers;
     }
-    
-    
 
 }
