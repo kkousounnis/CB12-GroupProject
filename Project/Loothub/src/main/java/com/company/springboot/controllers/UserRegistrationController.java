@@ -32,6 +32,7 @@ public class UserRegistrationController {
             modelMap.addAttribute("bindingResult", bindingResult);
 
         } else {
+            System.out.println(registrationDto.getTelNumber()+"kwstas me lene maki");
             userService.save(registrationDto);
             modelAndView.setViewName("loginsignup");
         }

@@ -81,7 +81,7 @@
 
 
 
-                <div class="modal" id="Signup">
+                <div class="modal" id="Signup" data-keyboard="false" data-backdrop="static">
                     <div class="modal-dialog">
                         <div class="modal-content">
 
@@ -128,12 +128,21 @@
 
 
                                     <!-- telephone number -->
-                                    <p class="number">
+                                    <div class="form-group number">
+                                        <p class="number">
+                                        <label class="control-label" for="telephone"> Telephone </label> <input
+                                            id="password" class="form-control" type="text"
+                                            th:field="*{telNumber}"  autofocus="autofocus"  />
+                                        <div th:if="${#fields.hasErrors('telNumber')}" th:errors="*{telNumber}">Contact Number</div>
+                                        </p>
+                                         <a href="javascript:void();" class="add_phone">Add More Telephone numbers</a>
+                                    </div>
+<!--                                    <p class="number">
                                         <label for="Telephone">Telephone Number</label>
                                         <input type="number" class="form-control" id="telephoneNumber" autocomplete="off"
                                                placeholder="Enter telephone number">
                                     </p>
-                                    <a href="javascript:void();" class="add_phone">Add More Telephone numbers</a>
+                                    <a href="javascript:void();" class="add_phone">Add More Telephone numbers</a>-->
                                     <!-- We dont give category here only in the back end we will assign that has 
                                     a user role. -->
 
