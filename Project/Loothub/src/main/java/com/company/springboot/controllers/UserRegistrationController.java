@@ -35,7 +35,7 @@ public class UserRegistrationController {
         }else if(userService.loadUserByUsername(registrationDto.getEmail()) != null){
             modelMap.addAttribute("message", "Username already exists.");
             modelAndView.setViewName("loginsignup");
-            modelMap.addAttribute("popupsignup", "popupsignup"); // we tell loginsignup page to keep modal open in order to show errors
+            modelMap.addAttribute("popupsignup", "popupsignup"); // we tell loginsignup page to keep modal open in order to show errors 
         }        
         else {
             
@@ -43,6 +43,7 @@ public class UserRegistrationController {
             modelAndView.setViewName("loginsignup");
             modelAndView.addObject("succesmessage", "Succesfull Sign Up");
             modelMap.addAttribute("popupsignup", "popupsignup"); // we tell loginsignup page to keep modal open in order to show errors
+            
         }
         return modelAndView;
     }

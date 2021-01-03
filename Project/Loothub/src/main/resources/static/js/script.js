@@ -52,11 +52,7 @@ if (popup !== null) {
     });
 }
 
-$('#clearfieldssignup').on('submit', function() {
-    $(this).each(function() {
-         this.reset();
-    });
-});
+
 
 $('#clearfieldssignin').on('submit', function() {
     $(this).each(function() {
