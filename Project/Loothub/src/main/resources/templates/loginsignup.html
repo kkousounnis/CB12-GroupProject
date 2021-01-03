@@ -55,7 +55,7 @@
                                 <div class="modal-body">
 
                                     <div class="form-group">                                        
-                                         
+
                                         <label for="username">Username</label>
                                         <input type="text" class="form-control" id="username"
                                                name="username"  placeholder="Enter email"/>
@@ -68,7 +68,13 @@
                                                name="password"  placeholder="Password"/>
                                     </div>
                                     <label th:if="${param.error}" class="text-danger">Wrong Username or Password</label>
+
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="checkRememberMe" name="checkRememberMe">
+                                        <label class="form-check-label" for="checkRememberMe">Remember me?</label>
+                                    </div>
                                 </div>
+
 
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
@@ -92,6 +98,7 @@
                                 <h4 class="modal-title">Loothub Sign up</h4>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
+                            
                             <form th:action="@{/registration}" method="post" th:object="${userdto}">
                                 <!-- Modal body -->
                                 <div class="modal-body">
@@ -116,6 +123,7 @@
                                         <label class="control-label" for="email"> Email </label> <input
                                             id="email" class="form-control" th:field="*{email}" 
                                             autofocus="autofocus" />
+                                         <label th:if="${message}" id="message" class="text-danger">Email already Exists</label>
                                         <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"> Error</div>
                                         <small id="emailHelp1" class="form-text text-muted">We'll never share your email
                                             with
@@ -132,19 +140,19 @@
                                     <!-- telephone number -->
                                     <div class="form-group number">
                                         <p class="number">
-                                        <label class="control-label" for="telephone"> Telephone </label> <input
-                                            id="telphone" class="form-control" type="text"
-                                            th:field="*{telNumber}"  autofocus="autofocus"  />
-                                        <div th:if="${#fields.hasErrors('telNumber')}" th:errors="*{telNumber}">Contact Number</div>
+                                            <label class="control-label" for="telephone"> Telephone </label> <input
+                                                id="telphone" class="form-control" type="text"
+                                                th:field="*{telNumber}"  autofocus="autofocus"  />
+                                            <div th:if="${#fields.hasErrors('telNumber')}" th:errors="*{telNumber}">Contact Number</div>
                                         </p>
-                                         <a href="javascript:void();" class="add_phone">Add More Telephone numbers</a>
+                                        <a href="javascript:void();" class="add_phone">Add More Telephone numbers</a>
                                     </div>
-<!--                                    <p class="number">
-                                        <label for="Telephone">Telephone Number</label>
-                                        <input type="number" class="form-control" id="telephoneNumber" autocomplete="off"
-                                               placeholder="Enter telephone number">
-                                    </p>
-                                    <a href="javascript:void();" class="add_phone">Add More Telephone numbers</a>-->
+                                    <!--                                    <p class="number">
+                                                                            <label for="Telephone">Telephone Number</label>
+                                                                            <input type="number" class="form-control" id="telephoneNumber" autocomplete="off"
+                                                                                   placeholder="Enter telephone number">
+                                                                        </p>
+                                                                        <a href="javascript:void();" class="add_phone">Add More Telephone numbers</a>-->
                                     <!-- We dont give category here only in the back end we will assign that has 
                                     a user role. -->
 

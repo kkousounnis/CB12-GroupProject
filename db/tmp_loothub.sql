@@ -1,5 +1,5 @@
-DROP DATABASE `loothub`;
-CREATE DATABASE `loothub`;
+-- DROP DATABASE `loothub`;
+-- CREATE DATABASE `loothub`;
 USE `loothub`;
 
 CREATE TABLE `users` (
@@ -25,14 +25,15 @@ CREATE TABLE `users_roles`(
     CONSTRAINT `fk_user_roles_user_id_users_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
     CONSTRAINT `fk_user_roles_role_id_roles_id` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
 );
-DROP TABLE `users_contact_numbers`;
-DROP TABLE `contact_numbers`;
+
+-- DROP TABLE `users_contact_numbers`;
+-- DROP TABLE `contact_numbers`;
 
 USE `loothub`;
 
 CREATE TABLE `contact_numbers` (
 	`id` BIGINT NOT NULL AUTO_INCREMENT,
-	`tel_number` BIGINT,
+	`tel_number` VARCHAR(255),
     PRIMARY KEY (`id`)
 );
 
