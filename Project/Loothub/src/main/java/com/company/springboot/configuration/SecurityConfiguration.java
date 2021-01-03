@@ -53,6 +53,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/loginsignup") //HERE I WILL ADD MY LOGIN PAGE
                 .defaultSuccessUrl("/")
+                .failureUrl("/loginsignup?error")
                 .permitAll()
                 .and()
                 .logout()
