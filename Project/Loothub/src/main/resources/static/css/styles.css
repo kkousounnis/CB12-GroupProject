@@ -80,3 +80,7 @@
 
   display: none;
 }
+
+.errors{
+    color: red;
+}

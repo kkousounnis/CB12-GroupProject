@@ -97,24 +97,24 @@
                                     <div class="form-group">
                                         <label class="control-label" for="firstName"> First Name </label>
 
-                                        <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
-                                               class="validation-message"></label>
+<!--                                        <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+                                               class="validation-message"></label>-->
 
 
 
                                         <input id="firstName" class="form-control" th:field="*{firstName}" autofocus="autofocus" th:errorClass="is-invalid "/>
-                                        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error</div>
+                                        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="errors">Error</div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="lastName"> Last Name </label> 
                                         <input id="lastName" class="form-control" th:field="*{lastName}" autofocus="autofocus" />
-                                        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error</div>
+                                        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="errors">Error</div>
                                     </div>                                 
                                     <div class="form-group">
                                         <label class="control-label" for="email"> Email </label> <input
                                             id="email" class="form-control" th:field="*{email}" 
                                             autofocus="autofocus" />
-                                        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"> Error</div>
+                                        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="errors"> Error</div>
                                         <small id="emailHelp1" class="form-text text-muted">We'll never share your email
                                             with
                                             anyone else.</small>
@@ -123,7 +123,7 @@
                                         <label class="control-label" for="password"> Password </label> <input
                                             id="password" class="form-control" type="password"
                                             th:field="*{password}"  autofocus="autofocus"  />
-                                        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</div>
+                                        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="errors">Password Error</div>
                                     </div>
 
 

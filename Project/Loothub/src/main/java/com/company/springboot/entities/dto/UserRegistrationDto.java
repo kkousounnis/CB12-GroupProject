@@ -21,7 +21,7 @@ public class UserRegistrationDto {
     @NotBlank(message = "Enter your password.")
     @Size(min=6, max=30)
     private String password;
-
+     
     public UserRegistrationDto() {
 
     }
