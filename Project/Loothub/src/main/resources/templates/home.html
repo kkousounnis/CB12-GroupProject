@@ -26,12 +26,12 @@
                         <div class="navbar-nav">
 
 
-                            <img id="imghome" src="img/LOGO3.png" class="img-fluid" alt="Logo">
+                            <img id="imghome" src="img/LOGO3.png" class="img-fluid" alt="Logo"/>
 
                             <form class="form-inline flex-row-reverse">
                                 <div class="input-group">
                                     <input id="searchbar" class="form-control form-control-sm " type="text" placeholder="Search"
-                                           aria-label="Search">
+                                           aria-label="Search"/>
                                     <div class="input-group-append">
                                         <button id="search" class="btn btn-outline-secondary btn-default btn-sm text-white"
                                                 type="submit">
@@ -58,7 +58,7 @@
                                         <div class="dropdown-menu ">
                                             <a class="dropdown-item" href="#">Profile</a>
                                             <a class="dropdown-item" href="#">Orders</a>
-                                            <a class="dropdown-item" href="#">Sign out</a>
+                                            <a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="dropdown-item" href="#">Sign out</a>
                                         </div>
                                     </div>
                                 </div>
