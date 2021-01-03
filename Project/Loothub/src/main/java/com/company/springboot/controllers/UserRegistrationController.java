@@ -42,6 +42,7 @@ public class UserRegistrationController {
             userService.save(registrationDto);
             modelAndView.setViewName("loginsignup");
             modelAndView.addObject("succesmessage", "Succesfull Sign Up");
+            modelMap.addAttribute("popupsignup", "popupsignup"); // we tell loginsignup page to keep modal open in order to show errors
         }
         return modelAndView;
     }
