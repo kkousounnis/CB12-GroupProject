@@ -30,7 +30,7 @@ public class UserRegistrationController {
 
             modelAndView.setViewName("loginsignup");
             modelMap.addAttribute("bindingResult", bindingResult);
-            modelMap.addAttribute("popup", "popup");
+            modelMap.addAttribute("popupsignup", "popupsignup"); // we tell loginsignup page to keep modal open in order to show errors
 
         } else {
             System.out.println(registrationDto.getTelNumber()+"kwstas me lene maki");
