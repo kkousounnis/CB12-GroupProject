@@ -39,7 +39,7 @@
             </div>
         </header>
         <main>
-            <label th:if="${popupsignin}" id="popupsignin"></label>
+            <label th:if="${param.error}" id="popupsignin"></label>
             <div class="container">
                 <div class="modal" id="Signin" data-keyboard="false" data-backdrop="static">
                     <div class="modal-dialog">
@@ -54,7 +54,8 @@
                                 <!-- Modal body -->
                                 <div class="modal-body">
 
-                                    <div class="form-group">
+                                    <div class="form-group">                                        
+                                         
                                         <label for="username">Username</label>
                                         <input type="text" class="form-control" id="username"
                                                name="username"  placeholder="Enter email"/>
@@ -66,6 +67,7 @@
                                         <input type="password" class="form-control" id="password"
                                                name="password"  placeholder="Password"/>
                                     </div>
+                                    <label th:if="${param.error}" class="text-danger">Wrong Username or Password</label>
                                 </div>
 
                                 <!-- Modal footer -->
@@ -102,7 +104,7 @@
 
 
 
-                                        <input id="firstName" class="form-control" th:field="*{firstName}" autofocus="autofocus" th:errorClass="is-invalid "/>
+                                        <input id="firstName" class="form-control" th:field="*{firstName}" autofocus="autofocus" th:errorClass="is-invalid"/>
                                         <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error</div>
                                     </div>
                                     <div class="form-group">

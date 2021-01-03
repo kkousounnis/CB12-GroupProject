@@ -38,10 +38,18 @@ $(document).ready(function () {
 });
 
 
-var popup = document.getElementById('popup');
+var popup = document.getElementById('popupsignup');
 console.log(popup);
 if (popup !== null) {
     $(document).ready(function () {
         $('#Signup').modal('show');
+    });
+}
+
+var popup = document.getElementById('popupsignin');
+console.log(popup);
+if (popup !== null) {
+    $(document).ready(function () {
+        $('#Signin').modal('show');
     });
 }
