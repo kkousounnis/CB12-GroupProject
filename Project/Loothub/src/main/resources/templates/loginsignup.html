@@ -50,7 +50,7 @@
                                 <h4 class="modal-title">Loothub Sign in</h4>
                                 <button type="button" class="close" data-dismiss="modal" >&times;</button>
                             </div>
-                            <form th:action="@{/loginsignup}" method="post" >
+                            <form th:action="@{/loginsignup}" method="post" id="contactForm">
                                 <!-- Modal body -->
                                 <div class="modal-body">
 
@@ -99,7 +99,7 @@
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
 
-                            <form th:action="@{/registration}" method="post" th:object="${userdto}">
+                            <form th:action="@{/registration}" method="post" th:object="${userdto}" id="contactForm">
                                 <!-- Modal body -->
                                 <div class="modal-body">
                                     <div th:if="${succesmessage}" class="alert  alert-info text-center">

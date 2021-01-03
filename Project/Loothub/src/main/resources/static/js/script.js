@@ -51,3 +51,15 @@ if (popup !== null) {
         $('#Signin').modal('show');
     });
 }
+
+$('#clearfieldssignup').on('submit', function() {
+    $(this).each(function() {
+         this.reset();
+    });
+});
+
+$('#clearfieldssignin').on('submit', function() {
+    $(this).each(function() {
+         this.reset();
+    });
+});
