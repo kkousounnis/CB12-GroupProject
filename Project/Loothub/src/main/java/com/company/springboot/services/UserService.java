@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.company.springboot.dao.IUserDao;
+import com.company.springboot.entities.ContactNumber;
 import java.util.List;
 
 @Service
@@ -31,11 +32,14 @@ public class UserService implements IUserService {
 
     @Override
     public User save(UserRegistrationDto registrationDto) {
+        
         User user = new User(registrationDto.getFirstName(),
                 registrationDto.getLastName(),
                 registrationDto.getEmail(),
                 passwordEncoder.encode(registrationDto.getPassword()),
-                Arrays.asList(new Role("ROLE_USER")));
+                Arrays.asList(new Role("ROLE_USER")),
+                registrationDto.getTelNumber());
+        
         return userDao.save(user);
     }
     
@@ -47,8 +51,8 @@ public class UserService implements IUserService {
 
         User user = userDao.findByEmail(username);
         if (user == null) {
-            throw new UsernameNotFoundException("Invalid username or password.");
-
+//            throw new UsernameNotFoundException("Invalid username or password.");
+            return null;
         }
 
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
