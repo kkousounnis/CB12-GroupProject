@@ -52,6 +52,7 @@ if (popup !== null) {
     });
 }
 
+
 (function() {
   'use strict';
   window.addEventListener('load', function() {
@@ -69,3 +70,12 @@ if (popup !== null) {
     });
   }, false);
 })();
+
+
+
+$('#clearfieldssignin').on('submit', function() {
+    $(this).each(function() {
+         this.reset();
+    });
+});
+

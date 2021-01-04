@@ -34,11 +34,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authenticationProvider());
+
         auth
-            .inMemoryAuthentication().withUser("admin")
+                .inMemoryAuthentication().withUser("admin")
                 .password(passwordEncoder().encode("admin"))
-                .roles("admin");
+                .roles("ADMIN");
+        auth.authenticationProvider(authenticationProvider());
+
+        auth.userDetailsService(iuserService);
     }
 
     @Override
@@ -48,6 +51,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 "/js/**",
                 "/css/**",
                 "/img/**").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -56,13 +60,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .failureUrl("/loginsignup?error")
                 .permitAll()
                 .and()
+                .rememberMe()
+                .tokenValiditySeconds(2592000)
+                .key("QaHry98A5iWM3iH")
+                .rememberMeParameter("checkRememberMe")
+                .and()
                 .logout()
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/loginsignup?logout")                
+                .logoutSuccessUrl("/loginsignup?logout")
                 .permitAll();
-                 
+
     }
 
 }
