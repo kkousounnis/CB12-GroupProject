@@ -51,8 +51,8 @@ public class UserService implements IUserService {
 
         User user = userDao.findByEmail(username);
         if (user == null) {
-            throw new UsernameNotFoundException("Invalid username or password.");
-            //return null;
+//            throw new UsernameNotFoundException("Invalid username or password.");
+            return null;
         }
 
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
