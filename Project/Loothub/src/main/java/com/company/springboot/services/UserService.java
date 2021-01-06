@@ -50,9 +50,10 @@ public class UserService implements IUserService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         User user = userDao.findByEmail(username);
+        
         if (user == null) {
-            throw new UsernameNotFoundException("Invalid username or password.");
-            //return null;
+            //throw new UsernameNotFoundException("Invalid username or password.");
+            return null;
         }
 
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
@@ -77,6 +78,8 @@ public class UserService implements IUserService {
         userDao.deleteById(id);
     }
 
-    
+//    public boolean update (User user){
+//        return (userDao.update(user));
+//    }
 
 }
