@@ -31,3 +31,8 @@ $(document).ready(function () {
   // document ready  
 });
 
+$(document).ready(function() {
+  $('.add_phone').click(function() {
+     $('p.number:last').after('<p class="number">'+ $('p.number').html() +'</p>');
+  });
+});
