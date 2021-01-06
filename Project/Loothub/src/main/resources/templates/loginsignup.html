@@ -39,22 +39,23 @@
             </div>
         </header>
         <main>
-
+            <label th:if="${param.error}" id="popupsignin"></label>
             <div class="container">
-                <div class="modal" id="Signin">
+                <div class="modal" id="Signin" data-keyboard="false" data-backdrop="static">
                     <div class="modal-dialog">
                         <div class="modal-content">
 
                             <!-- Modal Header -->
                             <div class="modal-header">
                                 <h4 class="modal-title">Loothub Sign in</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <button type="button" class="close" data-dismiss="modal" >&times;</button>
                             </div>
-                            <form th:action="@{/loginsignup}" method="post">
+                            <form th:action="@{/loginsignup}" method="post" >
                                 <!-- Modal body -->
                                 <div class="modal-body">
 
-                                    <div class="form-group">
+                                    <div class="form-group">                                        
+
                                         <label for="username">Username</label>
                                         <input type="text" class="form-control" id="username"
                                                name="username"  placeholder="Enter email"/>
@@ -66,7 +67,14 @@
                                         <input type="password" class="form-control" id="password"
                                                name="password"  placeholder="Password"/>
                                     </div>
+                                    <label th:if="${param.error}" class="text-danger">Wrong Username or Password</label>
+
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="checkRememberMe" name="checkRememberMe">
+                                            <label class="form-check-label" for="checkRememberMe">Remember me?</label>
+                                    </div>
                                 </div>
+
 
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
@@ -80,8 +88,8 @@
                 </div>
 
 
-
-                <div class="modal" id="Signup">
+                <label th:if="${popupsignup}" id="popupsignup"></label>
+                <div class="modal" id="Signup" data-keyboard="false" data-backdrop="static">
                     <div class="modal-dialog">
                         <div class="modal-content">
 
@@ -90,10 +98,13 @@
                                 <h4 class="modal-title">Loothub Sign up</h4>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
-                            <form th:action="@{/registration}" method="post" th:object="${userdto}">
+
+                            <form th:action="@{/registration}" method="post" th:object="${userdto}" >
                                 <!-- Modal body -->
                                 <div class="modal-body">
-
+                                    <div th:if="${succesmessage}" class="alert  alert-info text-center">
+                                        <label th:if="${succesmessage}" id="message" > Succesfull sign up</label>                                        
+                                    </div>
                                     <div class="form-group">
                                         <label class="control-label" for="firstName"> First Name </label>
 
@@ -102,7 +113,7 @@
 
 
 
-                                        <input id="firstName" class="form-control" th:field="*{firstName}" autofocus="autofocus" th:errorClass="is-invalid "/>
+                                        <input id="firstName" class="form-control" th:field="*{firstName}" autofocus="autofocus" th:errorClass="is-invalid"/>
                                         <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error</div>
                                     </div>
                                     <div class="form-group">
@@ -114,6 +125,7 @@
                                         <label class="control-label" for="email"> Email </label> <input
                                             id="email" class="form-control" th:field="*{email}" 
                                             autofocus="autofocus" />
+                                        <label th:if="${message}" id="message" class="text-danger">Email already Exists</label>
                                         <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"> Error</div>
                                         <small id="emailHelp1" class="form-text text-muted">We'll never share your email
                                             with
@@ -121,19 +133,28 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="password"> Password </label> <input
-                                            id="password" class="form-control" type="password"
+                                            id="passwordregistration" class="form-control" type="password"
                                             th:field="*{password}"  autofocus="autofocus"  />
                                         <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</div>
                                     </div>
 
 
                                     <!-- telephone number -->
-                                    <p class="number">
-                                        <label for="Telephone">Telephone Number</label>
-                                        <input type="number" class="form-control" id="telephoneNumber" autocomplete="off"
-                                               placeholder="Enter telephone number">
-                                    </p>
-                                    <a href="javascript:void();" class="add_phone">Add More Telephone numbers</a>
+                                    <div class="form-group number">
+                                        <p class="number">
+                                            <label class="control-label" for="telephone"> Telephone </label> <input
+                                                id="telphone" class="form-control" type="text"
+                                                th:field="*{telNumber}"  autofocus="autofocus"  />
+                                            <div th:if="${#fields.hasErrors('telNumber')}" th:errors="*{telNumber}">Contact Number</div>
+                                        </p>
+                                        <a href="javascript:void();" class="add_phone">Add More Telephone numbers</a>
+                                    </div>
+                                    <!--                                    <p class="number">
+                                                                            <label for="Telephone">Telephone Number</label>
+                                                                            <input type="number" class="form-control" id="telephoneNumber" autocomplete="off"
+                                                                                   placeholder="Enter telephone number">
+                                                                        </p>
+                                                                        <a href="javascript:void();" class="add_phone">Add More Telephone numbers</a>-->
                                     <!-- We dont give category here only in the back end we will assign that has 
                                     a user role. -->
 
@@ -441,10 +462,8 @@
                 </div>
             </div>
         </footer>
-
         <script src="js/jquery.min.js"></script>
         <script src="js/script.js"></script>
-        <script type="text/javascript" src="js/login.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"

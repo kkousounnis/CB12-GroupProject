@@ -27,13 +27,23 @@ public class UserRegistrationController {
         ModelAndView modelAndView = new ModelAndView();
 
         if (bindingResult.hasErrors()) {
-
+            
             modelAndView.setViewName("loginsignup");
             modelMap.addAttribute("bindingResult", bindingResult);
+            modelMap.addAttribute("popupsignup", "popupsignup"); // we tell loginsignup page to keep modal open in order to show errors
 
-        } else {
+        }else if(userService.loadUserByUsername(registrationDto.getEmail()) != null){
+            modelMap.addAttribute("message", "Username already exists.");
+            modelAndView.setViewName("loginsignup");
+            modelMap.addAttribute("popupsignup", "popupsignup"); // we tell loginsignup page to keep modal open in order to show errors 
+        }        
+        else {
+            
             userService.save(registrationDto);
             modelAndView.setViewName("loginsignup");
+            modelAndView.addObject("succesmessage", "Succesfull Sign Up");
+            modelMap.addAttribute("popupsignup", "popupsignup"); // we tell loginsignup page to keep modal open in order to show errors
+            
         }
         return modelAndView;
     }

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -21,7 +22,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(name = "first_name")
     private String firstName;
 
@@ -41,6 +42,15 @@ public class User {
                     name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
 
+    
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_contact_numbers",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "contact_number_id", referencedColumnName = "id"))
+    private Collection<ContactNumber> contactNumbers;
+
     public User() {
     }
 
@@ -50,6 +60,15 @@ public class User {
         this.email = email;
         this.password = password;
         this.roles = roles;
+    }
+
+    public User(String firstName, String lastName, String email, String password, Collection<Role> roles, Collection<ContactNumber> contactNumbers) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+        this.contactNumbers = contactNumbers;
     }
 
     public Long getId() {
@@ -98,6 +117,14 @@ public class User {
 
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
+    }
+
+    public Collection<ContactNumber> getContactNumber() {
+        return contactNumbers;
+    }
+
+    public void setContactNumber(Collection<ContactNumber> contactNumbers) {
+        this.contactNumbers = contactNumbers;
     }
 
 }
