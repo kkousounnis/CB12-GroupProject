@@ -140,5 +140,12 @@ CREATE TABLE `orders` (
         ON DELETE RESTRICT ON UPDATE RESTRICT
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
 
+INSERT INTO `loothub`.`users`
+(`id`,`email`,`password`,`first_name`,`last_name`)
+VALUES(1,'admin@gmail.com','$2a$10$.P3ERs5Kvvtm2r07AtEBtuW1HH2q2UwmgffoXImBbOvIzBeM.F9.W','admin','admin');
+
+INSERT INTO `loothub`.`roles`(`id`,`role`)VALUES(1,'ADMIN');
+INSERT INTO `loothub`.`users_roles`(`user_id`,`role_id`)VALUES (1,1);
+
 
    
