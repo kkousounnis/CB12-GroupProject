@@ -11,31 +11,31 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Dim.Kasimatis
  */
 @Entity
-@Table(name = "roles", catalog = "loothub", schema = "")
+@Table(name = "item_status", catalog = "loothub", schema = "")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r"),
-    @NamedQuery(name = "Role.findById", query = "SELECT r FROM Role r WHERE r.id = :id"),
-    @NamedQuery(name = "Role.findByRole", query = "SELECT r FROM Role r WHERE r.role = :role")})
-public class Role implements Serializable {
+    @NamedQuery(name = "ItemStatus.findAll", query = "SELECT i FROM ItemStatus i"),
+    @NamedQuery(name = "ItemStatus.findById", query = "SELECT i FROM ItemStatus i WHERE i.id = :id"),
+    @NamedQuery(name = "ItemStatus.findByStatus", query = "SELECT i FROM ItemStatus i WHERE i.status = :status")})
+public class ItemStatus implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -43,25 +43,24 @@ public class Role implements Serializable {
     @Basic(optional = false)
     @Column(name = "id", nullable = false)
     private Integer id;
-    @Size(max = 255)
-    @Column(name = "role", length = 255)
-    private String role;
-    @JoinTable(name = "users_roles", joinColumns = {
-        @JoinColumn(name = "role_id", referencedColumnName = "id", nullable = false)}, inverseJoinColumns = {
-        @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)})
-    @ManyToMany
-    private List<User> userList;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "status", nullable = false, length = 255)
+    private String status;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "itemStatusId", fetch = FetchType.EAGER)
+    private List<Orders> ordersList;
 
-    public Role() {
+    public ItemStatus() {
     }
 
-    public Role(Integer id) {
+    public ItemStatus(Integer id) {
         this.id = id;
     }
-    
 
-    public Role(String role) {
-        this.role = role;
+    public ItemStatus(Integer id, String status) {
+        this.id = id;
+        this.status = status;
     }
 
     public Integer getId() {
@@ -72,14 +71,22 @@ public class Role implements Serializable {
         this.id = id;
     }
 
-    public String getRole() {
-        return role;
+    public String getStatus() {
+        return status;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
+    @XmlTransient
+    public List<Orders> getOrdersList() {
+        return ordersList;
+    }
+
+    public void setOrdersList(List<Orders> ordersList) {
+        this.ordersList = ordersList;
+    }
 
     @Override
     public int hashCode() {
@@ -91,10 +98,10 @@ public class Role implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Role)) {
+        if (!(object instanceof ItemStatus)) {
             return false;
         }
-        Role other = (Role) object;
+        ItemStatus other = (ItemStatus) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -103,7 +110,7 @@ public class Role implements Serializable {
 
     @Override
     public String toString() {
-        return "com.company.springboot.entities.Role[ id=" + id + " ]";
+        return "com.company.springboot.entities.ItemStatus[ id=" + id + " ]";
     }
     
 }
