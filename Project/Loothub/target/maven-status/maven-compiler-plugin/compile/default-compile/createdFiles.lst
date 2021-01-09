@@ -5,6 +5,8 @@ com/company/springboot/services/IUserService.class
 com/company/springboot/controllers/ProductController.class
 com/company/springboot/controllers/MainController.class
 com/company/springboot/entities/UserAddress.class
+com/company/springboot/repository/IUserRepository.class
+com/company/springboot/dao/UserDao.class
 com/company/springboot/entities/ProductImage.class
 com/company/springboot/entities/Product.class
 com/company/springboot/entities/ProductTag.class
