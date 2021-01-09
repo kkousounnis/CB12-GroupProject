@@ -51,7 +51,7 @@ if (popup !== null) {
         $('#Signin').modal('show');
     });
 }
-<<<<<<< HEAD
+
 
 
 (function() {
@@ -80,5 +80,4 @@ $('#clearfieldssignin').on('submit', function() {
     });
 });
 
-=======
->>>>>>> main
+
