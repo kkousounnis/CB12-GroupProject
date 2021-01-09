@@ -14,69 +14,54 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.company.springboot.dao.IUserDao;
-import com.company.springboot.entities.ContactNumber;
+import com.company.springboot.dao.UserDao;
 import java.util.List;
 
 @Service
 public class UserService implements IUserService {
 
     @Autowired
-    private IUserDao userDao;
-    
+    private UserDao userDao;
+
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    public UserService(IUserDao userdao) {
+    public UserService(UserDao userdao) {
         this.userDao = userdao;
     }
 
     @Override
     public User save(UserRegistrationDto registrationDto) {
-        
-        User user = new User(registrationDto.getFirstName(),
-                registrationDto.getLastName(),
-                registrationDto.getEmail(),
-                passwordEncoder.encode(registrationDto.getPassword()),
-                Arrays.asList(new Role("ROLE_USER")),
-                registrationDto.getTelNumber());
-        
-        return userDao.save(user);
+
+//        User user = new User(registrationDto.getFirstName(),
+//                registrationDto.getLastName(),
+//                registrationDto.getEmail(),
+//                passwordEncoder.encode(registrationDto.getPassword()),
+//                Arrays.asList(new Role("ROLE_USER")),
+//                registrationDto.getTelNumber());
+        return userDao.save(registrationDto);
     }
-    
-     
-        
-     
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        User user = userDao.findByEmail(username);
-        if (user == null) {
-//            throw new UsernameNotFoundException("Invalid username or password.");
-            return null;
-        }
+        return userDao.loadUserByUsername(username);
 
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
     }
 
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
-        return roles.stream().map(role -> new SimpleGrantedAuthority(role.getRole())).collect(Collectors.toList());
+    @Override
+    public User get(Long id) {
+        return userDao.get(id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        userDao.delete(id);
     }
 
     @Override
     public List<User> listAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public User get(Long id) {
-       return userDao.findById(id).get();
-    }
-
-    @Override
-    public void delete(Long id) {
-        userDao.deleteById(id);
-    }
-
-    
 
 }

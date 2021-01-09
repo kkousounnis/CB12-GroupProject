@@ -7,9 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
         <title>Loothub</title>
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="css/Footer-Basic.css"/>
-        <link rel="stylesheet" href="css/Navigation-with-Button.css"/>
         <link rel="stylesheet" href="css/styles.css"/>
+        <link rel="stylesheet" href="css/uploadfilestyle.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </head>
 
@@ -30,22 +29,21 @@
 
                             <form class="form-inline flex-row-reverse">
                                 <div class="input-group">
-                                    <input id="searchbar" class="form-control form-control-sm " type="text" placeholder="Search"
-                                           aria-label="Search"/>
+                                    <input id="searchbar" class="form-control form-control-sm " type="text"
+                                           placeholder="Search" aria-label="Search"/>
                                     <div class="input-group-append">
                                         <button id="search" class="btn btn-outline-secondary btn-default btn-sm text-white"
-                                                type="submit">
+                                                type="submit">                                            
                                                 Search
                                         </button>
 
                                     </div>
                                 </div>
-
                             </form>
 
-                        </div>                   
+                        </div>
 
-                        <div class="navbar-nav">                        
+                        <div class="navbar-nav">
                             <a href="#" class="btn nav-link text-muted"><span sec:authentication="principal.username"> User</span></a>
                             <div class="container ">
                                 <div id="cardprofile" class="  pull-right">
@@ -61,7 +59,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -69,10 +66,55 @@
 
         </header>
         <main>
-
+            
 
 
         </main>
+        <div class="container">
+            <form action="#">
+                <div class="row">
+                    <div class="col-sm">
+                        <div id="drop-area">
+                            <form class="my-form">
+                                <p>Upload multiple files with the file dialog or by dragging and dropping images onto the
+                                    dashed
+                                    region</p>
+                                <input type="file" id="fileElem" multiple accept="image/*"
+                                       onchange="handleFiles(this.files)">
+                                <label class="button" for="fileElem">Select Product Image</label>
+                            </form>
+
+
+                        </div>
+
+                    </div>
+                    <div class="col-sm" style="padding: 50px;">
+                        <div class="form-group">
+                            <label for="email">Name:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Description</label>
+                            <textarea class="form-control" id="Description" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="sel1">Category:</label>
+                            <select class="form-control" id="sel1">
+                                <option>Auto-Moto</option>
+                                <option>Fashion</option>
+                            </select>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div id="gallery"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <footer class=" container pb-0 mb-0 justify-content-center text-dark border-top">
             <div class="container py-5">
@@ -127,6 +169,7 @@
 
         <script src="js/jquery.min.js"></script>
         <script src="js/script.js"></script>
+        <script src="js/uploadfilescript.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
