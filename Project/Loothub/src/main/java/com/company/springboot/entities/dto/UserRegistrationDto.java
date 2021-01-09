@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 public class UserRegistrationDto {
@@ -23,7 +24,11 @@ public class UserRegistrationDto {
     @Size(min = 6, max = 30)
     private String password;
 
+     
+    @NotEmpty(message = "Enter a phone number!!")
+//    @Size(min = 7, max = 13)
     private List<ContactNumber> telNumber;
+
 
     public UserRegistrationDto() {
 
