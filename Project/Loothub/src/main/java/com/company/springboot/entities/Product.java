@@ -86,6 +86,21 @@ public class Product implements Serializable {
         this.category = category;
     }
 
+    public Product(String name, BigDecimal price, String description, String category) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.category = category;
+    }
+
+    public Product(String name, BigDecimal price, String description, String category, List<ProductImage> productImageList) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.category = category;
+        this.productImageList = productImageList;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -175,7 +190,15 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "com.company.springboot.entities.Product[ id=" + id + " ]";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Product{name=").append(name);
+        sb.append(", price=").append(price);
+        sb.append(", description=").append(description);
+        sb.append(", category=").append(category);
+        sb.append('}');
+        return sb.toString();
     }
+
     
+
 }

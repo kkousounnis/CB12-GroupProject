@@ -57,10 +57,19 @@ public class ProductImage implements Serializable {
         this.id = id;
     }
 
+    public ProductImage(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
     public ProductImage(Integer id, String imagePath) {
         this.id = id;
         this.imagePath = imagePath;
     }
+
+    public ProductImage(String imagePath, Product productId) {
+        this.imagePath = imagePath;
+        this.productId = productId;
+    }       
 
     public Integer getId() {
         return id;
@@ -108,7 +117,14 @@ public class ProductImage implements Serializable {
 
     @Override
     public String toString() {
-        return "com.company.springboot.entities.ProductImage[ id=" + id + " ]";
+        StringBuilder sb = new StringBuilder();
+        sb.append("ProductImage{id=").append(id);
+        sb.append(", imagePath=").append(imagePath);
+        sb.append(", productId=").append(productId);
+        sb.append('}');
+        return sb.toString();
     }
+
     
+
 }

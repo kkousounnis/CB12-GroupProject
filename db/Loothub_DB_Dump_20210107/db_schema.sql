@@ -55,10 +55,6 @@ CREATE TABLE `product_tags` (
         ON DELETE CASCADE ON UPDATE CASCADE
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
 
-
-
-
-
 CREATE TABLE `roles` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `role` VARCHAR(255) DEFAULT NULL,
@@ -91,9 +87,9 @@ CREATE TABLE `users_contact_numbers` (
     KEY `fk_users_contact_numbers_contact_number_id_contact_numbers__idx` (`contact_number_id`),
     CONSTRAINT `fk_users_contact_numbers_contact_number_id_contact_numbers_id` FOREIGN KEY (`contact_number_id`)
         REFERENCES `contact_numbers` (`id`)
-        ON DELETE RESTRICT ON UPDATE RESTRICT,
+        ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT `fk_users_contact_numbers_user_id_users_id` FOREIGN KEY (`user_id`)
-        REFERENCES `users` (`id`)
+        REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
 
 CREATE TABLE `users_roles` (
@@ -102,11 +98,10 @@ CREATE TABLE `users_roles` (
     PRIMARY KEY (`user_id` , `role_id`),
     KEY `fk_user_roles_role_id_roles_id` (`role_id`),
     CONSTRAINT `fk_user_roles_role_id_roles_id` FOREIGN KEY (`role_id`)
-        REFERENCES `roles` (`id`),
+        REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT `fk_user_roles_user_id_users_id` FOREIGN KEY (`user_id`)
-        REFERENCES `users` (`id`)
+        REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
-
 
 CREATE TABLE `orders` (
     `id` INT NOT NULL AUTO_INCREMENT,

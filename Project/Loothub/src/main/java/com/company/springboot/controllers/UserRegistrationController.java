@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,29 +21,37 @@ public class UserRegistrationController {
     public UserRegistrationController(UserService userService) {
         this.userService = userService;
     }
+    
+    @GetMapping
+    public ModelAndView registrationHome() {
+        ModelAndView modelAndView = new ModelAndView();
+        UserRegistrationDto registrationDto = new UserRegistrationDto();
+        modelAndView.addObject("userdto", registrationDto);
+        modelAndView.setViewName("loginsignup");
+        return modelAndView; 
+    }
 
     @PostMapping
     public ModelAndView registerUserAccount(@Valid @ModelAttribute("userdto") UserRegistrationDto registrationDto, BindingResult bindingResult, ModelMap modelMap) {
         ModelAndView modelAndView = new ModelAndView();
 
         if (bindingResult.hasErrors()) {
-            
+
             modelAndView.setViewName("loginsignup");
             modelMap.addAttribute("bindingResult", bindingResult);
             modelMap.addAttribute("popupsignup", "popupsignup"); // we tell loginsignup page to keep modal open in order to show errors
 
-        }else if(userService.loadUserByUsername(registrationDto.getEmail()) != null){
+        } else if (userService.loadUserByUsername(registrationDto.getEmail()) != null) {
             modelMap.addAttribute("message", "Username already exists.");
             modelAndView.setViewName("loginsignup");
             modelMap.addAttribute("popupsignup", "popupsignup"); // we tell loginsignup page to keep modal open in order to show errors 
-        }        
-        else {
-            
+        } else {
+
             userService.save(registrationDto);
             modelAndView.setViewName("loginsignup");
             modelAndView.addObject("succesmessage", "Succesfull Sign Up");
             modelMap.addAttribute("popupsignup", "popupsignup"); // we tell loginsignup page to keep modal open in order to show errors
-            
+
         }
         return modelAndView;
     }

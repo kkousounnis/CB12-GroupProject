@@ -50,7 +50,7 @@ public class UserDao implements IUserDao {
 
         User user = userRepository.findByEmail(username);
         if (user == null) {
-//            throw new UsernameNotFoundException("Invalid username or password.");
+            //throw new UsernameNotFoundException("Invalid username or password.");
             return null;
         }
 
