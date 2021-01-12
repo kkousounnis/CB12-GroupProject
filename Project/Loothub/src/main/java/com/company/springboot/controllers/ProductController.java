@@ -5,6 +5,7 @@ import com.company.springboot.entities.ProductImage;
 import com.company.springboot.entities.dto.ProductDto;
 import com.company.springboot.services.ProductImageService;
 import com.company.springboot.services.ProductService;
+import com.company.springboot.services.UserService;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,6 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -24,11 +26,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ProductController {
+    
     @Autowired 
     private ProductService productService;
     
     @Autowired 
     private ProductImageService productImageService;
+    
+    @Autowired 
+    private UserService userservice;
+   
 
     @GetMapping("/uploadproduct")
     public ModelAndView home() {
@@ -42,16 +49,19 @@ public class ProductController {
 
     @PostMapping("/uploadProduct")
     public ModelAndView uploadImage(@RequestParam("image") MultipartFile multipartFile,
-            @ModelAttribute("productdto") ProductDto productDto) throws IOException {
+            @ModelAttribute("productdto") ProductDto productDto, 
+            Principal principal) throws IOException {
         
+        System.out.println(principal.getName()+"Username");
         ModelAndView modelAndView = new ModelAndView(); 
         modelAndView.addObject("productdto", productDto);
-        modelAndView.setViewName("uploadproduct");
-        System.out.println(productDto);
+        modelAndView.setViewName("uploadproduct");        
         
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-
-        Path uploadPath = Paths.get("/tmp/img");
+        
+        System.out.println(userservice.findByEmailAddress("admin@gmail.com").getId()+"ti psaxnw egw");
+        
+        Path uploadPath = Paths.get("/tmp/images");
 
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
@@ -75,11 +85,10 @@ public class ProductController {
                 );
        
        
-        product=productService.save(product);
-        System.out.println("me lene maki "+ product.getId());
+        product=productService.save(product); 
+        
         ProductImage productImage = new ProductImage(String.valueOf(uploadPath),
-                product);
-        System.out.println(productImage+"productImAGE");
+                product); 
         productImageService.save(productImage);
         
         

@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface IUserDao extends UserDetailsService{
     public List<User> listAll();
-    public  User save(UserRegistrationDto registrationDto);
+    public  User save(User user);
     public User get(Long id);
     public void delete(Long id);
 }
