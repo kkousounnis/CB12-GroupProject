@@ -50,6 +50,7 @@ public class ProductController {
     public ModelAndView uploadImage(@RequestParam("image") MultipartFile multipartFile,
             @ModelAttribute("productdto") ProductDto productDto,
             Principal principal) throws IOException {
+        Product product = new Product();
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("productdto", productDto);
@@ -61,26 +62,9 @@ public class ProductController {
         Path uploadPath = Paths.get("/tmp/images/"
                 + userservice.findByEmailAddress(principal.getName()).getId());
 
-        if (!Files.exists(uploadPath)) {
-            Files.createDirectories(uploadPath);
-        }
+        saveProduct(uploadPath, multipartFile, fileName);
 
-        try (InputStream inputStream = multipartFile.getInputStream()) {
-            Path filePath = uploadPath.resolve(fileName);
-            Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
-
-        } catch (IOException e) {
-            throw new IOException("Could not save upload file" + fileName);
-        }
-
-        Product product = new Product(
-                productDto.getName(),
-                productDto.getPrice(),
-                productDto.getDescription(),
-                productDto.getCategory()
-        );
-
-        product = productService.save(product);
+        product = productService.save(productDto);
 
         ProductImage productImage = new ProductImage(String.valueOf(uploadPath),
                 product);
@@ -90,7 +74,7 @@ public class ProductController {
     }
 
     public void saveProduct(Path uploadPath, MultipartFile multipartFile, String fileName) throws IOException {
-        
+
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
         }
