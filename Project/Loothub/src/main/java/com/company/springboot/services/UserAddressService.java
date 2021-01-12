@@ -17,17 +17,17 @@ public class UserAddressService implements IUserAddressServise {
 
     @Override
     public List<UserAddress> listAll() {
-        return userAddressDao.listAll(); //To change body of generated methods, choose Tools | Templates.
+        return userAddressDao.listAll(); 
     }
 
     @Override
     public UserAddress save(UserAddress userAddress) {
-        return userAddressDao.save(userAddress); //To change body of generated methods, choose Tools | Templates.
+        return userAddressDao.save(userAddress); 
     }
 
     @Override
     public UserAddress get(Long id) {
-        return userAddressDao.get(id); //To change body of generated methods, choose Tools | Templates.
+        return userAddressDao.get(id); 
     }
 
     @Override
