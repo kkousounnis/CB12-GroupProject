@@ -4,10 +4,13 @@ import com.company.springboot.entities.Role;
 import com.company.springboot.repository.IRoleRepository;
 import java.util.List;
 import javax.persistence.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class RoleDao implements IRoleDao {
     
+    @Autowired
     private IRoleRepository roleRepository;
 
     @Override
