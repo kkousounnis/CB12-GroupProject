@@ -15,6 +15,6 @@ public interface IUserAddressDao {
 
     public void delete(Long id);
     
-    public boolean update(UserAddress useradress);
+    public void update(UserAddress useradress);
 }
     
