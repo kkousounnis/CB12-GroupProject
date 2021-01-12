@@ -30,14 +30,14 @@ public class UserDao implements IUserDao {
     }
 
     @Override
-    public User save(UserRegistrationDto registrationDto) {
+    public User save(User user) {
         
-        User user = new User(registrationDto.getFirstName(),
-                registrationDto.getLastName(),
-                registrationDto.getEmail(),
-                passwordEncoder.encode(registrationDto.getPassword()),
-                Arrays.asList(new Role("ROLE_USER")),
-                registrationDto.getTelNumber());
+//        User user = new User(registrationDto.getFirstName(),
+//                registrationDto.getLastName(),
+//                registrationDto.getEmail(),
+//                passwordEncoder.encode(registrationDto.getPassword()),
+//                Arrays.asList(new Role("ROLE_USER")),
+//                registrationDto.getTelNumber());
         
         return userRepository.save(user);
     }
@@ -49,16 +49,22 @@ public class UserDao implements IUserDao {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         User user = userRepository.findByEmail(username);
+        
         if (user == null) {
-//            throw new UsernameNotFoundException("Invalid username or password.");
+            //throw new UsernameNotFoundException("Invalid username or password.");
             return null;
         }
 
-        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), mapRolesToAuthorities(user.getRoles()));
+        return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
+                mapRolesToAuthorities(user.getRoles()));
     }
 
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getRole())).collect(Collectors.toList());
+    }
+    
+    public User findByEmailAddress(String email){
+        return userRepository.findByEmail(email);
     }
 
     @Override

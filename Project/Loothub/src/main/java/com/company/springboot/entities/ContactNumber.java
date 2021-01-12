@@ -110,7 +110,7 @@ public class ContactNumber implements Serializable {
 
     @Override
     public String toString() {
-        return "com.company.springboot.entities.ContactNumber[ id=" + id + " ]";
+        return telNumber ;
     }
     
 }
