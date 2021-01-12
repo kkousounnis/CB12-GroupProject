@@ -81,3 +81,4 @@ if (popup !== null) {
       }).render('#paypal-button-container');
     }
     initPayPalButton();
+    
