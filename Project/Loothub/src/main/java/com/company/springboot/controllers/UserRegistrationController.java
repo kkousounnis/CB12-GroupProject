@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/registration")
 public class UserRegistrationController {
-
+    
     private UserService userService;
 
     public UserRegistrationController(UserService userService) {
