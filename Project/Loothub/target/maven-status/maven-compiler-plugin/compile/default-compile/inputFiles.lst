@@ -1,3 +1,4 @@
+
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\UserRegistrationController.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\dao\ProductDao.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\UserAddress.java
@@ -36,3 +37,38 @@ C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\User.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\MainController.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\Role.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/Role.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/repository/IUserRepository.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/MainController.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/IUserDao.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/ProductTag.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/services/IUserService.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/ProductController.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/UserRegistrationController.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/configuration/SecurityConfiguration.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/ProductImageDao.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/repository/IProductRepository.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/ContactNumber.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/Profile.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/dto/ProductDto.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/Orders.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/services/IProductImageService.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/ProductImage.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/Product.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/ItemStatus.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/AdminController.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/UserDao.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/ProductDao.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/User.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/dto/UserRegistrationDto.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/IProductDao.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/services/ProductService.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/IProductImageDao.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/repository/IProductImageRepository.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/UserAddress.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/services/IProductService.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/services/ProductImageService.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/services/UserService.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/RegistrationLoginAthaurizationSpringBootApplication.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/CheckoutController.java
+
