@@ -144,4 +144,7 @@ INSERT INTO `loothub`.`roles`(`id`,`role`)VALUES(1,'ADMIN');
 INSERT INTO `loothub`.`users_roles`(`user_id`,`role_id`)VALUES (1,1);
 
 
+
+
+
    
