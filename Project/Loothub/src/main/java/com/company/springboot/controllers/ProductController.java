@@ -50,6 +50,7 @@ public class ProductController {
     public ModelAndView uploadImage(@RequestParam("image") MultipartFile multipartFile,
             @ModelAttribute("productdto") ProductDto productDto,
             Principal principal) throws IOException {
+
         Product product = new Product();
 
         ModelAndView modelAndView = new ModelAndView();
@@ -66,7 +67,8 @@ public class ProductController {
 
         product = productService.save(productDto);
 
-        ProductImage productImage = new ProductImage(String.valueOf(uploadPath),
+        ProductImage productImage = new ProductImage(String.valueOf(uploadPath), 
+                userservice.findByEmailAddress(principal.getName()).getId(),
                 product);
         productImageService.save(productImage);
 

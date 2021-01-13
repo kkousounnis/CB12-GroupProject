@@ -44,6 +44,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
                 "/registration**",
+                "/api/productList**",
                 "/js/**",
                 "/css/**",
                 "/img/**").permitAll()
@@ -67,6 +68,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/loginsignup?logout")
                 .permitAll();
+       
+             
+
 
     }
 

@@ -46,6 +46,9 @@ public class ProductImage implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "image_path", nullable = false, length = 255)
     private String imagePath;
+    @NotNull
+    @Column(name = "user_id")
+    private Integer userId;
     @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Product productId;
@@ -66,10 +69,16 @@ public class ProductImage implements Serializable {
         this.imagePath = imagePath;
     }
 
-    public ProductImage(String imagePath, Product productId) {
+//    public ProductImage(String imagePath, Product productId) {
+//        this.imagePath = imagePath;
+//        this.productId = productId;
+//    }
+
+    public ProductImage(String imagePath, Integer userId, Product productId) {
         this.imagePath = imagePath;
+        this.userId = userId;
         this.productId = productId;
-    }       
+    }
 
     public Integer getId() {
         return id;
@@ -124,7 +133,5 @@ public class ProductImage implements Serializable {
         sb.append('}');
         return sb.toString();
     }
-
-    
 
 }
