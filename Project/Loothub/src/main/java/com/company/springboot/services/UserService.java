@@ -33,13 +33,13 @@ public class UserService implements IUserService {
     @Override
     public User save(UserRegistrationDto registrationDto) {
 
-//        User user = new User(registrationDto.getFirstName(),
-//                registrationDto.getLastName(),
-//                registrationDto.getEmail(),
-//                passwordEncoder.encode(registrationDto.getPassword()),
-//                Arrays.asList(new Role("ROLE_USER")),
-//                registrationDto.getTelNumber());
-        return userDao.save(registrationDto);
+        User user = new User(registrationDto.getFirstName(),
+                registrationDto.getLastName(),
+                registrationDto.getEmail(),
+                passwordEncoder.encode(registrationDto.getPassword()),
+                Arrays.asList(new Role("ROLE_USER")),
+                registrationDto.getTelNumber());
+        return userDao.save(user);
     }
 
     @Override
@@ -47,6 +47,10 @@ public class UserService implements IUserService {
 
         return userDao.loadUserByUsername(username);
 
+    }
+    
+    public User findByEmailAddress(String email){
+        return userDao.findByEmailAddress(email);
     }
 
     @Override

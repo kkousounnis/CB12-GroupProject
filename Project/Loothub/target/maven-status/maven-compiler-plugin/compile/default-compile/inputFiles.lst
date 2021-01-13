@@ -1,4 +1,35 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\UserRegistrationController.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\UserAddress.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\dao\IUserDao.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\ChatController.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\WebSocketEventListener.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\configuration\SecurityConfiguration.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\dto\UserRegistrationDto.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\configuration\WebSocketConfig.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\AdminController.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\Product.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\services\IUserService.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\ContactNumber.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\CheckoutController.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\ItemStatus.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\Orders.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\ProductTag.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\repository\IUserRepository.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\ProductController.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\models\ChatMessagePojo.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\dao\UserDao.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\services\UserService.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\ProductImage.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\RegistrationLoginAthaurizationSpringBootApplication.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\User.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\MainController.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\Role.java
+=======
+>>>>>>> main
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/Role.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/repository/IUserRepository.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/MainController.java
@@ -11,6 +42,7 @@
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/ProductImageDao.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/repository/IProductRepository.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/ContactNumber.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/Profile.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/dto/ProductDto.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/Orders.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/services/IProductImageService.java
