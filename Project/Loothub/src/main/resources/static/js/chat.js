@@ -28,6 +28,8 @@ function connect(event) {
         usernamePage.classList.add('hidden');
         chatPage.classList.remove('hidden');
 
+        
+
         var socket = new SockJS('/ws');
         stompClient = Stomp.over(socket);
 

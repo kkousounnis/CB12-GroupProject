@@ -1,38 +1,43 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
 com\company\springboot\controllers\AdminController.class
 com\company\springboot\entities\ProductTag.class
 com\company\springboot\dao\UserDao.class
+com\company\springboot\services\ProductService.class
 com\company\springboot\entities\ContactNumber.class
 com\company\springboot\controllers\ProductController.class
+com\company\springboot\dao\ProductDao.class
 com\company\springboot\entities\ItemStatus.class
 com\company\springboot\controllers\CheckoutController.class
+com\company\springboot\dao\IProductDao.class
 com\company\springboot\controllers\ChatController.class
 com\company\springboot\entities\UserAddress.class
+com\company\springboot\controllers\Profile.class
 com\company\springboot\entities\Product.class
 com\company\springboot\entities\Orders.class
+com\company\springboot\entities\dto\ProductDto.class
 com\company\springboot\entities\User.class
 com\company\springboot\entities\Role.class
 com\company\springboot\configuration\WebSocketConfig.class
 com\company\springboot\controllers\WebSocketEventListener.class
 com\company\springboot\entities\ProductImage.class
+com\company\springboot\dao\IProductImageDao.class
 com\company\springboot\controllers\MainController.class
+com\company\springboot\repository\IProductImageRepository.class
 com\company\springboot\RegistrationLoginAthaurizationSpringBootApplication.class
+com\company\springboot\dao\ProductImageDao.class
 com\company\springboot\entities\dto\UserRegistrationDto.class
 com\company\springboot\repository\IUserRepository.class
 com\company\springboot\models\ChatMessagePojo$MessageType.class
 com\company\springboot\dao\IUserDao.class
+com\company\springboot\repository\IProductRepository.class
+com\company\springboot\services\IProductService.class
 com\company\springboot\services\IUserService.class
+com\company\springboot\services\ProductImageService.class
 com\company\springboot\services\UserService.class
+com\company\springboot\services\IProductImageService.class
 com\company\springboot\controllers\UserRegistrationController.class
 com\company\springboot\configuration\SecurityConfiguration.class
 com\company\springboot\models\ChatMessagePojo.class
->>>>>>> main
-=======
 com/company/springboot/repository/IProductImageRepository.class
->>>>>>> main
 com/company/springboot/controllers/UserRegistrationController.class
 com/company/springboot/dao/ProductImageDao.class
 com/company/springboot/services/IUserService.class
@@ -64,41 +69,3 @@ com/company/springboot/entities/User.class
 com/company/springboot/configuration/SecurityConfiguration.class
 com/company/springboot/entities/ItemStatus.class
 com/company/springboot/entities/Role.class
-<<<<<<< HEAD
-=======
-com\company\springboot\controllers\AdminController.class
-com\company\springboot\entities\ProductTag.class
-com\company\springboot\dao\UserDao.class
-com\company\springboot\services\ProductService.class
-com\company\springboot\entities\ContactNumber.class
-com\company\springboot\controllers\ProductController.class
-com\company\springboot\dao\ProductDao.class
-com\company\springboot\entities\ItemStatus.class
-com\company\springboot\dao\IProductDao.class
-com\company\springboot\entities\UserAddress.class
-com\company\springboot\entities\Product.class
-com\company\springboot\entities\Orders.class
-com\company\springboot\entities\dto\ProductDto.class
-com\company\springboot\entities\User.class
-com\company\springboot\entities\Role.class
-com\company\springboot\entities\ProductImage.class
-com\company\springboot\dao\IProductImageDao.class
-com\company\springboot\controllers\MainController.class
-com\company\springboot\repository\IProductImageRepository.class
-com\company\springboot\RegistrationLoginAthaurizationSpringBootApplication.class
-com\company\springboot\dao\ProductImageDao.class
-com\company\springboot\entities\dto\UserRegistrationDto.class
-com\company\springboot\repository\IUserRepository.class
-com\company\springboot\dao\IUserDao.class
-com\company\springboot\repository\IProductRepository.class
-com\company\springboot\services\IProductService.class
-com\company\springboot\services\IUserService.class
-com\company\springboot\services\ProductImageService.class
-com\company\springboot\services\UserService.class
-com\company\springboot\services\IProductImageService.class
-com\company\springboot\controllers\UserRegistrationController.class
-com\company\springboot\configuration\SecurityConfiguration.class
->>>>>>> Stashed changes
-=======
->>>>>>> main
->>>>>>> main

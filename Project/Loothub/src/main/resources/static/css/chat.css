@@ -36,7 +36,6 @@ body:before {
     position: absolute;
     top: 0;
     left: 0;
-    background: #1ebea5;
     content: "";
     z-index: 0;
 }

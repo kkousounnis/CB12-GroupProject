@@ -3,6 +3,9 @@
     "attributes": {
         "nameform": {
             "context": "form"
+        },
+        "integrity": {
+            "context": "script"
         }
     }
 }
