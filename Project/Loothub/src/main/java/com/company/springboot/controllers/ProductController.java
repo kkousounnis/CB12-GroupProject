@@ -74,6 +74,13 @@ public class ProductController {
 
         return (modelAndView);
     }
+    
+    @GetMapping("/products")
+    public ModelAndView showAllProducts() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("products");
+        return modelAndView; 
+    }   
 
     public void saveProduct(Path uploadPath, MultipartFile multipartFile, String fileName) throws IOException {
 
