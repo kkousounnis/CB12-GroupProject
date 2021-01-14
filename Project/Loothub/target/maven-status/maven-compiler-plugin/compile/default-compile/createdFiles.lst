@@ -20,6 +20,7 @@ com/company/springboot/services/IProductService.class
 com/company/springboot/repository/IProductRepository.class
 com/company/springboot/controllers/ProfileController.class
 com/company/springboot/dao/ProductDao.class
+com/company/springboot/entities/dto/ProductImagePathDto.class
 com/company/springboot/services/IProductImageService.class
 com/company/springboot/services/UserService.class
 com/company/springboot/entities/Orders.class

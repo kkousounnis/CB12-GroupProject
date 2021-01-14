@@ -103,6 +103,8 @@ public class ProductImage implements Serializable {
     public void setProductId(Product productId) {
         this.productId = productId;
     }
+    
+    
 
     @Override
     public int hashCode() {
@@ -132,6 +134,14 @@ public class ProductImage implements Serializable {
         sb.append(", productId=").append(productId);
         sb.append('}');
         return sb.toString();
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
 }

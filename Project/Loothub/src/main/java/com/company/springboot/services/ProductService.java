@@ -2,6 +2,7 @@ package com.company.springboot.services;
 
 import com.company.springboot.dao.ProductDao;
 import com.company.springboot.entities.Product;
+import com.company.springboot.entities.ProductImage;
 import com.company.springboot.entities.dto.ProductDto;
 import java.util.List;
 import javax.transaction.Transactional;
@@ -41,5 +42,7 @@ public class ProductService implements IProductService {
     public void delete(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
 
 }

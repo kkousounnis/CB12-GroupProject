@@ -18,7 +18,8 @@ $(document).ready(function () {
     dataType: 'json',
     success: function (data) { 
         $.each(data, function(index, element) {
-            $('body').append($('<h1>', {
+            var k = element.category;
+            $('main').append($('<h1>', {
                 text: "Product{ Category" + element.category + 
                         ", Name"+element.name+
                         ", Price"+element.price+
@@ -26,8 +27,16 @@ $(document).ready(function () {
                         "}"
                 
             }));
-            $('body').append($('<h2>', {
+            $('main').append($('<h2>', {
                 text: "Product{ Category" + element.category + 
+                        ", Name"+element.name+
+                        ", Price"+element.price+
+                        ", Description"+element.description+
+                        "}"
+                
+            }));
+            $('main').append($('<img src="img/LOGO3.png">', {
+                text: " Product{ Category" + element.category + 
                         ", Name"+element.name+
                         ", Price"+element.price+
                         ", Description"+element.description+
