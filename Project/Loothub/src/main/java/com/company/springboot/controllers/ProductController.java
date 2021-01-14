@@ -56,12 +56,14 @@ public class ProductController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("productdto", productDto);
         modelAndView.setViewName("uploadproduct");
-
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        System.out.println(fileName+"Ermolaos");
+        
+        //Saving the image with user_id-fileName
+        String fileName = userservice.findByEmailAddress(principal.getName()).getId()+"-"+
+                StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        
         //principal.getName is usrname value
-        Path uploadPath = Paths.get("src/main/resources/static/img/"+ userservice.findByEmailAddress(principal.getName()).getId());
-         System.out.println(fileName+"Ermolaos");
+        Path uploadPath = Paths.get("src/main/resources/static/img/products");
+        
         saveProduct(uploadPath, multipartFile, fileName);
 
         product = productService.save(productDto);

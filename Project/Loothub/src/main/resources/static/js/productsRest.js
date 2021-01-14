@@ -25,6 +25,8 @@ $(document).ready(function () {
                         ", Price"+element.price+
                         ", Description"+element.description+
                         "Image path"+element.imagePath+
+                        "Hello "+
+                        "FileName "+element.fileName+
                         "}"
                 
             }));
@@ -36,7 +38,7 @@ $(document).ready(function () {
                         "}"
                 
             }));
-            $('main').append($('<img src="../../../../../../../../../../../../../../../tmp/images/3/leo_francis.jpeg">', {
+            $('main').append($('<img src="/img/products/'+element.fileName+'">', {
                 text: " Product{ Category" + element.category + 
                         ", Name"+element.name+
                         ", Price"+element.price+
