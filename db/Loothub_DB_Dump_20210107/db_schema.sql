@@ -36,6 +36,7 @@ CREATE TABLE `item_status` (
 CREATE TABLE `product_images` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `image_path` VARCHAR(255) NOT NULL,
+    `file_name` VARCHAR(255) NOT NULL,
     `user_id` INT NOT NULL,
     `product_id` INT NOT NULL,
     PRIMARY KEY (`id`),

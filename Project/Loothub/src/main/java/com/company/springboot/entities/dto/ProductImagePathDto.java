@@ -11,6 +11,7 @@ public class ProductImagePathDto {
     private String category;
     private Integer productImageId;
     private String imagePath;
+    private String fileName;
     private Integer userId;
 
     public ProductImagePathDto() {
@@ -19,7 +20,8 @@ public class ProductImagePathDto {
     public ProductImagePathDto(int productId,
             String name, BigDecimal price,
             String description, String category,
-            Integer productImageId, String imagePath, Integer userId) {
+            Integer productImageId, String imagePath,
+            String fileName, Integer userId) {
         this.productId = productId;
         this.name = name;
         this.price = price;
@@ -27,6 +29,7 @@ public class ProductImagePathDto {
         this.category = category;
         this.productImageId = productImageId;
         this.imagePath = imagePath;
+        this.fileName = fileName;
         this.userId = userId;
     }
 
@@ -93,6 +96,14 @@ public class ProductImagePathDto {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
+    
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
 
     @Override
     public String toString() {
@@ -104,9 +115,12 @@ public class ProductImagePathDto {
         sb.append(", category=").append(category);
         sb.append(", productImageId=").append(productImageId);
         sb.append(", imagePath=").append(imagePath);
+        sb.append(", fileName=").append(fileName);
         sb.append(", userId=").append(userId);
         sb.append('}');
         return sb.toString();
     }
+    
+    
 
 }

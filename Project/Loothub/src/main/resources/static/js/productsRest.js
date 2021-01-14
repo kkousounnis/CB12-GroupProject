@@ -18,12 +18,13 @@ $(document).ready(function () {
     dataType: 'json',
     success: function (data) { 
         $.each(data, function(index, element) {
-            var k = element.category;
+            var k = element.imagePath;
             $('main').append($('<h1>', {
                 text: "Product{ Category" + element.category + 
                         ", Name"+element.name+
                         ", Price"+element.price+
                         ", Description"+element.description+
+                        "Image path"+element.imagePath+
                         "}"
                 
             }));
@@ -35,7 +36,7 @@ $(document).ready(function () {
                         "}"
                 
             }));
-            $('main').append($('<img src="img/LOGO3.png">', {
+            $('main').append($('<img src="../../../../../../../../../../../../../../../tmp/images/3/leo_francis.jpeg">', {
                 text: " Product{ Category" + element.category + 
                         ", Name"+element.name+
                         ", Price"+element.price+

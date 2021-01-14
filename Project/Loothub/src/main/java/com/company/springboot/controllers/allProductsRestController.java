@@ -78,6 +78,7 @@ public class allProductsRestController {
                     product1.getCategory(),
                     productImagePath.getId(),
                     productImagePath.getImagePath(),
+                    productImagePath.getFileName(),
                     productImagePath.getUserId()
             ));
         }
