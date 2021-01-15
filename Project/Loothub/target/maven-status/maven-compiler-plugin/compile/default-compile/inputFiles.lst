@@ -24,7 +24,6 @@
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/User.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/dto/UserRegistrationDto.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/IProductDao.java
-/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/configuration/WebConfig1.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/services/ProductService.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/IProductImageDao.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/repository/IProductImageRepository.java

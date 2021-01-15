@@ -33,5 +33,4 @@ com/company/springboot/entities/User.class
 com/company/springboot/configuration/SecurityConfiguration.class
 com/company/springboot/controllers/allProductsRestController.class
 com/company/springboot/entities/ItemStatus.class
-com/company/springboot/configuration/WebConfig1.class
 com/company/springboot/entities/Role.class
