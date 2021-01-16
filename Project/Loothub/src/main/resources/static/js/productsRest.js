@@ -18,32 +18,43 @@ $(document).ready(function () {
     dataType: 'json',
     success: function (data) { 
         $.each(data, function(index, element) {
-            var k = element.imagePath;
-            $('main').append($('<h5>', {
-                text: "Product{ Category" + element.category + 
-                        ", Id"+element.id+
-                        ", Name"+element.name+
-                        ", Price"+element.price+
-                        ", Description"+element.description+
-                        ", Category"+element.category+
-                        ", Product Id"+element.productImageId+
-                        ", Image path"+element.imagePath+
-                        ", FileName "+element.fileName+
-                        ", User Id"+ element.userId+
-                        "}"
+            let fileName = element.fileName;
+            
+//            $('main').append($('<h5>', {
+//                text: "Product{ Category" + element.category + 
+//                        ", Id"+element.id+
+//                        ", Name"+element.name+
+//                        ", Price"+element.price+
+//                        ", Description"+element.description+
+//                        ", Category"+element.category+
+//                        ", Product Id"+element.productImageId+
+//                        ", Image path"+element.imagePath+
+//                        ", FileName "+element.fileName+
+//                        ", User Id"+ element.userId+
+//                        "}"
                 
-            }));
+           // }));
             let newElement =  $(
-                    ''+
-                    '<div class="card p-3 mb-5 rounded" style="width: 18rem;">'+ 
-                    '<img src="/img/products/1-leo_francis.jpeg" class="card-img-top" alt="...">'+
-                    '<div class="card-body pull-left text-black">'+
-                    '<h5 class="card-title">Card title</h5>'+
-                    '<p class="card-text">Some quick example '+
-                    'text to build on the card title and make'+
-                    ' up the bulk of the cards content.</p>'+            
-                    ' up the bulk of the cards content.</p>'+            
-                    ' </div>'+            
+                    '<div class="col-md-4">'+
+                    '<figure class="card card-product-grid card-lg " >'+ 
+                    '<a href="#" class="img-wrap mx-auto d-block" data-abc="true">'+                                
+                    '<img style="width: 200px;height: 200px" src="/img/products/3-leo_francis.jpeg">'+                                
+                    '</a>'+                                
+                    '<figcaption class="info-wrap">'+                                
+                    '<div class="row">'+                                
+                    '<div class="col-md-8">'+                                
+                    '<a href="#" class="title" data-abc="true">ASUS Laptop - 5GB RAM</a>'+                                
+                    '</div>'+                                
+                    '<div class="col-md-4">'+                                
+                    '<div class="rating text-right"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>'+                                
+                    '</div>'+                                
+                    '</div>'+                                
+                    '</figcaption>'+                                
+                    '<div class="bottom-wrap"> <a href="#" class="btn btn-primary float-right" data-abc="true"> Buy now </a>'+                                
+                    '<div class="price-wrap"> <span class="price h5">$999</span> <br> <small class="text-success">Free shipping</small> </div>'+                                
+                    '</div>'+                                
+                    '</figure>'+                                
+                    '</div>'+                                
                     +''
                     );
             $('.row.card-deck').append($(newElement, {
@@ -58,14 +69,14 @@ $(document).ready(function () {
 //                x=1;
 //            }
             console.log(x);
-            $('main').append($('<img src="/img/products/'+element.fileName+'">', {
-                text: " Product{ Category" + element.category + 
-                        ", Name"+element.name+
-                        ", Price"+element.price+
-                        ", Description"+element.description+
-                        "}"
-                
-            }));
+//            $('main').append($('<img src="/img/products/'+element.fileName+'">', {
+//                text: " Product{ Category" + element.category + 
+//                        ", Name"+element.name+
+//                        ", Price"+element.price+
+//                        ", Description"+element.description+
+//                        "}"
+//                
+//            }));
             
         });
     }
