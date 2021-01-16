@@ -38,7 +38,7 @@ $(document).ready(function () {
                     '<div class="col-md-4">'+
                     '<figure class="card card-product-grid card-lg " >'+ 
                     '<a href="#" class="img-wrap mx-auto d-block" data-abc="true">'+                                
-                    '<img style="width: 200px;height: 200px" src="/img/products/3-leo_francis.jpeg">'+                                
+                    '<img style="width: 200px;height: 200px" src="/img/products/'+fileName+'">'+                                
                     '</a>'+                                
                     '<figcaption class="info-wrap">'+                                
                     '<div class="row">'+                                
