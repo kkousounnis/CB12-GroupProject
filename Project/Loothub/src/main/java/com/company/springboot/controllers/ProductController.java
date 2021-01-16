@@ -26,16 +26,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ProductController {
-    
-    @Autowired 
+
+    @Autowired
     private ProductService productService;
-    
-    @Autowired 
+
+    @Autowired
     private ProductImageService productImageService;
-    
-    @Autowired 
+
+    @Autowired
     private UserService userservice;
-   
 
     @GetMapping("/uploadproduct")
     public ModelAndView home() {
@@ -43,25 +42,49 @@ public class ProductController {
         ProductDto productDto = new ProductDto();
         modelAndView.addObject("productdto", productDto);
         modelAndView.setViewName("uploadproduct");
-       
+
         return modelAndView;
     }
 
     @PostMapping("/uploadProduct")
     public ModelAndView uploadImage(@RequestParam("image") MultipartFile multipartFile,
-            @ModelAttribute("productdto") ProductDto productDto, 
+            @ModelAttribute("productdto") ProductDto productDto,
             Principal principal) throws IOException {
-        
-        System.out.println(principal.getName()+"Username");
-        ModelAndView modelAndView = new ModelAndView(); 
+
+        Product product = new Product();
+
+        ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("productdto", productDto);
-        modelAndView.setViewName("uploadproduct");        
+        modelAndView.setViewName("uploadproduct");
         
-        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+        //Saving the image with user_id-fileName
+        String fileName = userservice.findByEmailAddress(principal.getName()).getId()+"-"+
+                StringUtils.cleanPath(multipartFile.getOriginalFilename());
         
-        System.out.println(userservice.findByEmailAddress("admin@gmail.com").getId()+"ti psaxnw egw");
+        //principal.getName is usrname value
+        Path uploadPath = Paths.get("src/main/resources/static/img/products");
         
-        Path uploadPath = Paths.get("/tmp/images");
+        saveProduct(uploadPath, multipartFile, fileName);
+
+        product = productService.save(productDto);
+        System.out.println("Ftanei mexri edw pou skaei!!!");
+        ProductImage productImage = new ProductImage(String.valueOf(uploadPath), 
+                fileName,
+                userservice.findByEmailAddress(principal.getName()).getId(),
+                product);
+        productImageService.save(productImage);
+
+        return (modelAndView);
+    }
+    
+    @GetMapping("/products")
+    public ModelAndView showAllProducts() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("products");
+        return modelAndView; 
+    }   
+
+    public void saveProduct(Path uploadPath, MultipartFile multipartFile, String fileName) throws IOException {
 
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
@@ -74,26 +97,7 @@ public class ProductController {
         } catch (IOException e) {
             throw new IOException("Could not save upload file" + fileName);
         }
-        
 
-        
-        Product product = new Product(
-                productDto.getName(),
-                productDto.getPrice(),
-                productDto.getDescription(),
-                productDto.getCategory()          
-                );
-       
-       
-        product=productService.save(product); 
-        
-        ProductImage productImage = new ProductImage(String.valueOf(uploadPath),
-                product); 
-        productImageService.save(productImage);
-        
-        
-
-        return (modelAndView);
     }
 
 }

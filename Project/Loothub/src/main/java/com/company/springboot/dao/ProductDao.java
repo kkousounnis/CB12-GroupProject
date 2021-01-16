@@ -14,7 +14,7 @@ public class ProductDao implements IProductDao {
 
     @Override
     public List<Product> listAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return (productRepository.findAll());
     }
 
     @Override

@@ -54,9 +54,12 @@ com/company/springboot/controllers/AdminController.class
 com/company/springboot/dao/IUserDao.class
 com/company/springboot/entities/dto/UserRegistrationDto.class
 com/company/springboot/RegistrationLoginAthaurizationSpringBootApplication.class
+com/company/springboot/controllers/CheckoutController.class
 com/company/springboot/services/IProductService.class
 com/company/springboot/repository/IProductRepository.class
+com/company/springboot/controllers/ProfileController.class
 com/company/springboot/dao/ProductDao.class
+com/company/springboot/entities/dto/ProductImagePathDto.class
 com/company/springboot/services/IProductImageService.class
 com/company/springboot/services/UserService.class
 com/company/springboot/entities/Orders.class
@@ -67,5 +70,6 @@ com/company/springboot/services/ProductService.class
 com/company/springboot/entities/ContactNumber.class
 com/company/springboot/entities/User.class
 com/company/springboot/configuration/SecurityConfiguration.class
+com/company/springboot/controllers/allProductsRestController.class
 com/company/springboot/entities/ItemStatus.class
 com/company/springboot/entities/Role.class

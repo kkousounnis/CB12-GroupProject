@@ -46,6 +46,13 @@ public class ProductImage implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "image_path", nullable = false, length = 255)
     private String imagePath;
+    @NotNull
+    @Size(min = 1, max = 255)
+    @Column(name = "file_name", nullable = false, length = 255)
+    private String fileName;
+    @NotNull
+    @Column(name = "user_id")
+    private Integer userId;
     @JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.EAGER)
     private Product productId;
@@ -66,10 +73,21 @@ public class ProductImage implements Serializable {
         this.imagePath = imagePath;
     }
 
-    public ProductImage(String imagePath, Product productId) {
+//    public ProductImage(String imagePath, Product productId) {
+//        this.imagePath = imagePath;
+//        this.productId = productId;
+//    }
+//    public ProductImage(String imagePath, Integer userId, Product productId) {
+//        this.imagePath = imagePath;
+//        this.userId = userId;
+//        this.productId = productId;
+//    }
+    public ProductImage(String imagePath, String fileName, Integer userId, Product productId) {
         this.imagePath = imagePath;
+        this.fileName = fileName;
+        this.userId = userId;
         this.productId = productId;
-    }       
+    }
 
     public Integer getId() {
         return id;
@@ -93,6 +111,22 @@ public class ProductImage implements Serializable {
 
     public void setProductId(Product productId) {
         this.productId = productId;
+    }
+    
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
     @Override
@@ -120,11 +154,11 @@ public class ProductImage implements Serializable {
         StringBuilder sb = new StringBuilder();
         sb.append("ProductImage{id=").append(id);
         sb.append(", imagePath=").append(imagePath);
+        sb.append(", fileName=").append(fileName);
+        sb.append(", userId=").append(userId);
         sb.append(", productId=").append(productId);
         sb.append('}');
         return sb.toString();
     }
-
-    
 
 }

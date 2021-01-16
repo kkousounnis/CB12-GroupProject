@@ -1,5 +1,6 @@
 package com.company.springboot.dao;
 
+import com.company.springboot.entities.Product;
 import com.company.springboot.services.*;
 import com.company.springboot.entities.ProductImage;
 import com.company.springboot.repository.IProductImageRepository;
@@ -17,7 +18,7 @@ public class ProductImageDao implements IProductImageService {
 
     @Override
     public List<ProductImage> listAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (productImageRepository.findAll());
     }
 
     @Override
@@ -33,6 +34,10 @@ public class ProductImageDao implements IProductImageService {
     @Override
     public void delete(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public ProductImage findByProductId(Product productId){
+        return productImageRepository.findByProductId(productId);
     }
 
 }
