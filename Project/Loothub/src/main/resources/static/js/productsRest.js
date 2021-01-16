@@ -35,6 +35,7 @@ $(document).ready(function () {
                 
            // }));
             let newElement =  $(
+                    ''+
                     '<div class="col-md-4">'+
                     '<figure class="card card-product-grid card-lg " >'+ 
                     '<a href="#" class="img-wrap mx-auto d-block" data-abc="true">'+                                
@@ -43,18 +44,18 @@ $(document).ready(function () {
                     '<figcaption class="info-wrap">'+                                
                     '<div class="row">'+                                
                     '<div class="col-md-8">'+                                
-                    '<a href="#" class="title" data-abc="true">ASUS Laptop - 5GB RAM</a>'+                                
+                    '<a href="#" class="title" data-abc="true" value="'+element.name+'">'+element.name+'</a>'+                    
                     '</div>'+                                
                     '<div class="col-md-4">'+                                
                     '<div class="rating text-right"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>'+                                
                     '</div>'+                                
                     '</div>'+                                
                     '</figcaption>'+                                
-                    '<div class="bottom-wrap"> <a href="#" class="btn btn-primary float-right" data-abc="true"> Buy now </a>'+                                
-                    '<div class="price-wrap"> <span class="price h5">$999</span> <br> <small class="text-success">Free shipping</small> </div>'+                                
+                    '<div class="bottom-wrap"> <a href="/loginsignup#Signin"  type="submit"  class="btn btn-primary float-right" data-abc="true" value="Buy now">Buy now </a>'+                                
+                    '<div class="price-wrap"> <span class="price h5" value="'+element.price+'">'+element.price+'&euro;</span> <br> <small class="text-success">Free shipping</small> </div>'+                                
                     '</div>'+                                
                     '</figure>'+                                
-                    '</div>'+                                
+                    '</div>'+ 
                     +''
                     );
             $('.row.card-deck').append($(newElement, {

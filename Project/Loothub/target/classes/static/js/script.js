@@ -52,6 +52,14 @@ if (popup !== null) {
     });
 }
 
+$(document).ready(function () {
+    var myurl = window.location;
+    console.log(myurl);
+    if (str.myurl.includes("#SigninProduct")==true) {
+        $('#Signin').modal('show');
+    }
+});
+
 
 function initPayPalButton() {
     paypal.Buttons({
@@ -81,4 +89,5 @@ function initPayPalButton() {
     }).render('#paypal-button-container');
 }
 initPayPalButton();
+
 
