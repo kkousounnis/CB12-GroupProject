@@ -26,18 +26,26 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
+        
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(iuserService);
+        
         auth.setPasswordEncoder(passwordEncoder());
+        
         return auth;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        
+        auth
+                .inMemoryAuthentication().withUser("admin")
+                .password(passwordEncoder().encode("admin"))
+                .roles("[ADMIN]");
         auth.userDetailsService(iuserService);
+        
         auth.authenticationProvider(authenticationProvider());
-
+        
+        
     }
 
     @Override
@@ -49,7 +57,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 "/js/**",
                 "/css/**",
                 "/img/**").permitAll()
-                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
