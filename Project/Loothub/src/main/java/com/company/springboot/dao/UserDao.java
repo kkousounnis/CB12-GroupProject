@@ -2,8 +2,6 @@ package com.company.springboot.dao;
 
 import com.company.springboot.entities.Role;
 import com.company.springboot.entities.User;
-import com.company.springboot.entities.dto.UserRegistrationDto;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;

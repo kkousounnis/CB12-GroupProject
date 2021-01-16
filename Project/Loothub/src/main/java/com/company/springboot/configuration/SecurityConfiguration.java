@@ -29,6 +29,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(iuserService);
         auth.setPasswordEncoder(passwordEncoder());
+        
         return auth;
     }
 
@@ -37,7 +38,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         
         auth.userDetailsService(iuserService);
         auth.authenticationProvider(authenticationProvider());
-
+          auth
+                .inMemoryAuthentication().withUser("admin")
+                .password(passwordEncoder().encode("admin"))
+                .roles("ADMIN");
     }
 
     @Override
