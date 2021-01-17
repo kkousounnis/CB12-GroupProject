@@ -22,7 +22,7 @@ $(document).ready(function () {
             
 //            $('main').append($('<h5>', {
 //                text: "Product{ Category" + element.category + 
-//                        ", Id"+element.id+
+//                        ", Id"+element.productId+
 //                        ", Name"+element.name+
 //                        ", Price"+element.price+
 //                        ", Description"+element.description+
@@ -38,20 +38,32 @@ $(document).ready(function () {
                     ''+
                     '<div class="col-md-4">'+
                     '<figure class="card card-product-grid card-lg " >'+ 
-                    '<a href="#" class="img-wrap mx-auto d-block" data-abc="true">'+                                
+                    '<a href="#" data-toggle="modal" \n\
+                        data-target="#exampleModal" \n\
+                        data-image="/img/products/'+fileName+'" \n\
+                        data-name="'+element.name+'" \n\
+                        data-description="'+element.description+'" \n\
+                        data-price="'+element.price+'" \n\
+                        data-productid="'+element.id+'" class="img-wrap mx-auto d-block" data-abc="true">'+                                
                     '<img style="width: 200px;height: 200px" src="/img/products/'+fileName+'">'+                                
                     '</a>'+                                
                     '<figcaption class="info-wrap">'+                                
                     '<div class="row">'+                                
                     '<div class="col-md-8">'+                                
-                    '<a href="#" class="title" data-abc="true" data-toggle="modal" data-target="#exampleModal" data-whatever="/img/products/'+fileName+'" data-whatever="'+element.name+'"  value="'+element.name+'" >'+element.name+'</a>'+                    
+                    '<a href="#" class="title" data-abc="true" data-toggle="modal"\n\
+                        data-target="#exampleModal" \n\
+                        data-image="/img/products/'+fileName+'" \n\
+                        data-name="'+element.name+'" \n\
+                        data-description="'+element.description+'" \n\
+                        data-price="'+element.price+'"\n\
+                        data-productid="'+element.id+'" value="'+element.name+'" >'+element.name+'</a>'+                    
                     '</div>'+                                
                     '<div class="col-md-4">'+                                
                     '<div class="rating text-right"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>'+                                
                     '</div>'+                                
                     '</div>'+                                
                     '</figcaption>'+                                
-                    '<div class="bottom-wrap"> <a href="/loginsignup#SigninProduct?'+element.name+'"  type="submit"  class="btn btn-primary float-right" data-abc="true" value="Buy now">Buy now </a>'+                                
+                    '<div class="bottom-wrap"> <a href="/loginsignup#SigninProduct?id='+element.productId+'"  type="submit"  class="btn btn-primary float-right" data-abc="true" value="Buy now">Buy now </a>'+                                
                     '<div class="price-wrap"> <span class="price h5" value="'+element.price+'">'+element.price+'&euro;</span> <br> <small class="text-success">Free shipping</small> </div>'+                                
                     '</div>'+                                
                     '</figure>'+                                
