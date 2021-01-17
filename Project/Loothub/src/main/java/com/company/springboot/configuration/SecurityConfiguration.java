@@ -26,23 +26,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
-        
+
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(iuserService);
-        
+
         auth.setPasswordEncoder(passwordEncoder());
-        
+
         return auth;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        
+
         auth.userDetailsService(iuserService);
-        
+
         auth.authenticationProvider(authenticationProvider());
-        
-        
+
     }
 
     @Override
@@ -50,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers(
                 "/registration**",
                 "/products**",
-                "/api/productList**",                
+                "/api/productList**",
                 "/js/**",
                 "/css/**",
                 "/img/**").permitAll()
@@ -74,9 +73,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/loginsignup?logout")
                 .permitAll();
-       
-             
-
 
     }
 

@@ -53,10 +53,11 @@ if (popup !== null) {
 }
 
 $(document).ready(function () {
-    var myurl = window.location;
-    console.log(myurl);
-    if (str.myurl.includes("#SigninProduct")==true) {
-        $('#Signin').modal('show');
+    let myurl = window.location;
+    
+    //check if url contains with index 
+    if (window.location.href.indexOf("#SigninProduct") > -1) {
+      $('#Signin').modal('show');
     }
 });
 
