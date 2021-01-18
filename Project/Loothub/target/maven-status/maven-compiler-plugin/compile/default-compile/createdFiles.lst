@@ -1,3 +1,4 @@
+com/company/springboot/entities/dto/OrderDto.class
 com/company/springboot/services/IRoleServises.class
 com/company/springboot/dao/IRoleDao.class
 com/company/springboot/services/IUserService.class
@@ -38,8 +39,10 @@ com/company/springboot/controllers/MainController.class
 com/company/springboot/dao/IProductImageDao.class
 com/company/springboot/entities/ProductImage.class
 com/company/springboot/entities/Product.class
+com/company/springboot/controllers/ΑllProductsRestController.class
 com/company/springboot/repository/IRoleRepository.class
 com/company/springboot/dao/IProductTagDao.class
+com/company/springboot/controllers/OrderController.class
 com/company/springboot/dao/IUserDao.class
 com/company/springboot/controllers/WebSocketEventListener.class
 com/company/springboot/RegistrationLoginAthaurizationSpringBootApplication.class

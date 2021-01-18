@@ -67,7 +67,7 @@ public class ProductController {
         saveProduct(uploadPath, multipartFile, fileName);
 
         product = productService.save(productDto);
-        System.out.println("Ftanei mexri edw pou skaei!!!");
+        
         ProductImage productImage = new ProductImage(String.valueOf(uploadPath), 
                 fileName,
                 userservice.findByEmailAddress(principal.getName()).getId(),
