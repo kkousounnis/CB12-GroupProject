@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(value = {"/api"})
-public class allProductsRestController {
+public class ΑllProductsRestController {
 
     @Autowired
     public ProductService productService;

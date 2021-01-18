@@ -64,9 +64,10 @@ $(document).ready(function () {
 $('#exampleModal').on('show.bs.modal', function (event) {
   let button = $(event.relatedTarget); // Button that triggered the modal
   let name = button.data('name'); // Extract info from data-* attributes
-  let productId = button.data('image'); // Extract info from data-* attributes
+  let productId = button.data('productid'); // Extract info from data-* attributes
   let productPrice = button.data('price'); 
   let productDescritpion = button.data('description');
+  
   
   let imgSrc = button.data('image');
   // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
@@ -78,6 +79,8 @@ $('#exampleModal').on('show.bs.modal', function (event) {
   document.getElementById("myImage1").src = imgSrc; 
   document.getElementById("product-description").innerHTML = productDescritpion;
   document.getElementById("product-price").innerHTML = productPrice+"&euro;";
+  document.getElementById("productBuy").href="http://localhost:8080/order/"+productId;
+  
   
   
           

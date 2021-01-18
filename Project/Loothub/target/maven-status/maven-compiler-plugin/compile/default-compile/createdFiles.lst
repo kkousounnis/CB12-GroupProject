@@ -60,7 +60,6 @@ com/company/springboot/models/ChatMessagePojo$MessageType.class
 com/company/springboot/services/ProductService.class
 com/company/springboot/dao/ProductTagDao.class
 com/company/springboot/services/IOrdersServises.class
-com/company/springboot/controllers/allProductsRestController.class
 com/company/springboot/repository/IOrdersRepository.class
 com/company/springboot/services/UserAddressService.class
 com/company/springboot/dao/OrdersDao.class

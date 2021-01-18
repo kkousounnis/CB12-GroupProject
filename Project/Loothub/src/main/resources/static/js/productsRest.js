@@ -44,7 +44,7 @@ $(document).ready(function () {
                         data-name="'+element.name+'" \n\
                         data-description="'+element.description+'" \n\
                         data-price="'+element.price+'" \n\
-                        data-productid="'+element.id+'" class="img-wrap mx-auto d-block" data-abc="true">'+                                
+                        data-productid="'+element.productId+'" class="img-wrap mx-auto d-block" data-abc="true">'+                                
                     '<img style="width: 200px;height: 200px" src="/img/products/'+fileName+'">'+                                
                     '</a>'+                                
                     '<figcaption class="info-wrap">'+                                
@@ -56,14 +56,14 @@ $(document).ready(function () {
                         data-name="'+element.name+'" \n\
                         data-description="'+element.description+'" \n\
                         data-price="'+element.price+'"\n\
-                        data-productid="'+element.id+'" value="'+element.name+'" >'+element.name+'</a>'+                    
+                        data-productid="'+element.productId+'" value="'+element.name+'" >'+element.name+'</a>'+                    
                     '</div>'+                                
                     '<div class="col-md-4">'+                                
                     '<div class="rating text-right"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>'+                                
                     '</div>'+                                
                     '</div>'+                                
                     '</figcaption>'+                                
-                    '<div class="bottom-wrap"> <a href="/loginsignup#SigninProduct?id='+element.productId+'"  type="submit"  class="btn btn-primary float-right" data-abc="true" value="Buy now">Buy now </a>'+                                
+                    '<div class="bottom-wrap"> <a href="/order/'+element.productId+'"  type="submit"  class="btn btn-primary float-right" data-abc="true" value="Buy now">Buy now </a>'+                                
                     '<div class="price-wrap"> <span class="price h5" value="'+element.price+'">'+element.price+'&euro;</span> <br> <small class="text-success">Free shipping</small> </div>'+                                
                     '</div>'+                                
                     '</figure>'+                                
