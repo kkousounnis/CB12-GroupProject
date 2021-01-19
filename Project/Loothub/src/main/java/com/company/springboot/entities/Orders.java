@@ -61,7 +61,7 @@ public class Orders implements Serializable {
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false)
     private User userId;
-
+    
     public Orders() {
     }
 
@@ -132,7 +132,7 @@ public class Orders implements Serializable {
     public void setUserId(User userId) {
         this.userId = userId;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -157,5 +157,5 @@ public class Orders implements Serializable {
     public String toString() {
         return "com.company.springboot.entities.Orders[ id=" + id + " ]";
     }
-    
+
 }

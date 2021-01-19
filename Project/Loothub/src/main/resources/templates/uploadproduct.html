@@ -33,8 +33,8 @@
                                            placeholder="Search" aria-label="Search"/>
                                     <div class="input-group-append">
                                         <button id="search" class="btn btn-outline-secondary btn-default btn-sm text-white"
-                                                type="submit">                                            
-                                                Search
+                                                type="submit">                                        
+                                            Search                                        
                                         </button>
 
                                     </div>
@@ -66,52 +66,53 @@
 
         </header>
         <main>
-            
+
 
 
         </main>
         <div class="container">
-            <form action="#">
+            <form th:action="@{/uploadProduct}" method="post" enctype="multipart/form-data" th:object="${productdto}">
                 <div class="row">
                     <div class="col-sm">
                         <div id="drop-area">
-                            <form class="my-form">
-                                <p>Upload multiple files with the file dialog or by dragging and dropping images onto the
-                                    dashed
-                                    region</p>
-                                <input type="file" id="fileElem" multiple accept="image/*"
-                                       onchange="handleFiles(this.files)">
-                                <label class="button" for="fileElem">Select Product Image</label>
-                            </form>
 
+                            <p>Upload multiple files with the file dialog or by dragging and dropping images onto the
+                                dashed
+                                region</p>
+                            <input type="file" name="image" id="fileElem" required multiple accept="image/*"
+                                   onchange="handleFiles(this.files)" >
 
+                                <label class="button" for="fileElem">Select Product Image</label>                  
                         </div>
 
                     </div>
                     <div class="col-sm" style="padding: 50px;">
                         <div class="form-group">
                             <label for="email">Name:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" autocomplete="off">
+                            <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Enter name" name="name" autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Description</label>
-                            <textarea class="form-control" id="Description" rows="3"></textarea>
+                            <textarea class="form-control" id="Description"    th:field="*{description}"   rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label for="sel1">Category:</label>
-                            <select class="form-control" id="sel1">
-                                <option>Auto-Moto</option>
-                                <option>Fashion</option>
+                            <select class="form-control" id="sel1" th:field="*{category}" >
+                                <option  th:value="'Electronics'">Electronics</option>
+                                <option  th:value="'Collectables'">Collectables</option>
                             </select>
                         </div>
-
-
+                        <div class="form-group">
+                            <label for="email">Price</label>
+                            <input type="number" class="form-control" id="price" th:field="*{price}" placeholder="Enter price" name="price" autocomplete="off">
+                        </div>
                     </div>
 
                 </div>
                 <div class="card" style="width: 18rem;">
                     <div id="gallery"></div>
                 </div>
+
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
