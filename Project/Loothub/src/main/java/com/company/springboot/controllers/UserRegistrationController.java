@@ -41,7 +41,7 @@ public class UserRegistrationController {
             modelMap.addAttribute("bindingResult", bindingResult);
             modelMap.addAttribute("popupsignup", "popupsignup"); // we tell loginsignup page to keep modal open in order to show errors
 
-        } else if (userService.loadUserByUsername(registrationDto.getEmail()) != null) {
+        } else if (userService.findByEmailAddress(registrationDto.getEmail()) != null) {
             modelMap.addAttribute("message", "Username already exists.");
             modelAndView.setViewName("loginsignup");
             modelMap.addAttribute("popupsignup", "popupsignup"); // we tell loginsignup page to keep modal open in order to show errors 

@@ -49,8 +49,8 @@ public class UserDao implements IUserDao {
         User user = userRepository.findByEmail(username);
         
         if (user == null) {
-            //throw new UsernameNotFoundException("Invalid username or password.");
-            return null;
+            throw new UsernameNotFoundException("Invalid username or password.");
+            //return null;
         }
 
         return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(),
@@ -62,6 +62,11 @@ public class UserDao implements IUserDao {
     }
     
     public User findByEmailAddress(String email){
+        User user = userRepository.findByEmail(email);
+        if (user == null) {
+            //throw new UsernameNotFoundException("Invalid username or password.");
+            return null;
+        }
         return userRepository.findByEmail(email);
     }
 

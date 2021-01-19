@@ -52,31 +52,65 @@ if (popup !== null) {
     });
 }
 
+$(document).ready(function () {
+    let myurl = window.location;
+    
+    //check if url contains with index 
+    if (window.location.href.indexOf("#SigninProduct") > -1) {
+      $('#Signin').modal('show');
+    }
+});
 
-    function initPayPalButton() {
-      paypal.Buttons({
-        style: {
-          shape: 'pill',
-          color: 'blue',
-          layout: 'vertical',
-          label: 'paypal',
+$('#exampleModal').on('show.bs.modal', function (event) {
+  let button = $(event.relatedTarget); // Button that triggered the modal
+  let name = button.data('name'); // Extract info from data-* attributes
+  let productId = button.data('productid'); // Extract info from data-* attributes
+  let productPrice = button.data('price'); 
+  let productDescritpion = button.data('description');
+  
+  
+  let imgSrc = button.data('image');
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  
+  
+  document.getElementById("product-name").innerHTML = name; 
+  document.getElementById("product-title").innerHTML = name; 
+  document.getElementById("myImage1").src = imgSrc; 
+  document.getElementById("product-description").innerHTML = productDescritpion;
+  document.getElementById("product-price").innerHTML = productPrice+"&euro;";
+  document.getElementById("productBuy").href="http://localhost:8080/order/"+productId;
+  
+  
+  
           
+});
+
+
+function initPayPalButton() {
+    paypal.Buttons({
+        style: {
+            shape: 'pill',
+            color: 'blue',
+            layout: 'vertical',
+            label: 'paypal',
+
         },
 
-        createOrder: function(data, actions) {
-          return actions.order.create({
-            purchase_units: [{"amount":{"currency_code":"EUR","value":3000}}]
-          });
+        createOrder: function (data, actions) {
+            return actions.order.create({
+                purchase_units: [{"amount": {"currency_code": "EUR", "value": 3000}}]
+            });
         },
 
-        onApprove: function(data, actions) {
-          return actions.order.capture().then(function(details) {
-            alert('Transaction completed by ' + details.payer.name.given_name + '!');
-          });
+        onApprove: function (data, actions) {
+            return actions.order.capture().then(function (details) {
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+            });
         },
 
-        onError: function(err) {
-          console.log(err);
+        onError: function (err) {
+            console.log(err);
         }
       }).render('#paypal-button-container');
     }

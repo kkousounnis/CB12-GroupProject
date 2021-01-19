@@ -2,6 +2,8 @@ package com.company.springboot.services;
 
 import com.company.springboot.dao.ProductDao;
 import com.company.springboot.entities.Product;
+import com.company.springboot.entities.ProductImage;
+import com.company.springboot.entities.dto.ProductDto;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +18,18 @@ public class ProductService implements IProductService {
 
     @Override
     public List<Product> listAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return (productDao.listAll());
     }
 
     @Override
-    public Product save(Product product) {
+    public Product save(ProductDto productDto) {
+        Product product = new Product(
+                productDto.getName(),
+                productDto.getPrice(),
+                productDto.getDescription(),
+                productDto.getCategory()
+        );
+        
         return productDao.save(product);
     }
     
@@ -33,5 +42,7 @@ public class ProductService implements IProductService {
     public void delete(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
 
 }

@@ -36,6 +36,8 @@ CREATE TABLE `item_status` (
 CREATE TABLE `product_images` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `image_path` VARCHAR(255) NOT NULL,
+    `file_name` VARCHAR(255) NOT NULL,
+    `user_id` INT NOT NULL,
     `product_id` INT NOT NULL,
     PRIMARY KEY (`id`),
     KEY `fk_product_images_product_id__products_id` (`product_id`),
@@ -146,6 +148,9 @@ VALUES(1,'admin@gmail.com','$2a$10$.P3ERs5Kvvtm2r07AtEBtuW1HH2q2UwmgffoXImBbOvIz
 
 INSERT INTO `loothub`.`roles`(`id`,`role`)VALUES(1,'ADMIN');
 INSERT INTO `loothub`.`users_roles`(`user_id`,`role_id`)VALUES (1,1);
+
+
+
 
 
    
