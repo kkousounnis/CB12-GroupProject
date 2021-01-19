@@ -12,9 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class OrderController {
 
     @RequestMapping("/order/{id}")
-    public ModelAndView showOrder(@PathVariable Integer id,  @CurrentSecurityContext(expression="authentication?.name") String username){
+    public ModelAndView showOrder(@PathVariable Integer id, @CurrentSecurityContext(expression = "authentication?.name") String username) {
         ModelAndView modelAndView = new ModelAndView();
-        System.out.println(username+"me lene karam");
+        modelAndView.addObject("example", "Leonardo Da vinci");
+        System.out.println(username + "me lene karam");
         //System.out.println(principal.getName()+"melenemakaro");
         //ProductDto productDto = new ProductDto();
         //modelAndView.addObject("productdto", productDto);
@@ -23,11 +24,4 @@ public class OrderController {
         return modelAndView;
     }
 
-//    public String page(ModelMap view, @PathVariable String id) {
-//        view.addAttribute("projectName", "Grocery Store");
-//        Product product = productService.findById(Integer.parseInt(id));
-//        view.addAttribute("product", product);
-//        return "product";
-//    }
 }
-// public ModelAndView showOrder() {
