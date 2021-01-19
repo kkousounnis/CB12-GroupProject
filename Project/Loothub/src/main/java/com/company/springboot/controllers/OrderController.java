@@ -14,6 +14,9 @@ public class OrderController {
     @RequestMapping("/order/{id}")
     public ModelAndView showOrder(@PathVariable Integer id, @CurrentSecurityContext(expression = "authentication?.name") String username) {
         ModelAndView modelAndView = new ModelAndView();
+        
+        
+        
         modelAndView.addObject("example", "Leonardo Da vinci");
         System.out.println(username + "me lene karam");
         //System.out.println(principal.getName()+"melenemakaro");

@@ -119,24 +119,24 @@
                 <div class="row">
                     <div class="col-sm" style="padding: 50px;">
                         <div class="form-group">
-                            <label>Country:</label>
-                            <input type="text" class="form-control" id="country" placeholder="Enter your country..."
+                            <label>First Name:</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name..."
                                 name="country" autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label>City:</label>
+                            <label>Last Name:</label>
                             <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
-                            <input type="text" class="form-control" id="city" placeholder="Enter your city..."
+                            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name..."
                                 name="city" autocomplete="off">
-                            <label>Street Name:</label>
-                            <input type="text" class="form-control" id="streetName"
-                                placeholder="Enter your street name...">
-                            <label>Street Number:</label>
-                            <input type="text" class="form-control" id="streetNumber"
-                                placeholder="Enter your street number..." name="streetNumber" autocomplete="off">
-                            <label>Postal Code:</label>
+                            <label>Email:</label>
+                            <input type="email" class="form-control" id="email"
+                                placeholder="Enter your email...">
+                            <label>Password:</label>
+                            <input type="password" class="form-control" id="password"
+                                placeholder="Enter your password..." name="password" autocomplete="off">
+                            <label>Phone Number:</label>
                             <input type="text" class="form-control" id="postalCode"
-                                placeholder="Enter your postal code..." name="postalCode" autocomplete="off">
+                                placeholder="Enter your phone number..." name="phoneNumber" autocomplete="off" th:value="${example}">
 
                         </div>
 
@@ -150,7 +150,7 @@
                 <p th:text="${example}"></p>
                 <input th:value="${example}"></input>
                 <div class="col-sm">
-                     <button type="submit" class="btn btn-primary pull-right">Submit</button>
+                     <button type="submit" class="btn btn-primary pull-right">Pay Pal Buy</button>
                 </div>
                 
             </form>
