@@ -69,7 +69,7 @@
     <main>
         <div class="container">
 
-            <form th:action="@{/order}" method="post" th:object="${orderDto}" class="needs-validation" novalidate id="demo">
+            <form th:action="@{/order}" method="post" th:object="${orderDto}" class="needs-validation" novalidate id="validationsFront">
                 <div class="row">
 
                     <div class="col-sm" style="padding: 50px;">
@@ -125,13 +125,13 @@
                         <div class="form-group">
                             <label>First Name:</label>
                             <input type="text" class="form-control" id="firstName" th:value="${user.firstName}"placeholder="Enter your first name..."
-                                name="country" autocomplete="off">
+                                name="firstname" autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Last Name:</label>
                             <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
                             <input type="text" class="form-control" id="lastName" th:value="${user.lastName}" placeholder="Enter your last name..."
-                                name="city" autocomplete="off">
+                                name="lastname" autocomplete="off">
                                 
                         
                             <label>Email:</label>

@@ -1,6 +1,6 @@
 $().ready(function(){
     
-   $("#demo").validate({
+   $("#validationsFront").validate({
        rules:{
            firstname:"required",
            lastname:"required",
