@@ -69,28 +69,32 @@
     <main>
         <div class="container">
 
-            <form action="#">
+            <form th:action="@{/order}" method="post" th:object="${orderDto}" class="needs-validation" novalidate id="demo">
                 <div class="row">
 
                     <div class="col-sm" style="padding: 50px;">
-                        <div class="form-group">
+                        <div class="form-group needs-validation">
                             <label>Country:</label>
-                            <input type="text" class="form-control" id="country" placeholder="Enter your country..."
-                                name="country" autocomplete="off">
+                            <input type="text" class="form-control" th:field="*{country}"  placeholder="Enter your country..."
+                                name="country" autocomplete="off" required>
+                                 <div class="invalid-feedback">Please type a Country. </div>
+                                 <div class="valid-feedback">Looks Good.</div>
                         </div>
                         <div class="form-group">
                             <label>City:</label>
                             <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
-                            <input type="text" class="form-control" id="city" placeholder="Enter your city..."
+                            <input type="text" class="form-control" id="city" th:field="*{city}" placeholder="Enter your city..."
                                 name="city" autocomplete="off">
+                            <div class="invalid-feedback">Please type a Country. </div>
+                            <div class="valid-feedback">Looks Good.</div>
                             <label>Street Name:</label>
-                            <input type="text" class="form-control" id="streetName"
+                            <input type="text" class="form-control" id="streetName" th:field="*{streetName}"
                                 placeholder="Enter your street name...">
                             <label>Street Number:</label>
-                            <input type="text" class="form-control" id="streetNumber"
+                            <input type="text" class="form-control" id="streetNumber" th:field="*{streetNumber}"
                                 placeholder="Enter your street number..." name="streetNumber" autocomplete="off">
                             <label>Postal Code:</label>
-                            <input type="text" class="form-control" id="postalCode"
+                            <input type="number" class="form-control" id="postalCode" th:field="*{postalCode}"
                                 placeholder="Enter your postal code..." name="postalCode" autocomplete="off">
 
                         </div>
@@ -120,23 +124,31 @@
                     <div class="col-sm" style="padding: 50px;">
                         <div class="form-group">
                             <label>First Name:</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name..."
+                            <input type="text" class="form-control" id="firstName" th:value="${user.firstName}"placeholder="Enter your first name..."
                                 name="country" autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Last Name:</label>
                             <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
-                            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name..."
+                            <input type="text" class="form-control" id="lastName" th:value="${user.lastName}" placeholder="Enter your last name..."
                                 name="city" autocomplete="off">
+                                
+                        
                             <label>Email:</label>
-                            <input type="email" class="form-control" id="email"
+                            <input type="email" class="form-control" id="email" name="email" th:value="${user.email}"
                                 placeholder="Enter your email...">
+                                
                             <label>Password:</label>
                             <input type="password" class="form-control" id="password"
-                                placeholder="Enter your password..." name="password" autocomplete="off">
+                                placeholder="Please enter your password..." name="password"  autocomplete="off">
+                                
+                            <label for="confirm_password" id="confirm_password" name="confirm_password" >Confirm Password:</label>
+                            <input type="password" class="form-control" id="confirm_password" 
+                                placeholder="Please confirm your password..." name="confirm_password"  autocomplete="off">
+                                
                             <label>Phone Number:</label>
-                            <input type="text" class="form-control" id="postalCode"
-                                placeholder="Enter your phone number..." name="phoneNumber" autocomplete="off" th:value="${example}">
+                            <input type="text" class="form-control" id="phoneNumber"
+                                placeholder="Enter your phone number..." name="phoneNumber" autocomplete="off" >
 
                         </div>
 
@@ -147,8 +159,7 @@
                     </div>
                     
                 </div>                
-                <p th:text="${example}"></p>
-                <input th:value="${example}"></input>
+                
                 <div class="col-sm">
                      <button type="submit" class="btn btn-primary pull-right">Pay Pal Buy</button>
                 </div>
@@ -216,6 +227,7 @@
     <script src="/js/script.js"></script>
     <script src="/js/uploadfilescript.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/validations.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
@@ -225,7 +237,9 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>    
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
 </body>
 

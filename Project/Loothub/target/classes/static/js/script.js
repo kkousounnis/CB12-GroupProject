@@ -54,37 +54,61 @@ if (popup !== null) {
 
 $(document).ready(function () {
     let myurl = window.location;
-    
+
     //check if url contains with index 
     if (window.location.href.indexOf("#SigninProduct") > -1) {
-      $('#Signin').modal('show');
+        $('#Signin').modal('show');
     }
 });
 
 $('#exampleModal').on('show.bs.modal', function (event) {
-  let button = $(event.relatedTarget); // Button that triggered the modal
-  let name = button.data('name'); // Extract info from data-* attributes
-  let productId = button.data('productid'); // Extract info from data-* attributes
-  let productPrice = button.data('price'); 
-  let productDescritpion = button.data('description');
-  
-  
-  let imgSrc = button.data('image');
-  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-  
-  
-  document.getElementById("product-name").innerHTML = name; 
-  document.getElementById("product-title").innerHTML = name; 
-  document.getElementById("myImage1").src = imgSrc; 
-  document.getElementById("product-description").innerHTML = productDescritpion;
-  document.getElementById("product-price").innerHTML = productPrice+"&euro;";
-  document.getElementById("productBuy").href="http://localhost:8080/order/"+productId;
-  
-  
-  
-          
+    let button = $(event.relatedTarget); // Button that triggered the modal
+    let name = button.data('name'); // Extract info from data-* attributes
+    let productId = button.data('productid'); // Extract info from data-* attributes
+    let productPrice = button.data('price');
+    let productDescritpion = button.data('description');
+
+
+    let imgSrc = button.data('image');
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+
+
+    document.getElementById("product-name").innerHTML = name;
+    document.getElementById("product-title").innerHTML = name;
+    document.getElementById("myImage1").src = imgSrc;
+    document.getElementById("product-description").innerHTML = productDescritpion;
+    document.getElementById("product-price").innerHTML = productPrice + "&euro;";
+    document.getElementById("productBuy").href = "http://localhost:8080/order/" + productId;
+
+
+
+
 });
+
+(function () {
+
+
+
+
+    'use strict';
+    window.addEventListener('load', function () {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+            form.addEventListener('submit', function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    }, false);
+})();
+
 
 
 function initPayPalButton() {
@@ -112,7 +136,9 @@ function initPayPalButton() {
         onError: function (err) {
             console.log(err);
         }
-      }).render('#paypal-button-container');
-    }
-    initPayPalButton();
-    
+    }).render('#paypal-button-container');
+}
+initPayPalButton();
+
+
+
