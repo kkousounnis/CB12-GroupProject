@@ -29,11 +29,14 @@ public class OrderDto {
     private String streetName;
     private String streetNumber;
     private String postalCode;
+    private String comments;
+
+    private Integer productId;
 
     public OrderDto() {
     }
 
-    public OrderDto(String firstName, String lastName, String email, String password, List<ContactNumber> telNumber, String country, String city, String streetName, String streetNumber, String postalCode) {
+    public OrderDto(String firstName, String lastName, String email, String password, List<ContactNumber> telNumber, String country, String city, String streetName, String streetNumber, String postalCode, String comments, Integer productId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -44,6 +47,8 @@ public class OrderDto {
         this.streetName = streetName;
         this.streetNumber = streetNumber;
         this.postalCode = postalCode;
+        this.comments = comments;
+        this.productId = productId;
     }
 
     public String getFirstName() {
@@ -126,6 +131,22 @@ public class OrderDto {
         this.postalCode = postalCode;
     }
 
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public Integer getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Integer productId) {
+        this.productId = productId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -139,11 +160,10 @@ public class OrderDto {
         sb.append(", streetName=").append(streetName);
         sb.append(", streetNumber=").append(streetNumber);
         sb.append(", postalCode=").append(postalCode);
+        sb.append(", comments=").append(comments);
+        sb.append(", productId=").append(productId);
         sb.append('}');
         return sb.toString();
     }
-    
-    
-     
- 
+
 }

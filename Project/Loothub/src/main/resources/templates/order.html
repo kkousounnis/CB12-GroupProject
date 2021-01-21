@@ -41,21 +41,22 @@
                         </form>
 
                     </div>
-
-                    <div class="navbar-nav">
-                        <a href="#" class="btn nav-link text-muted"><span> User</span></a>
-                        <div class="container ">
-                            <div id="cardprofile" class="  pull-right">
-                                <div class="dropdown">
-                                    <button type="button" class="btn nav-link text-muted dropdown-toggle"
-                                        data-toggle="dropdown">
-                                        Manage Actions
-                                    </button>
-                                    <div class="dropdown-menu ">
-                                        <a class="dropdown-item" href="#">Profile</a>
-                                        <a class="dropdown-item" href="#">Orders</a>
-                                        <a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="dropdown-item"
-                                            href="#">Sign out</a>
+                    <div  th:if="${user.email != null}">  
+                        <div class="navbar-nav">
+                            <a href="#" class="btn nav-link text-muted"><span  th:text="${user.email}"></span></a>
+                            <div class="container ">
+                                <div id="cardprofile" class="  pull-right">
+                                    <div class="dropdown">
+                                        <button type="button" class="btn nav-link text-muted dropdown-toggle"
+                                            data-toggle="dropdown">
+                                            Manage Actions
+                                        </button>
+                                        <div class="dropdown-menu ">
+                                            <a class="dropdown-item" href="#">Profile</a>
+                                            <a class="dropdown-item" href="#">Orders</a>
+                                            <a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="dropdown-item"
+                                                href="#">Sign out</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -69,33 +70,31 @@
     <main>
         <div class="container">
 
-            <form th:action="@{/order}" method="post" th:object="${orderDto}" class="needs-validation" novalidate id="validationsFront">
+            <form th:action="@{/order}" method="post" th:object="${orderDto}"  id="validationsFront">
                 <div class="row">
 
                     <div class="col-sm" style="padding: 50px;">
                         <div class="form-group needs-validation">
                             <label>Country:</label>
                             <input type="text" class="form-control" th:field="*{country}"  placeholder="Enter your country..."
-                                name="country" autocomplete="off" required>
-                                 <div class="invalid-feedback">Please type a Country. </div>
-                                 <div class="valid-feedback">Looks Good.</div>
-                        </div>
-                        <div class="form-group">
+                                name="country" autocomplete="off" required>                                 
+                            <br/>
                             <label>City:</label>
                             <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
                             <input type="text" class="form-control" id="city" th:field="*{city}" placeholder="Enter your city..."
-                                name="city" autocomplete="off">
-                            <div class="invalid-feedback">Please type a Country. </div>
-                            <div class="valid-feedback">Looks Good.</div>
+                                name="city" autocomplete="off" required>                                
+                            <br/>
                             <label>Street Name:</label>
                             <input type="text" class="form-control" id="streetName" th:field="*{streetName}"
-                                placeholder="Enter your street name...">
+                                placeholder="Enter your street name..." required>
+                            <br/>
                             <label>Street Number:</label>
                             <input type="text" class="form-control" id="streetNumber" th:field="*{streetNumber}"
-                                placeholder="Enter your street number..." name="streetNumber" autocomplete="off">
-                            <label>Postal Code:</label>
+                                placeholder="Enter your street number..." name="streetNumber" autocomplete="off" required>
+                            <br/>
+                                <label>Postal Code:</label>
                             <input type="number" class="form-control" id="postalCode" th:field="*{postalCode}"
-                                placeholder="Enter your postal code..." name="postalCode" autocomplete="off">
+                                placeholder="Enter your postal code..." name="postalCode" autocomplete="off" required>
 
                         </div>
 
@@ -103,20 +102,24 @@
                     </div>
                     <div class="col-sm" style="padding: 50px;">
                         <figure class="card card-product-grid card-lg ">
-                            <img style="width: 200px;height: 200px" src="/img/products/3-desk.jpeg">
+                            <input type="hidden" class="form-control" id="productId" th:field="*{productId}" 
+                                name="productId" autocomplete="off">
+                            <img style="width: 200px;height: 200px"  th:src="${imagePath}">
                             <figcaption class="info-wrap">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <label>Product Name:</label>
-                                        <h6>filename</h6>
+                                        <label >Product Name:</label>
+                                        <h6 th:text="${productName}">filename</h6>
                                     </div>
                                 </div>
                                 <div class="price-wrap">
                                     <label>Product Price:</label>
-                                    <span class="price h5"> 3000&euro;</span>
+                                    <span class="price h5" th:text="${productPrice}" > </span>&euro;
                                 </div>
                             </figcaption>
                         </figure>
+                        <label for="exampleFormControlTextarea1">Comments</label>
+                        <textarea class="form-control" id="Description"    th:field="*{comments}"   rows="3" placeholder="Add any comments here about purchasing the product..."></textarea>
 
                     </div>
                 </div>
@@ -124,32 +127,35 @@
                     <div class="col-sm" style="padding: 50px;">
                         <div class="form-group">
                             <label>First Name:</label>
-                            <input type="text" class="form-control" id="firstName" th:value="${user.firstName}"placeholder="Enter your first name..."
-                                name="firstname" autocomplete="off">
+                            <input type="text" class="form-control" id="firstname" th:field="*{firstName}"placeholder="Enter your first name..."
+                                name="firstname" autocomplete="off" >
+                                
+                             
                         </div>
                         <div class="form-group">
                             <label>Last Name:</label>
                             <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
-                            <input type="text" class="form-control" id="lastName" th:value="${user.lastName}" placeholder="Enter your last name..."
+                            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="Enter your last name..."
                                 name="lastname" autocomplete="off">
                                 
                         
                             <label>Email:</label>
-                            <input type="email" class="form-control" id="email" name="email" th:value="${user.email}"
+                            <input type="email" class="form-control" id="email" name="email" th:field="*{email}"
                                 placeholder="Enter your email...">
+                            <div  th:if="${user.email == null}">    
                                 
-                            <label>Password:</label>
-                            <input type="password" class="form-control" id="password"
-                                placeholder="Please enter your password..." name="password"  autocomplete="off">
+                                <label>Password:</label>
+                                <input type="password" class="form-control" id="password"
+                                    placeholder="Please enter your password..." name="password"  th:field="*{password}" autocomplete="off">
                                 
-                            <label for="confirm_password" id="confirm_password" name="confirm_password" >Confirm Password:</label>
-                            <input type="password" class="form-control" id="confirm_password" 
-                                placeholder="Please confirm your password..." name="confirm_password"  autocomplete="off">
-                                
+                                <label for="confirm_password" id="confirm_password" name="confirm_password" >Confirm Password:</label>
+                                <input type="password" class="form-control" id="confirm_password" 
+                                    placeholder="Please confirm your password..." name="confirm_password"  autocomplete="off">
+                            </div>    
                             <label>Phone Number:</label>
                             <input type="text" class="form-control" id="phoneNumber"
-                                placeholder="Enter your phone number..." name="phoneNumber" autocomplete="off" >
-
+                                placeholder="Enter your phone number..." name="phoneNumber"  th:field="*{telNumber}" autocomplete="off" >
+                              
                         </div>
 
 
@@ -171,7 +177,7 @@
 
     </main>
 
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br />
     <footer class=" container pb-0 mb-0 justify-content-center text-dark border-top">
         <div class="container py-5">
             <div class="col-11">
