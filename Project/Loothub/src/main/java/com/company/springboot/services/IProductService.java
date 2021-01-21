@@ -10,7 +10,7 @@ public interface IProductService {
 
     public Product save(ProductDto productDto);
 
-    public Product get(Long id);
+    public Product get(Integer id);
 
     public void delete(Long id);
 }

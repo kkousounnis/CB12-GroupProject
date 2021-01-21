@@ -11,7 +11,7 @@ public interface IProductDao {
 
     public Product save(Product product);
 
-    public Product get(Long id);
+    public Product get(Integer id);
 
     public void delete(Long id);
 }

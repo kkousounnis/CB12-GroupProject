@@ -34,8 +34,8 @@ public class ProductService implements IProductService {
     }
     
     @Override
-    public Product get(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Product get(Integer id) {
+        return (productDao.get(id));
     }
 
     @Override
