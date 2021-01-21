@@ -11,5 +11,5 @@ public class AdminController {
     public String home() {
         return "admin/adminindex";
     }
-
+    
 }
