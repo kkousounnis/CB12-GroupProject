@@ -71,6 +71,10 @@ public class OrderController {
         System.out.println(orderDto.getCountry() + "me lene gewrgio");
         System.out.println(orderDto.getProductId() + "productId");
         System.out.println(orderDto.getEmail());
+        System.out.println(orderDto.getTelNumber());
+        System.out.println(orderDto.getCountry());
+        System.out.println(orderDto.getTelNumber());
+        
 
         modelAndView.setViewName("dummyPage");
         return modelAndView;

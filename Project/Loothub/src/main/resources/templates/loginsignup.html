@@ -113,18 +113,22 @@
 
 
 
-                                        <input id="firstname" name="firstname" class="form-control" th:field="*{firstName}" autofocus="autofocus" th:errorClass="is-invalid"/>
+                                        <input id="firstname" name="firstname" class="form-control" th:field="*{firstName}"
+                                               placeholder="Enter your first name..."  autofocus="autofocus" th:errorClass="is-invalid" autocomplete="off" required=""/>
                                         <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Error</div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="lastName"> Last Name </label> 
-                                        <input id="lastname" name="lastname" class="form-control" th:field="*{lastName}" autofocus="autofocus" />
+                                        <input id="lastname" name="lastname" class="form-control"
+                                               th:field="*{lastName}" placeholder="Enter your last name..." autofocus="autofocus" autocomplete="off" th:errorClass="is-invalid" required=""/>
                                         <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error</div>
                                     </div>                                 
                                     <div class="form-group">
-                                        <label class="control-label" for="email"> Email </label> <input
-                                            id="email" name="email" class="form-control" th:field="*{email}" 
-                                            autofocus="autofocus" />
+                                        <label class="control-label" for="email"> Email </label> 
+                                        
+                                        <input id="email" name="email" class="form-control" th:field="*{email}" placeholder="Enter your email..."
+                                            autofocus="autofocus" autocomplete="off" th:errorClass="is-invalid"/>
+                                        
                                         <label th:if="${message}" id="message" class="text-danger">Email already Exists</label>
                                         <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"> Error</div>
                                         <small id="emailHelp1" class="form-text text-muted">We'll never share your email
@@ -132,23 +136,23 @@
                                             anyone else.</small>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="password"> Password </label> <input
-                                            id="password" name="password" class="form-control" type="password"
-                                            th:field="*{password}"  autofocus="autofocus"  />
+                                        <label class="control-label" for="password"> Password </label> 
+                                        <input id="password" name="password" class="form-control" type="password" placeholder="Enter your password..."
+                                            th:field="*{password}"  autofocus="autofocus" autocomplete="off" th:errorClass="is-invalid" />
                                         <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</div>
                                     </div>
                                     <div class="form-group">
                                         <label for="confirm_password" id="confirm_password" name="confirm_password" >Confirm Password:</label>
                                             <input type="password" class="form-control" id="confirm_password" 
-                                                placeholder="Please confirm your password..." name="confirm_password"  autocomplete="off">
+                                                placeholder="Confirm your password..." name="confirm_password"  autocomplete="off" >
                                      </div>
 
                                     <!-- telephone number -->
                                     <div class="form-group number">
                                         <p class="number">
-                                            <label class="control-label" for="telephone"> Telephone </label> <input
-                                                id="telphone" class="form-control" type="text"
-                                                th:field="*{telNumber}"  autofocus="autofocus"  />
+                                            <label class="control-label" for="telephone"> Telephone </label> 
+                                            <input id="tel_phone" class="form-control" type="text" name="tel_phone" placeholder="Add you phone number..."
+                                                   th:field="*{telNumber}"  autofocus="autofocus"  autocomplete="off" th:errorClass="is-invalid" required/>
                                             <div th:if="${#fields.hasErrors('telNumber')}" th:errors="*{telNumber}">Contact Number</div>
                                         </p>
                                         <a href="javascript:void();" class="add_phone">Add More Telephone numbers</a>

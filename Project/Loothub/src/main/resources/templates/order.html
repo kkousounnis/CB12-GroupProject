@@ -89,7 +89,7 @@
                                 placeholder="Enter your street name..." required>
                             <br/>
                             <label>Street Number:</label>
-                            <input type="text" class="form-control" id="streetNumber" th:field="*{streetNumber}"
+                            <input type="number" class="form-control" id="streetNumber" th:field="*{streetNumber}"
                                 placeholder="Enter your street number..." name="streetNumber" autocomplete="off" required>
                             <br/>
                                 <label>Postal Code:</label>
@@ -128,7 +128,7 @@
                         <div class="form-group">
                             <label>First Name:</label>
                             <input type="text" class="form-control" id="firstname" th:field="*{firstName}"placeholder="Enter your first name..."
-                                name="firstname" autocomplete="off" >
+                                name="firstname" autocomplete="off" required>
                                 
                              
                         </div>
@@ -136,7 +136,7 @@
                             <label>Last Name:</label>
                             <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
                             <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="Enter your last name..."
-                                name="lastname" autocomplete="off">
+                                   name="lastname" autocomplete="off" required>
                                 
                         
                             <label>Email:</label>
@@ -154,7 +154,7 @@
                             </div>    
                             <label>Phone Number:</label>
                             <input type="text" class="form-control" id="phoneNumber"
-                                placeholder="Enter your phone number..." name="phoneNumber"  th:field="*{telNumber}" autocomplete="off" >
+                                placeholder="Enter your phone number..." name="phoneNumber"  th:field="*{telNumber}" autocomplete="off" required>
                               
                         </div>
 
