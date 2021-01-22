@@ -1,0 +1,280 @@
+ body {
+   background-color: #F1F1F1;
+   color: black;
+ }
+
+ a.btn.nav-link.text-muted:hover {
+   color: rgb(43, 43, 43) !important;
+ }
+
+ button.btn.nav-link.text-muted.dropdown-toggle:hover {
+   color: rgb(43, 43, 43) !important;
+ }
+
+ .card {
+   background-color: #f0f8ff;
+ }
+
+ #search {
+   background-color: rgb(88, 203, 241);
+ }
+
+ #img {
+   padding-top: 30%;
+ }
+
+ #imghome {
+   width: 120px;
+   padding-right: 5px;
+ }
+
+ #card1, #carousel1 {
+   background-color: #1D84B0;
+ }
+
+ #card2, #carousel2 {
+   background-color: #FEB555;
+ }
+
+ #card3, #carousel3 {
+   background-color: #A2A2A2;
+ }
+
+ #card4, #carousel4 {
+   background-color: #DD6C75;
+ }
+
+ #cardprofile {
+   background-color: #F1F1F1;
+ }
+
+ #textcolor1 {
+   color: #1D84B0;
+ }
+
+ #textcolor2 {
+   color: #FEB555;
+ }
+
+ #textcolor3 {
+   color: #A2A2A2;
+ }
+
+ #textcolor4 {
+   color: #DD6C75;
+ }
+
+ .dropdown-menu {
+   background-color: #F1F1F1;
+ }
+
+ #categories_index .header-user-actions {
+   position: absolute;
+   top: 20px;
+   right: 0;
+   margin: 15px 0 10px;
+ }
+
+ .header-user-actions {
+   padding-left: 20px;
+ }
+
+ .header-user-actions {
+   float: right;
+   max-width: 100%;
+   white-space: nowrap;
+   direction: rtl;
+   font-size: 0;
+ }
+
+ ul {
+   list-style: none;
+ }
+
+ #success_message {
+   display: none;
+ }
+
+ body{
+  background: #edf1f5;
+  margin-top:20px;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #EDF1F5;
+  background-clip: border-box;
+  border: 0 solid transparent;
+  border-radius: 0;
+}
+.btn-circle.btn-lg, .btn-group-lg>.btn-circle.btn {
+  width: 50px;
+  height: 50px;
+  padding: 14px 15px;
+  font-size: 18px;
+  line-height: 23px;
+}
+.text-muted {
+  color: #8898aa!important;
+}
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+  cursor: pointer;
+}
+.btn-circle {
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+}
+.user-table tbody tr .category-select {
+  max-width: 150px;
+  border-radius: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0
+}
+
+html {
+  height: 100%
+}
+
+.card0 {
+  margin: 40px 12px 15px 12px;
+  border: 0
+}
+
+.card1 {
+  margin: 0;
+  padding: 15px;
+  padding-top: 25px;
+  padding-bottom: 0px;
+  background: #263238;
+  height: 100%
+}
+
+.bill-head {
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  font-size: 30px
+}
+
+.line {
+  border-right: 1px grey solid
+}
+
+.bill-date {
+  color: #BDBDBD
+}
+
+.red-bg {
+  margin-top: 25px;
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: #F44336;
+  padding-left: 20px !important;
+  padding: 25px 10px 25px 15px
+}
+
+#total {
+  margin-top: 0px;
+  padding-left: 7px
+}
+
+#total-label {
+  margin-bottom: 0px;
+  color: #ffffff;
+  padding-left: 7px
+}
+
+#heading1 {
+  color: #ffffff;
+  font-size: 20px;
+  padding-left: 10px
+}
+
+#heading2 {
+  font-size: 27px;
+  color: #D50000
+}
+
+.placeicon {
+  font-family: fontawesome !important
+}
+
+.card2 {
+  padding: 25px;
+  margin: 0;
+  height: 100%
+}
+
+.form-card .pay {
+  font-weight: bold
+}
+
+.form-card input,
+.form-card textarea {
+  padding: 10px 8px 10px 8px;
+  border: none;
+  border: 1px solid lightgrey;
+  border-radius: 0px;
+  margin-bottom: 25px;
+  margin-top: 2px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #2C3E50;
+  font-size: 14px;
+  letter-spacing: 1px
+}
+
+.form-card input:focus,
+.form-card textarea:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: none;
+  font-weight: bold;
+  border: 1px solid gray;
+  outline-width: 0
+}
+
+.btn-info {
+  color: #ffffff !important
+}
+
+.radio-group {
+  position: relative;
+  margin-bottom: 25px
+}
+
+.radio {
+  display: inline-block;
+  width: 204;
+  height: 64;
+  border-radius: 0;
+  background: lightblue;
+  box-sizing: border-box;
+  border: 2px solid lightgrey;
+  cursor: pointer;
+  margin: 8px 25px 8px 0px
+}
+
+.radio:hover {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2)
+}
+
+.radio.selected {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.4)
+}
+
+.fit-image {
+  width: 100%;
+  object-fit: cover
+}

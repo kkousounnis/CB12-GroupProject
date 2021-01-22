@@ -41,10 +41,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(iuserService);
 
         auth.authenticationProvider(authenticationProvider());
-          auth
-                .inMemoryAuthentication().withUser("admin")
-                .password(passwordEncoder().encode("admin"))
-                .roles("ADMIN");
+
     }
 
     @Override

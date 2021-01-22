@@ -19,6 +19,7 @@ $(document).ready(function () {
     success: function (data) { 
         $.each(data, function(index, element) {
             let fileName = element.fileName;
+            console.log(fileName + "HELLOOOOOOOO");
             
 //            $('main').append($('<h5>', {
 //                text: "Product{ Category" + element.category + 
