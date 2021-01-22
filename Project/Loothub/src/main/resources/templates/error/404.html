@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
         <link rel="stylesheet" href="css/styles.css"/>
         <link rel="stylesheet" href="css/uploadfilestyle.css"/>
+        <link rel="stylesheet" href="css/errors.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
     </head>
 
@@ -29,12 +30,12 @@
 
                             <form class="form-inline flex-row-reverse">
                                 <div class="input-group">
-                                    <input th:name="searchbar" class="form-control form-control-sm " type="text"
+                                    <input id="searchbar" class="form-control form-control-sm " type="text"
                                            placeholder="Search" aria-label="Search"/>
                                     <div class="input-group-append">
                                         <button id="search" class="btn btn-outline-secondary btn-default btn-sm text-white"
                                                 type="submit">                                            
-                                            Search
+                                                Search
                                         </button>
 
                                     </div>
@@ -44,7 +45,7 @@
                         </div>
 
                         <div class="navbar-nav">
-                            <a href="#" class="btn nav-link text-muted"> User</a>
+                            <a href="#" class="btn nav-link text-muted"><span sec:authentication="principal.username"> User</span></a>
                             <div class="container ">
                                 <div id="cardprofile" class="  pull-right">
                                     <div class="dropdown">
@@ -66,65 +67,30 @@
 
         </header>
         <main>
+            
 
 
-
-
-            <br/>
-
-            <div class="container">
-                <form action="/action_page.php">
-                    <div class="row card-deck ">
-
-                        
-                      
-
-                    </div>
-                </form>
-            </div>
-
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="product-title">Product</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <figure class="card card-product-grid card-lg " >
-                                <a href="#" class="img-wrap mx-auto d-block" data-abc="true">
-                                    <img style="width: 200px;height: 200px" id="myImage1" src="">
-                                </a>
-                            </figure>
-                            <form>
-                                <div class="form-group">
-                                    <label for="recipient-name" id="product-name" class="col-form-label">Recipient:</label>
-                                    
-                                </div>
-                                <div class="form-group">
-                                    <label for="message-text" class="col-form-label">Description</label>
-                                    <p id="product-description" >Hello</p>
-                                </div>
-                                <div class="price-wrap">
-                                    <span id="product-price" class="price h5" >
-                                        
-                                    </span> 
-                                    
-                                    <br> 
-                                    <small class="text-success">Free shipping</small> 
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <a  id="productBuy" type="button" class="btn btn-primary">Buy</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </main>
+        <div class="container">
+            <form action="#">
+                <div class="row">
+
+                         <div class="econtainer">
+                            <h1 class="eh1">404!!</h1>
+                            <h2 class="eh3">&emsp;Page Not Found</h2>
+                            <p class="ep">The page you are looking for doesn't exist. Go to <a href="#">Home Page.</a></p>
+                            
+                         </div>
+                    </div>
+
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <div id="gallery"></div>
+                    
+                </div>
+                
+            </form>
+        </div>
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <footer class=" container pb-0 mb-0 justify-content-center text-dark border-top">
             <div class="container py-5">
@@ -179,10 +145,9 @@
 
         <script src="js/jquery.min.js"></script>
         <script src="js/script.js"></script>
-
+        <script src="js/uploadfilescript.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="js/productsRest.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
                 integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
         crossorigin="anonymous"></script>

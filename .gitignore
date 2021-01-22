@@ -21,3 +21,8 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+Project/Loothub/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+Project/Loothub/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+Project/Loothub/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+Project/Loothub/target/surefire-reports/com.company.springboot.RegistrationLoginAthaurizationSpringBootApplicationTests.txt
+Project/Loothub/target/surefire-reports/TEST-com.company.springboot.RegistrationLoginAthaurizationSpringBootApplicationTests.xml

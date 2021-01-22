@@ -36,7 +36,7 @@ public class ProductController {
     private ProductImageService productImageService;
 
     @Autowired
-    private UserService userservice;
+    private UserService userService;
 
     @GetMapping("/uploadproduct")
     public ModelAndView home() {
@@ -60,7 +60,7 @@ public class ProductController {
         modelAndView.setViewName("uploadproduct");
         
         //Saving the image with user_id-fileName
-        String fileName = userservice.findByEmailAddress(principal.getName()).getId()+"-"+
+        String fileName = userService.findByEmailAddress(principal.getName()).getId()+"-"+
                 StringUtils.cleanPath(multipartFile.getOriginalFilename());
         
         //principal.getName is usrname value
@@ -69,10 +69,10 @@ public class ProductController {
         saveProduct(uploadPath, multipartFile, fileName);
 
         product = productService.save(productDto);
-        System.out.println("Ftanei mexri edw pou skaei!!!");
+        
         ProductImage productImage = new ProductImage(String.valueOf(uploadPath), 
                 fileName,
-                userservice.findByEmailAddress(principal.getName()).getId(),
+                userService.findByEmailAddress(principal.getName()).getId(),
                 product);
         productImageService.save(productImage);
 

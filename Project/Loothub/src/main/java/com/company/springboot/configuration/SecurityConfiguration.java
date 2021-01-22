@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.setUserDetailsService(iuserService);
 
         auth.setPasswordEncoder(passwordEncoder());
-
+        
         return auth;
     }
 
@@ -47,7 +47,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
-                "/registration**",
+                "/registration**",              
+                "/order**",              
+                "/{id}/**",              
                 "/products**",
                 "/api/productList**",
                 "/js/**",

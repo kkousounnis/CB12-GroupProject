@@ -24,8 +24,8 @@ public class ProductDao implements IProductDao {
     }
 
     @Override
-    public Product get(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Product get(Integer id) {
+        return (productRepository.findById(id).get());
     }
 
     @Override

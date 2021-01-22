@@ -23,7 +23,7 @@ public class ΑllProductsRestController {
 
     @Autowired
     public ProductImageService productImageService;
-
+//
 //    @CrossOrigin("http://localhost:8080")
 //    @GetMapping("/productList")
 //    public List<ProductDto> get() {
@@ -45,10 +45,10 @@ public class ΑllProductsRestController {
 //                    ));
 //        }
 //          System.out.println(products);
-////        productDto.setCategory(product1.getCategory());
-////        productDto.setDescription(product1.getDescription());
-////        productDto.setName(product1.getName());
-////        productDto.setPrice(product1.getPrice());
+//        productDto.setCategory(product1.getCategory());
+//        productDto.setDescription(product1.getDescription());
+//        productDto.setName(product1.getName());
+//        productDto.setPrice(product1.getPrice());
 //
 //        return listproductsDto;
 //    }

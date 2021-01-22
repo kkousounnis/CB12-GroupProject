@@ -11,5 +11,15 @@ public class AdminController {
     public String home() {
         return "admin/adminindex";
     }
+    
+    @GetMapping("/admin/user-manage")
+    public String userManage(){
+        return "admin/user-manage";
+    }
+    
+    @GetMapping("/admin/product-manage")
+    public String productManage(){
+        return "admin/product-manage";
+    }
 
 }
