@@ -124,6 +124,7 @@ function initPayPalButton() {
         createOrder: function (data, actions) {
             return actions.order.create({
                 purchase_units: [{"amount": {"currency_code": "EUR", "value": 3000}}]
+
             });
         },
 
