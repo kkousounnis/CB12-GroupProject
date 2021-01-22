@@ -163,8 +163,6 @@ public class User implements Serializable {
     public void setUserAddressList(List<UserAddress> userAddressList) {
         this.userAddressList = userAddressList;
     }
-    
-    
 
     @XmlTransient
     public List<Orders> getOrdersList() {
@@ -195,11 +193,6 @@ public class User implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "com.company.springboot.entities.User[ id=" + id + " ]";
-    }
-
     public Collection<ContactNumber> getContactNumbers() {
         return contactNumbers;
     }
@@ -215,5 +208,23 @@ public class User implements Serializable {
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("User{id=").append(id);
+        sb.append(", email=").append(email);
+        sb.append(", password=").append(password);
+        sb.append(", firstName=").append(firstName);
+        sb.append(", lastName=").append(lastName);
+        sb.append(", contactNumbers=").append(contactNumbers);
+        sb.append(", userAddressList=").append(userAddressList);
+        sb.append(", ordersList=").append(ordersList);
+        sb.append(", roles=").append(roles);
+        sb.append('}');
+        return sb.toString();
+    }
+    
+    
 
 }
