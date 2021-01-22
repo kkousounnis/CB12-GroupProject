@@ -33,6 +33,10 @@ public class ProductService implements IProductService {
         return productDao.save(product);
     }
     
+        public Product findByProductName(String name){
+        return productDao.productName(name);
+    }
+    
     @Override
     public Product get(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

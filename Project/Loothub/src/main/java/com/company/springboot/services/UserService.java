@@ -44,9 +44,7 @@ public class UserService implements IUserService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-
         return userDao.loadUserByUsername(username);
-
     }
     
     public User findByEmailAddress(String email){
