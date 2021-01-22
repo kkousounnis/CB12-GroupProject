@@ -114,7 +114,7 @@
                                 </div>
                                 <div class="price-wrap">
                                     <label>Product Price:</label>
-                                    <span class="price h5" th:text="${productPrice}" > </span>&euro;
+                                    <span class="price h5" th:text="${#numbers.formatDecimal(productPrice, 0, 'COMMA', 2, 'POINT')}" > </span>&euro;
                                 </div>
                             </figcaption>
                         </figure>
