@@ -84,7 +84,6 @@ public class ProductController {
     public ModelAndView showAllProducts(@RequestParam(value = "searchbar",required = false) String id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("products");
-        System.out.println(id);
         return modelAndView; 
     }  
     

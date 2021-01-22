@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    var x = 1;
     $.ajax({
         type: 'GET',
         url: "http://localhost:8080/api/productList",
@@ -8,19 +7,32 @@ $(document).ready(function () {
         success: function (data) {
             $.each(data, function (index, element) {
                 let fileName = element.fileName;
-                let cardName = "?searchbar="+element.name;
-                const queryString = window.location.search;
-                console.log(queryString);
-//                const urlid = urlParams.get('searchbar')
-//                console.log(urlid);
+                let cardName = element.name;
                 console.log(cardName);
-                if(cardName === queryString ){
-            
-      
                 
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                let urlid = urlParams.get('searchbar')
+                let y = urlid.trim().toLowerCase().replace(/\s/g,'') ;
+                let z = cardName.trim().toLowerCase().replace(/\s/g,'') ;
+                let d = z.includes(y);
+                //console.log(y);
+                //console.log(z);
 
+                if(!urlid){
+                    let x= el(fileName,element);
+                    $('.row.card-deck').append($(x, {}));
+                }else if( (z === y || d ===true)&& y.length>=3){ 
+                    let x= el(fileName,element);
+                    $('.row.card-deck').append($(x, {}));
+                }
+            });
+        }
+    });
+});
 
-                let newElement = $(
+function el(fileName,element){
+    let newElement = $(
                         '' +
                         '<div class="col-md-4">' +
                         '<figure class="card card-product-grid card-lg " >' +
@@ -56,15 +68,6 @@ $(document).ready(function () {
                         '</div>' +
                         +''
                         );
-            
-                $('.row.card-deck').append($(newElement, {
 
-                }));
-           }
-
-
-
-            });
-        }
-    });
-});
+return newElement;
+};
