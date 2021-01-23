@@ -10,9 +10,12 @@ import com.company.springboot.entities.dto.UserDto;
 import com.company.springboot.services.UserService;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -39,19 +42,27 @@ public class AllUserRestController {
         int i = 0;
         for (User user : users) {
             user1 = user;
-            listusersDto.add(new UserDto(
+            listusersDto.add(new UserDto(user1.getId(),
                     user1.getFirstName(),
                     user1.getLastName(),
                     user1.getEmail()
             ));
         }
         System.out.println(users);
+        userDto.setId(user1.getId());
         userDto.setFirstName(user1.getFirstName());
         userDto.setLastName(user1.getLastName());
         userDto.setEmail(user1.getEmail());
 
         return listusersDto;
     }
+    
+//    @DeleteMapping("/deleteUser/{id}")
+//    public void deleteUser(@PathVariable(value="id") Long id)
+//    {
+//        Optional<User> user= userService.
+//        
+//    }
 
 }
 

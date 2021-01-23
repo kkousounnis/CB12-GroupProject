@@ -10,6 +10,7 @@ package com.company.springboot.entities.dto;
  * @author Dim.Kasimatis
  */
 public class UserDto {
+    private int id;
     private String firstName;
     private String lastName;
     private String email;
@@ -17,11 +18,23 @@ public class UserDto {
     public UserDto() {
     }
 
-    public UserDto(String firstName, String lastName, String email) {
+    public UserDto(int id, String firstName, String lastName, String email) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+   
+    
     
     public String getFirstName() {
         return firstName;
@@ -50,12 +63,15 @@ public class UserDto {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("UserDto{firstName=").append(firstName);
+        sb.append("UserDto{id=").append(id);
+        sb.append(", firstName=").append(firstName);
         sb.append(", lastName=").append(lastName);
         sb.append(", email=").append(email);
         sb.append('}');
         return sb.toString();
     }
+
+  
     
     
 }

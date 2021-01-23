@@ -17,7 +17,7 @@
         <!-- Brand -->
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img id="imghome" src="img/LOGO3.png" class="img-fluid" alt="Logo">
+                <img id="imghome" src="../img/LOGO3.png" class="img-fluid" alt="Logo">
             </a>
             <!-- Toggler/collapsibe Button -->
             <ul class="navbar-nav">
@@ -69,126 +69,59 @@
 
 
 </header>
+    <main>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title text-uppercase mb-0">Manage Products</h5>
-                </div>
-                <div class="table-responsive">
-                    <table class="table no-wrap user-table mb-0">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="border-0 text-uppercase font-medium pl-4">#</th>
-                                <th scope="col" class="border-0 text-uppercase font-medium">Name</th>
-                                <th scope="col" class="border-0 text-uppercase font-medium">Price</th>
-                                <th scope="col" class="border-0 text-uppercase font-medium">Description</th>
-                                <th scope="col" class="border-0 text-uppercase font-medium">Category</th>
-                                <th scope="col" class="border-0 text-uppercase font-medium">Manage</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="pl-4">1</td>
-                                <td>
-                                    <h5 class="font-medium mb-0">Citroen C2</h5>
-                                </td>
-                                <td>
-                                    <h5 class="font-medium mb-0">5000€</h5><br>
-                                </td>
-                                <td>
-                                    <span class="text-muted">Used car.</span><br>
-                                </td>
-                                <td>
-                                    <select class="form-control category-select" id="exampleFormControlSelect1">
-                                        <option>Electronics</option>
-                                        <option>Auto</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button type="button"
-                                        class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
-                                            class="fa fa-trash"></i> </button>
-                                    <button type="button"
-                                        class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
-                                            class="fa fa-edit"></i> </button>
-                                    <button type="button"
-                                        class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
-                                            class="fa fa-upload"></i> </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="pl-4">2</td>
-                                <td>
-                                    <h5 class="font-medium mb-0">ASUS laptop </h5>
-                                </td>
-                                <td>
-                                    <h5 class="font-medium mb-0">1000€</h5><br>
-                                </td>
-                                <td>
-                                    <span class="text-muted">Used laptop.</span><br>
-                                </td>
-                                <td>
-                                    <select class="form-control category-select" id="exampleFormControlSelect2">
-                                        <option>Electronics</option>
-                                        <option>Auto</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button type="button"
-                                        class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
-                                            class="fa fa-trash"></i> </button>
-                                    <button type="button"
-                                        class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
-                                            class="fa fa-edit"></i> </button>
-                                    <button type="button"
-                                        class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
-                                            class="fa fa-upload"></i> </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="pl-4">3</td>
-                                <td>
-                                    <h5 class="font-medium mb-0"> USB stick </h5>
-                                </td>
-                                <td>
-                                    <h5 class="font-medium mb-0">5€</h5><br>
-                                </td>
-                                <td>
-                                    <span class="text-muted">new usb stick 8 GB.</span><br>
-                                </td>
-                                <td>
-                                    <select class="form-control category-select" id="exampleFormControlSelect3">
-                                        <option>Electronics</option>
-                                        <option>Auto</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <button type="button"
-                                        class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
-                                            class="fa fa-trash"></i> </button>
-                                    <button type="button"
-                                        class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
-                                            class="fa fa-edit"></i> </button>
-                                    <button type="button"
-                                        class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
-                                            class="fa fa-upload"></i> </button>
-                                </td>
-                            </tr>
-                           
-                        </tbody>
-                    </table>
+            <div class="container">
+                <form action="/action_page.php">
+                    <div class="row card-deck ">              
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="product-title">Product</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <figure class="card card-product-grid card-lg " >
+                                <a href="#" class="img-wrap mx-auto d-block" data-abc="true">
+                                    <img style="width: 200px;height: 200px" id="myImage1" src="">
+                                </a>
+                            </figure>
+                            <form>
+                                <div class="form-group">
+                                    <label for="recipient-name" id="product-name" class="col-form-label">Recipient:</label>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="col-form-label">Description</label>
+                                    <p id="product-description" >Hello</p>
+                                </div>
+                                <div class="price-wrap">
+                                    <span id="product-price" class="price h5" >
+                                        
+                                    </span> 
+                                    
+                                    <br> 
+                                    <small class="text-success">Free shipping</small> 
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <a  id="productBuy" type="button" class="btn btn-primary">Buy</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-
-<body>
-
+        </main>
+    
+    
     <footer class=" container pb-0 mb-0 justify-content-center text-dark border-top">
         <div class="container py-5">
             <div class="col-11">
@@ -241,6 +174,7 @@
     </footer>
 
     <script src="../js/jquery.min.js"></script>
+     <script src="../js/productsAdmin.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
