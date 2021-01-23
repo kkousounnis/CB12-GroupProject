@@ -72,7 +72,7 @@
 
             <form th:action="@{/order}" method="post" th:object="${orderDto}"  id="validationsFront">
                 <div th:if="${succesmessage}" class="alert  alert-info text-center">
-                    <label th:if="${succesmessage}" id="message" > Succesfull sign up</label>                                        
+                    <label th:if="${succesmessage}" id="message" > Succesfull </label>                                        
                 </div>
                 <div class="row">
 
@@ -165,8 +165,13 @@
                     </div>
                     
                     <div class="col-sm" style="padding: 50px;">
-                        <input type="submit" class="btn btn-primary btn-lg btn-block rounded-pill text-white" value="Order Product"/>
-                                                
+                        <div id="smart-button-container">
+                            <div style="text-align: center;">
+                                <div id="paypal-button-container"></div>
+                            </div>
+                            <input type="submit" id="hiddenpaybutton" value="">                                   
+                        </div>
+
                     </div>
                     
                 </div>                

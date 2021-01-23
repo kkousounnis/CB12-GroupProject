@@ -69,15 +69,24 @@ public class OrderController {
     public ModelAndView uploadImage(@ModelAttribute("orderDto") OrderDto orderDto,
             @CurrentSecurityContext(expression = "authentication?.name") String username) {
         ModelAndView modelAndView = new ModelAndView();
+            
         System.out.println(orderDto.getCountry() + "me lene gewrgio");
         System.out.println(orderDto.getProductId() + "productId");
         System.out.println(orderDto.getEmail());
         System.out.println(orderDto.getTelNumber());
         System.out.println(orderDto.getCountry());
         System.out.println(orderDto.getTelNumber());
-        
+        modelAndView.addObject("orderDto", orderDto);
+        modelAndView.addObject("succesmessage", "Succesfull Order Of Product");
+        modelAndView.setViewName("buy");
+        modelAndView.addObject("user", userService.findByEmailAddress(username));
+        modelAndView.addObject("imageInfo", productImageService.findByProductId(productService.get(orderDto.getProductId())));
 
-        modelAndView.setViewName("dummyPage");
+        modelAndView.addObject("imagePath", "/img/products/" + productImageService.findByProductId(productService.get(orderDto.getProductId())).getFileName());
+        modelAndView.addObject("productId", orderDto.getProductId());
+        modelAndView.addObject("productName", productService.get(orderDto.getProductId()).getName());
+        
+        modelAndView.addObject("productPrice", productService.get(orderDto.getProductId()).getPrice());
         return modelAndView;
     }
 
