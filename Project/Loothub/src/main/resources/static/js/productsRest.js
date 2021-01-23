@@ -32,6 +32,7 @@ $(document).ready(function () {
 });
 
 function el(fileName,element){
+    console.log(element.category);
     let newElement = $(
                         '' +
                         '<div class="col-md-4">' +
@@ -57,11 +58,11 @@ function el(fileName,element){
                         data-productid="' + element.productId + '" value="' + element.name + '" >' + element.name + '</a>' +
                         '</div>' +
                         '<div class="col-md-4">' +
-                        '<div class="rating text-right"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>' +
+                        '<div style="font-size:80%;" class="rating text-right"><i> '+element.category+'</i></div>' +
                         '</div>' +
                         '</div>' +
                         '</figcaption>' +
-                        '<div class="bottom-wrap"> <a href="/order/' + element.productId + '"  type="submit"  class="btn btn-primary float-right" data-abc="true" value="Buy now">Buy now </a>' +
+                        '<div class="bottom-wrap"> <a href="/order/' + element.productId + '"  type="submit" id="search" class="btn btn-primary float-right" data-abc="true" value="Buy now">Buy now </a>' +
                         '<div class="price-wrap"> <span class="price h5" value="' + element.price + '">' + element.price + '&euro;</span> <br> <small class="text-success">Free shipping</small> </div>' +
                         '</div>' +
                         '</figure>' +

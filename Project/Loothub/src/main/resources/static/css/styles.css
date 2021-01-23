@@ -21,7 +21,12 @@ button.btn.nav-link.text-muted.dropdown-toggle:hover {
 
 #search{
 
-    background-color: rgb(88,203,241);
+    background-color: #21B6E7;
+
+}
+#buyButton{
+
+    background-color: #21B6E7;
 
 }
 
@@ -37,6 +42,7 @@ button.btn.nav-link.text-muted.dropdown-toggle:hover {
 
 #card1, #carousel1{
     background-color: #1D84B0;
+    background-image: url('img/christopher-gower-_aXa21cf7rY-unsplash.jpg');
 }
 
 #card2, #carousel2{
@@ -101,8 +107,8 @@ img {
     padding-top: 25px;
     justify-content: space-between;
     margin-top: 25px;
-    border: 2px solid #21B6E7;
-    background-color: #21B6E7;
+    /*border: 2px solid #21B6E7;*/
+    /*background-color: #21B6E7;*/
 }
 
 .register {
