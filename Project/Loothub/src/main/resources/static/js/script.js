@@ -114,8 +114,8 @@ function searchFunction(){
     
     let searchText = document.getElementById("searchbar").value;
     
-//    window.location.href="http://localhost:8080/products"+"?searchbar="+searchText;   
-    let url = window.location.replace("http://localhost:8080/products");   
+    window.location.href="http://localhost:8080/products"+"?searchbar="+searchText;   
+    
     
     alert("ser "+ searchText+ "  , "+url);
 }
