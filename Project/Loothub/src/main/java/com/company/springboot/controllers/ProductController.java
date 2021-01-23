@@ -19,7 +19,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -77,12 +79,21 @@ public class ProductController {
         return (modelAndView);
     }
     
-    @GetMapping("/products")
-    public ModelAndView showAllProducts() {
+    @RequestMapping(value = {"/products"})
+    //@RequestParam(defaultValue = "test") String id
+    public ModelAndView showAllProducts(@RequestParam(value = "searchbar",required = false) String id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("products");
         return modelAndView; 
-    }   
+    }  
+    
+//    @GetMapping(value = {"/products/{id}"})
+//    public ModelAndView showAllProducts2() {
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("products");
+//        return modelAndView; 
+//    }  
+    
 
     public void saveProduct(Path uploadPath, MultipartFile multipartFile, String fileName) throws IOException {
 

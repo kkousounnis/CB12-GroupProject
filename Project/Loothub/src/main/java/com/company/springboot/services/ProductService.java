@@ -33,6 +33,10 @@ public class ProductService implements IProductService {
         return productDao.save(product);
     }
     
+        public Product findByProductName(String name){
+        return productDao.productName(name);
+    }
+    
     @Override
     public Product get(Integer id) {
         return (productDao.get(id));

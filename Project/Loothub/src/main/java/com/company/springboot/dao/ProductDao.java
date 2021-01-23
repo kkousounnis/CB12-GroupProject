@@ -32,5 +32,14 @@ public class ProductDao implements IProductDao {
     public void delete(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+        public Product productName(String name){
+            Product product = productRepository.findByName(name);
+        if (product == null) {
+            //throw new UsernameNotFoundException("Invalid username or password.");
+            return null;
+        }
+        return productRepository.findByName(name);
+    }
 
 }
