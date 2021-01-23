@@ -65,7 +65,7 @@ public class OrderController {
         return modelAndView;
     }
 
-    @PostMapping("/order")
+    @PostMapping("/buy")
     public ModelAndView uploadImage(@ModelAttribute("orderDto") OrderDto orderDto,
             @CurrentSecurityContext(expression = "authentication?.name") String username) {
         ModelAndView modelAndView = new ModelAndView();

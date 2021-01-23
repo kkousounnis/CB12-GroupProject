@@ -70,7 +70,7 @@
     <main>
         <div class="container">
 
-            <form th:action="@{/order}" method="post" th:object="${orderDto}"  id="validationsFront">
+            <form th:action="@{/buy}" method="post" th:object="${orderDto}"  id="validationsFront">
                 <div th:if="${succesmessage}" class="alert  alert-info text-center">
                     <label th:if="${succesmessage}" id="message" > Succesfull sign up</label>                                        
                 </div>

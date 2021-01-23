@@ -109,49 +109,55 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     }, false);
 })();
 
-function searchFunction(){
-    
-    
+function searchFunction() {
+
+
     let searchText = document.getElementById("searchbar").value;
-    
-    window.location.href="http://localhost:8080/products"+"?searchbar="+searchText;   
-    
-    
-    alert("ser "+ searchText+ "  , "+url);
+
+    window.location.href = "http://localhost:8080/products" + "?searchbar=" + searchText;
+
+
+    alert("ser " + searchText + "  , " + url);
 }
 
 
 
-function initPayPalButton() {
-    paypal.Buttons({
-        style: {
-            shape: 'pill',
-            color: 'blue',
-            layout: 'vertical',
-            label: 'paypal',
 
-        },
 
-        createOrder: function (data, actions) {
-            return actions.order.create({
-                
-                purchase_units: [{"amount": {"currency_code": "EUR", "value": 2.99}}]
+$(document).ready(function () {
+    if (window.location.pathname == '/buy') {
+        function initPayPalButton() {
+            paypal.Buttons({
+                style: {
+                    shape: 'pill',
+                    color: 'blue',
+                    layout: 'vertical',
+                    label: 'paypal',
 
-            });
-        },
+                },
 
-        onApprove: function (data, actions) {
-            return actions.order.capture().then(function (details) {
-                alert('Transaction completed by ' + details.payer.name.given_name + '!');
-                document.getElementById("hiddenpaybutton").click();
-            });
-        },
+                createOrder: function (data, actions) {
+                    return actions.order.create({
 
-        onError: function (err) {
-            console.log(err);
+                        purchase_units: [{"amount": {"currency_code": "EUR", "value": 2.99}}]
+
+                    });
+                },
+
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (details) {
+                        alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                        document.getElementById("hiddenpaybutton").click();
+                    });
+                },
+
+                onError: function (err) {
+                    console.log(err);
+                }
+            }).render('#paypal-button-container');
         }
-    }).render('#paypal-button-container');
-}
-initPayPalButton();
+        initPayPalButton();
 
+    }
+})
 
