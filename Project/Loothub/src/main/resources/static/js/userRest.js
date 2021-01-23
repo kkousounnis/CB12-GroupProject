@@ -6,10 +6,9 @@ $(document).ready(function () {
                 dataType: 'json',
                 success: function (data) {
                 $.each(data, function(index, element) {
-                    console.log(element.email + "HELLOOOOO");
                         let newElement = $(
                                 '<tr>' +
-                                '<td class="pl-4">1</td>' +
+                                '<td class="pl-4">' + element.id + '</td>' +
                                 '<td>' +
                                 '<h5 class="font-medium mb-0">' + element.firstName + " " + element.lastName + '</h5>' +
                                 '</td>' +
@@ -17,18 +16,17 @@ $(document).ready(function () {
                                 '<span class="text-muted">'  + element.email + '</span><br>' +
                                 '</td>' +
                                 '<td>' +
-                                '<button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle"><i' +
-                                'class="fa fa-key"></i> </button>' +
+                                '<button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle">' +
+                                '<i class="fa fa-key"></i> </button>' +
                                 '<button type="button"' +
-                                'class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i' +
-                                'class="fa fa-trash"></i> </button>' +
+                                'class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">' +
+                                '<i class="fa fa-trash"></i> </button>' +
+                                '<button type="button" onclick="Delete" ' +
+                                'class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">' +
+                                '<i class="fa fa-edit"></i> </button>' +
                                 '<button type="button"' +
-                                'class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i' +
-                                'class="fa fa-edit"></i> </button>' +
-                                '<button type="button"' +
-                                'class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i' +
-                                'class="fa fa-upload"></i> </button>' +
-                                '</td>' +
+                                'class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2">' +
+                                '<i class="fa fa-upload"></i> </button>' +
                                 '</tr>'
                                 );
                         $('.userListTable').append($(newElement, {

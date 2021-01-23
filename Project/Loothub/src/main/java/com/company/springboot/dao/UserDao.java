@@ -13,6 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.company.springboot.repository.IUserRepository;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserDao implements IUserDao {
@@ -60,6 +61,7 @@ public class UserDao implements IUserDao {
     private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getRole())).collect(Collectors.toList());
     }
+   
     
     public User findByEmailAddress(String email){
         User user = userRepository.findByEmail(email);
