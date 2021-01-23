@@ -29,10 +29,10 @@
 
                             <form class="form-inline flex-row-reverse">
                                 <div class="input-group">
-                                    <input th:name="searchbar" class="form-control form-control-sm " type="text"
+                                    <input id="searchbar" th:name="searchbar" class="form-control form-control-sm " type="text"
                                            placeholder="Search" aria-label="Search"/>
                                     <div class="input-group-append">
-                                        <button id="search" class="btn btn-outline-secondary btn-default btn-sm text-white"
+                                        <button id="search" onclick="searchFunction()" class="btn btn-outline-secondary btn-default btn-sm text-white"
                                                 type="submit">                                            
                                             Search
                                         </button>

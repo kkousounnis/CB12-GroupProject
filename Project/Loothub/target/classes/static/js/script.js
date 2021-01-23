@@ -109,6 +109,17 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     }, false);
 })();
 
+function searchFunction(){
+    
+    
+    let searchText = document.getElementById("searchbar").value;
+    
+//    window.location.href="http://localhost:8080/products"+"?searchbar="+searchText;   
+    let url = window.location.replace("http://localhost:8080/products");   
+    
+    alert("ser "+ searchText+ "  , "+url);
+}
+
 
 
 function initPayPalButton() {
@@ -142,6 +153,5 @@ function initPayPalButton() {
     }).render('#paypal-button-container');
 }
 initPayPalButton();
-
 
 
