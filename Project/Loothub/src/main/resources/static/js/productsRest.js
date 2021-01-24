@@ -25,6 +25,9 @@ $(document).ready(function () {
                 }else if( (z === y || d ===true)&& y.length>=3){ 
                     let x= el(fileName,element);
                     $('.row.card-deck').append($(x, {}));
+                }else if((urlid ==="Electronics" || urlid ==="Collectables")&& urlid===element.category){
+                    let x= el(fileName,element);
+                    $('.row.card-deck').append($(x, {}));
                 }
             });
         }
