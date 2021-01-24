@@ -89,6 +89,17 @@ public class UserAddress implements Serializable {
         this.id = id;
     }
 
+    public UserAddress(String country, String city, String streetName, String streetNumber, int postalCode, Boolean isShipping, Boolean isBilling, User userId) {
+        this.country = country;
+        this.city = city;
+        this.streetName = streetName;
+        this.streetNumber = streetNumber;
+        this.postalCode = postalCode;
+        this.isShipping = isShipping;
+        this.isBilling = isBilling;
+        this.userId = userId;
+    }
+    
     public UserAddress(Integer id, String country, String city, int postalCode) {
         this.id = id;
         this.country = country;
@@ -208,7 +219,22 @@ public class UserAddress implements Serializable {
 
     @Override
     public String toString() {
-        return "com.company.springboot.entities.UserAddress[ id=" + id + " ]";
+        StringBuilder sb = new StringBuilder();
+        sb.append("UserAddress{id=").append(id);
+        sb.append(", country=").append(country);
+        sb.append(", city=").append(city);
+        sb.append(", streetName=").append(streetName);
+        sb.append(", streetNumber=").append(streetNumber);
+        sb.append(", postalCode=").append(postalCode);
+        sb.append(", isShipping=").append(isShipping);
+        sb.append(", isBilling=").append(isBilling);
+        sb.append(", userId=").append(userId);
+        sb.append(", ordersList=").append(ordersList);
+        sb.append(", ordersList1=").append(ordersList1);
+        sb.append('}');
+        return sb.toString();
     }
+
     
+
 }

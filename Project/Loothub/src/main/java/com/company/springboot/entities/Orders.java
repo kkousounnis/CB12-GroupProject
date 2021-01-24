@@ -65,6 +65,16 @@ public class Orders implements Serializable {
     public Orders() {
     }
 
+    public Orders(String comments, String trackingNumber, ItemStatus itemStatusId, Product productId, UserAddress billingAddressId, UserAddress shippingAddressId, User userId) {
+        this.comments = comments;
+        this.trackingNumber = trackingNumber;
+        this.itemStatusId = itemStatusId;
+        this.productId = productId;
+        this.billingAddressId = billingAddressId;
+        this.shippingAddressId = shippingAddressId;
+        this.userId = userId;
+    }
+
     public Orders(Integer id) {
         this.id = id;
     }

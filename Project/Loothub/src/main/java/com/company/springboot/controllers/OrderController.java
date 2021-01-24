@@ -1,13 +1,22 @@
 package com.company.springboot.controllers;
 
+import com.company.springboot.entities.ItemStatus;
+import com.company.springboot.entities.Orders;
 import com.company.springboot.entities.User;
+import com.company.springboot.entities.UserAddress;
 import com.company.springboot.entities.dto.OrderDto;
+import com.company.springboot.entities.dto.UserRegistrationDto;
+import com.company.springboot.services.ItemStatusService;
+import com.company.springboot.services.OrdersService;
 import com.company.springboot.services.ProductImageService;
 import com.company.springboot.services.ProductService;
+import com.company.springboot.services.UserAddressService;
 import com.company.springboot.services.UserService;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +35,16 @@ public class OrderController {
 
     @Autowired
     private ProductImageService productImageService;
+    
+    @Autowired
+    private ItemStatusService itemStatusService;
+    
+    
+    @Autowired
+    private UserAddressService userAddressService;
+    
+    @Autowired
+    private OrdersService orderService;
 
     @RequestMapping("/order/{id}")
     public ModelAndView showOrder(@PathVariable Integer id, @CurrentSecurityContext(expression = "authentication?.name") String username) {
@@ -62,16 +81,17 @@ public class OrderController {
     }
 
     @PostMapping("/buy")
-    public ModelAndView uploadImage(@ModelAttribute("orderDto") OrderDto orderDto,
-            @CurrentSecurityContext(expression = "authentication?.name") String username, 
-                BindingResult bindingResult) {
+    public ModelAndView orderProduct(@Valid @ModelAttribute("orderDto") OrderDto orderDto,
+            @CurrentSecurityContext(expression = "authentication?.name") String username,
+            BindingResult bindingResult, ModelMap modelMap) {
+        User user = new User();
         ModelAndView modelAndView = new ModelAndView();
 
         modelAndView.addObject("orderDto", orderDto);
-        modelAndView.addObject("succesmessage", "Succesfull Order Of Product");
-        modelAndView.setViewName("buy");
+        
+        //modelAndView.setViewName("buy");
         if (username.equals("anonymousUser")) {
-            User user = new User();
+            
             user.setEmail(null);
             modelAndView.addObject("user", user);
         } else {
@@ -83,12 +103,58 @@ public class OrderController {
         modelAndView.addObject("productName", productService.get(orderDto.getProductId()).getName());
 
         modelAndView.addObject("productPrice", productService.get(orderDto.getProductId()).getPrice());
-        
-        
-        
-        
-        
-        
+
+        if (bindingResult.hasErrors()) {
+            
+            modelAndView.setViewName("order");
+
+        } else if (userService.findByEmailAddress(orderDto.getEmail()) != null) {
+            System.out.println("exei la8oi");
+            modelMap.addAttribute("message", "Username already exists.");
+            modelAndView.addObject("Unsuccessful", "Unsuccessful Order Of Product");
+            modelAndView.setViewName("order");
+        } else {
+            UserRegistrationDto registrationDto = new UserRegistrationDto(
+                    orderDto.getFirstName(),
+                    orderDto.getLastName(),
+                    orderDto.getEmail(),
+                    orderDto.getPassword(),
+                    orderDto.getTelNumber());
+
+            user = userService.save(registrationDto);
+            
+            UserAddress userAddress = new UserAddress(
+                    orderDto.getCountry(), 
+                    orderDto.getCity(),
+                    orderDto.getStreetName(),
+                    orderDto.getStreetNumber(),
+                    Integer.valueOf(orderDto.getPostalCode()),
+                    true,
+                    true,
+                    user);
+            
+            userAddress = userAddressService.save(userAddress);
+            
+            ItemStatus itemStatus = new ItemStatus("Pending");
+            
+            itemStatus = itemStatusService.save(itemStatus);
+            
+            String trackingNumber = orderDto.getProductId()+
+                    ""+user.getId();
+            Orders order = new Orders(
+                    orderDto.getComments(), 
+                    trackingNumber, 
+                    itemStatus, 
+                    productService.get(orderDto.getProductId()),
+                    userAddress,
+                    userAddress,
+                    user);
+            
+            modelAndView.setViewName("buy");
+            modelAndView.addObject("succesmessage", "Succesfull");
+
+        }
+
         return modelAndView;
     }
 

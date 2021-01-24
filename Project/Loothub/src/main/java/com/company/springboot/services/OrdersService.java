@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class OrdersServises implements IOrdersServises {
+public class OrdersService implements IOrdersServices {
     
     @Autowired
     private OrdersDao ordersDao; 

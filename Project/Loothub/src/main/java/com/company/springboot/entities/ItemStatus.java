@@ -54,6 +54,10 @@ public class ItemStatus implements Serializable {
     public ItemStatus() {
     }
 
+    public ItemStatus(String status) {
+        this.status = status;
+    }  
+
     public ItemStatus(Integer id) {
         this.id = id;
     }
