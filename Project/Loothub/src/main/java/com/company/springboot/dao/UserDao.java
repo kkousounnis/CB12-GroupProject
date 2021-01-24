@@ -71,6 +71,14 @@ public class UserDao implements IUserDao {
         }
         return userRepository.findByEmail(email);
     }
+    
+    public Optional<User> findbyId(int id) {
+        Optional<User> user = userRepository.findById(id);
+        if (user == null) {
+            return null;
+        }
+        return userRepository.findById(id);
+    }
 
     @Override
     public List<User> listAll() {
@@ -78,12 +86,12 @@ public class UserDao implements IUserDao {
     }
 
     @Override
-    public User get(Long id) {
+    public User get(int id) {
        return userRepository.findById(id).get();
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(int id) {
         userRepository.deleteById(id);
     }
 

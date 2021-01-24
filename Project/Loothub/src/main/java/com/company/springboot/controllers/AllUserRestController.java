@@ -7,6 +7,7 @@ package com.company.springboot.controllers;
 
 import com.company.springboot.entities.User;
 import com.company.springboot.entities.dto.UserDto;
+import com.company.springboot.repository.IUserRepository;
 import com.company.springboot.services.UserService;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,67 +30,32 @@ public class AllUserRestController {
 
     @Autowired
     public UserService userService;
+    
+    @Autowired
+    public IUserRepository userRepository;
 
     @CrossOrigin("http://localhost:8080")
-    @GetMapping("/userList")
-    public List<UserDto> get() {
-        List<User> users = userService.listAll();
-
-        List<UserDto> listusersDto = new ArrayList<>();
-        UserDto userDto = new UserDto();
-
-        User user1 = new User();
-        int i = 0;
-        for (User user : users) {
-            user1 = user;
-            listusersDto.add(new UserDto(user1.getId(),
-                    user1.getFirstName(),
-                    user1.getLastName(),
-                    user1.getEmail()
-            ));
-        }
-        System.out.println(users);
-        userDto.setId(user1.getId());
-        userDto.setFirstName(user1.getFirstName());
-        userDto.setLastName(user1.getLastName());
-        userDto.setEmail(user1.getEmail());
-
-        return listusersDto;
+    @GetMapping("/getAllUsers")
+    public List<User> getAllUsers() {
+        
+        return userRepository.findAll();
     }
     
-//    @DeleteMapping("/deleteUser/{id}")
-//    public void deleteUser(@PathVariable(value="id") Long id)
-//    {
-//        Optional<User> user= userService.
-//        
-//    }
+    
+    @GetMapping("getUserById/{id}")
+    public Optional<User> getUserById(@PathVariable(value="id") int id) {
+        return userRepository.findById(id);
+    }
+    
+    @DeleteMapping("/deleteUser/{id}")
+    public void deleteUser(@PathVariable(value="id") int id)
+    {
+        Optional<User> user = userRepository.findById(id);
+        User userNew = user.get();
+        userRepository.delete(userNew);
+        
+    }
 
 }
 
-//    
-//    public List<ProductDto> get() {
-//        List<Product> products = productService.listAll();
-//        
-//        List<ProductDto> listproductsDto = new ArrayList<>();
-//        ProductDto productDto = new ProductDto();
-//
-//        Product product1 = new Product();
-//        int i = 0;
-//        for (Product product : products) {
-//            
-//            product1 = product;
-//            listproductsDto.add(new ProductDto(
-//                    product1.getName(),
-//                    product1.getPrice(),
-//                    product1.getCategory(),
-//                    product1.getDescription()
-//                    ));
-//        }
-//          System.out.println(products);
-//        productDto.setCategory(product1.getCategory());
-//        productDto.setDescription(product1.getDescription());
-//        productDto.setName(product1.getName());
-//        productDto.setPrice(product1.getPrice());
-//
-//        return listproductsDto;
 

@@ -4,18 +4,14 @@ import com.company.springboot.entities.Role;
 import com.company.springboot.entities.User;
 import com.company.springboot.entities.dto.UserRegistrationDto;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.company.springboot.dao.IUserDao;
 import com.company.springboot.dao.UserDao;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService implements IUserService {
@@ -52,18 +48,22 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User get(Long id) {
+    public User get(int id) {
         return userDao.get(id);
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(int id) {
         userDao.delete(id);
     }
 
     @Override
     public List<User> listAll() {
        return userDao.listAll();
+    }
+    
+    public Optional<User> findById(int id) {
+        return userDao.findbyId(id);
     }
 
 }

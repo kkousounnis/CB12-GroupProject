@@ -228,13 +228,11 @@ public class UserAddress implements Serializable {
         sb.append(", postalCode=").append(postalCode);
         sb.append(", isShipping=").append(isShipping);
         sb.append(", isBilling=").append(isBilling);
-        sb.append(", userId=").append(userId);
-        sb.append(", ordersList=").append(ordersList);
-        sb.append(", ordersList1=").append(ordersList1);
         sb.append('}');
         return sb.toString();
     }
 
+   
     
 
 }

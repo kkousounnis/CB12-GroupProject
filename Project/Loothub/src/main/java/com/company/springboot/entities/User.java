@@ -5,6 +5,7 @@
  */
 package com.company.springboot.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
@@ -60,6 +61,7 @@ public class User implements Serializable {
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "password", nullable = false, length = 255)
+    @JsonIgnore
     private String password;
     @Basic(optional = false)
     @NotNull
@@ -77,10 +79,13 @@ public class User implements Serializable {
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "contact_number_id", referencedColumnName = "id"))
+    @JsonIgnore
     private Collection<ContactNumber> contactNumbers;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    @JsonIgnore
     private List<UserAddress> userAddressList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    @JsonIgnore
     private List<Orders> ordersList;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
@@ -89,6 +94,7 @@ public class User implements Serializable {
                     name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
+    @JsonIgnore
     private Collection<Role> roles;
 
     public User() {

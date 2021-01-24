@@ -20,31 +20,9 @@
                 </button>
                 <div class="container">
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+             
+                        <div class="navbar-nav ml-auto">   
 
-                        <div class="navbar-nav">
-
-
-                            <a href="http://localhost:8080/"><img id="imghome" src="img/LOGO3.png" class="img-fluid" alt="Logo"/></a>
-
-                            <form class="form-inline flex-row-reverse">
-                                <div class="input-group">
-                                    <input id="searchbar" class="form-control form-control-sm " type="text" placeholder="Search"
-                                           aria-label="Search"/>
-                                    <div class="input-group-append">
-                                        <button id="search" class="btn btn-outline-secondary btn-default btn-sm text-white"
-                                                type="button" onclick="searchFunction()">
-                                                Search
-                                        </button>
-
-                                    </div>
-                                </div>
-
-                            </form>
-
-                        </div>                   
-
-                        <div class="navbar-nav">   
-                            
                             <a href="#" class="btn nav-link text-muted"><span sec:authentication="principal.username"> User</span></a>
                             <div class="container ">
                                 <div id="cardprofile" class="  pull-right">
@@ -68,9 +46,231 @@
 
         </header>
         <main>
+            <div class="container">
+          <div class="row ">
+                    <div class="col-12">
+
+                        <div class="text-center justify-content-center text-dark mt-5">
+
+                            <div class="col-4 mx-auto">
+
+                                <a href="http://localhost:8080/"><img id="imghome2" src="img/LOGO3.png" class="img-fluid" alt="Logo"/></a>
+
+                            </div>
+
+                            <p class="lead"><i><strong>Your number one hub to buy and sell your
+                                        collectables and electronics</strong></i></p>                            
+                            <div class="row ">
+                                <div class=" col-sm-8 mx-auto ">
+
+                                    <div class="input-group ">
+                                        <input id="searchbar" class="form-control form-control-sm " type="text"
+                                               placeholder="Search" aria-label="Search">
+                                            <div class="input-group-append">
+
+                                                <button id="search"
+                                                        class="btn btn-outline-secondary btn-default btn-sm text-white"
+                                                        type="button" onclick="searchFunction()">
+                                                    <div class="text-center col">
+                                                        Search
+                                                    </div>
+                                                </button>
+
+                                            </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
 
 
 
+            <br /><br /><br /><br />
+            <div id="myCarousel" class="container ">
+                <div id="demo" class="carousel slide rounded" data-ride="carousel">
+
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active "></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                        <li data-target="#demo" data-slide-to="3"></li>
+                    </ul>
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <div id="carousel1" class="carousel-item active rounded text-dark" style="background-image: url('/img/electronics.png');">
+
+                            <div class="row" >
+
+                                <div class="col-sm" >
+                                    <div class="text-center" >
+                                        <br />
+                                        <br />  
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <div id="textcolor1">.</div>
+
+                                    </div>
+                                </div>                           
+
+                            </div>
+
+                        </div>
+                        <div id="carousel2" class="carousel-item  rounded text-white" style="background-image: url('/img/collectables.png');">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="text-center">
+                                        <br />
+                                        <br />  
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <div id="textcolor2">.</div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div id="carousel3" class="carousel-item  rounded text-white"  style="background-image: url('/img/collectables1.png');">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="text-center">
+                                        <br />
+                                        <br />  
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <div id="textcolor3">.</div>
+
+                                    </div>
+                                </div>                            
+
+                            </div>
+                        </div>
+                        <div id="carousel4" class="carousel-item  rounded text-white" style="background-image: url('/img/electronics1.png');">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="text-center">
+                                        <br />
+                                        <br />  
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <br />
+                                        <div id="textcolor4">.</div>
+                                    </div>
+                                </div>                            
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+                </div>
+            </div>
+            <br />
+            <div class="container">
+
+                <div class="card-deck">
+                    <div id="card1" class="card shadow p-3 mb-5 rounded" style="background-image: url('/img/laptop.png');">
+                        <div class="card-body pull-left text-white">
+                            <a href="http://localhost:8080/products?searchbar=Electronics" class="text-white">
+                                <h5 class="card-title">Electronics</h5>
+                            </a>
+                            <div class="pull-left">
+                                <a href="http://localhost:8080/products?searchbar=headset" class="text-white">
+                                    HeadSets
+                                </a>
+                                <br />
+                                <a href="http://localhost:8080/products?searchbar=pc" class="text-white">
+                                    Pc's
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="card2" class="card shadow p-3 mb-5 rounded" style="background-image: url('/img/gameBoy.png');">
+                        <div class="card-body pull-left text-white">
+                            <a href="http://localhost:8080/products?searchbar=Collectables" class="text-white">
+                                <h5 class="card-title">Collectables</h5>
+                            </a>
+                            <div class="pull-left">
+                                <a href="http://localhost:8080/products?searchbar=doll" class="text-white">
+                                    Dolls
+                                </a>
+                                <br />
+                                <a href="http://localhost:8080/products?searchbar=handmades" class="text-white">
+                                    Handmades
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="card3" class="card shadow p-3 mb-5 rounded"  style="background-image: url('/img/Phone.png');">
+                        <div class="card-body pull-left text-white">
+                            <a href="http://localhost:8080/products?searchbar=Electronics" class="text-white">
+                                <h5 class="card-title">Electronics</h5>
+                            </a>
+                            <div class="pull-left">
+                                <a href="http://localhost:8080/products?searchbar=Smartphone" class="text-white">
+                                    Smartphones
+                                </a>
+                                <br />
+                                <a href="http://localhost:8080/products?searchbar=Laptop" class="text-white">
+                                    Laptops
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="card4" class="card shadow p-3 mb-5 rounded"  style="background-image: url('/img/perfume.png');">
+                        <div class="card-body pull-left text-white">
+                            <a href="http://localhost:8080/products?searchbar=Collectables" class="text-white">
+                                <h5 class="card-title">Collectables</h5>
+                            </a>
+                            <div class="pull-left">
+                                <a href="http://localhost:8080/products?searchbar=painting" class="text-white">
+                                    Paintings
+                                </a>
+                                <br />
+                                <a href="http://localhost:8080/products?searchbar=cards" class="text-white">
+                                    Cards
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <br /><br />
         </main>
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <footer class=" container pb-0 mb-0 justify-content-center text-dark border-top">

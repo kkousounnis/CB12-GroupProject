@@ -34,12 +34,13 @@ $(document).ready(function () {
                         data-productid="'+element.productId+'" value="'+element.name+'" >'+element.name+'</a>'+                    
                     '</div>'+                                
                     '<div class="col-md-4">'+                                
-                    '<div class="rating text-right"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>'+                                
+                    '<div style="font-size:80%;" class="rating text-right"><i> '+element.category+'</i></div>'+                                
                     '</div>'+                                
                     '</div>'+                                
                     '</figcaption>'+   
-                    '<div class="bottom-wrap"> <a href="/order/'+element.productId+'"  type="submit"  class="btn btn-danger float-right" data-abc="true" value="Delete">Delete </a>'+                   
-                    '<div class="price-wrap"> <span class="price h5" value="'+element.price+'">'+element.price+'&euro;</span> <br> <small class="text-success">Free shipping</small> </div>'+                                
+                    '<div class="bottom-wrap"> <button type="button" class="btn btn-danger float-right" onclick="deleteProduct('+ element.productId +')">Delete </button>'+                   
+                    '<div class="price-wrap"> <span class="price h5" value="'+element.price+'">'+element.price+'&euro;</span> <br> <small class="text-success"> Product ID: '+ element.productId + '</small> </div>'+ 
+                    '<small class="text-success"> Seller ID: '+ element.userId + '</small> </div>' +
                     '</div>'+                                
                     '</figure>'+                                
                     '</div>'+ 
@@ -55,3 +56,15 @@ $(document).ready(function () {
     }
 });
 });
+
+
+function deleteProduct(id) {
+$.ajax({
+    url: 'http://localhost:8080/api/deleteProduct/' + id,
+    type: 'DELETE',
+    success: function(){
+        alert("Succesfully deleted product!");
+        location.reload(); 
+    }
+});
+};
