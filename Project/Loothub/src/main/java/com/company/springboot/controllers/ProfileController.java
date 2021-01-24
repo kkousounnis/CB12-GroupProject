@@ -45,10 +45,17 @@ public class ProfileController {
         ModelAndView modelAndView = new ModelAndView();
 
         UserAddress userAddress = new UserAddress();
+        
+        
+        userAddress.setUserId(userService.findByEmailAddress(username));
         userAddress.setCountry(orderDto.getCountry());
+        userAddress.setCity(orderDto.getCity());
+        userAddress.setStreetName(orderDto.getStreetName());
+        userAddress.setStreetNumber(orderDto.getStreetNumber());
+        userAddress.setPostalCode(Integer.parseInt(orderDto.getPostalCode()));
+
         userAddressService.save(userAddress);
-        
-        
+
         
         return modelAndView;
     }

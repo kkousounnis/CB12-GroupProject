@@ -66,7 +66,7 @@
 
         </header>
         <main>
-             <div class="container">
+             <div class="container col-5">
 
             <form th:action="@{/edituser}" method="post" th:object="${orderDto}"  id="validationsFront">
                 <div th:if="${succesmessage}" class="alert  alert-info text-center">
@@ -77,7 +77,7 @@
                         <div class="form-group">
                             <label>First Name:</label>
                             <input type="text" class="form-control" id="firstname" th:field="*{firstName}"placeholder="Enter your first name..."
-                                name="firstname" autocomplete="off" required>
+                                name="firstname" autocomplete="off" required disabled>
                                 
                              
                         </div>
@@ -85,18 +85,18 @@
                             <label>Last Name:</label>
                             <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
                             <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="Enter your last name..."
-                                   name="lastname" autocomplete="off" required>
+                                   name="lastname" autocomplete="off" required disabled>
                                 
                         
                             <label>Email:</label>
                             <input type="email" class="form-control" id="email" name="email" th:field="*{email}"
-                                placeholder="Enter your email...">                           
+                                placeholder="Enter your email..." disabled>                           
                                 
                                 
                             </div>    
                             <label>Phone Number:</label>
                             <input type="text" class="form-control" id="phoneNumber"
-                                placeholder="Enter your phone number..." name="phoneNumber"  th:field="*{telNumber}" autocomplete="off" required>
+                                placeholder="Enter your phone number..." name="phoneNumber"  th:field="*{telNumber}" autocomplete="off" required disabled>
                               
                         </div>
 
