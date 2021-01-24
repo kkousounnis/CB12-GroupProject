@@ -149,7 +149,7 @@ public class OrderController {
                     userAddress,
                     userAddress,
                     user);
-            
+            orderService.save(order);
             modelAndView.setViewName("buy");
             modelAndView.addObject("succesmessage", "Succesfull");
 

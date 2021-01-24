@@ -80,24 +80,24 @@
                         <div class="form-group needs-validation">
                             <label>Country:</label>
                             <input type="text" class="form-control" th:field="*{country}"  placeholder="Enter your country..."
-                                name="country" autocomplete="off" required>                                 
+                                name="country" autocomplete="off" readonly >                                 
                             <br/>
                             <label>City:</label>
                             <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
                             <input type="text" class="form-control" id="city" th:field="*{city}" placeholder="Enter your city..."
-                                name="city" autocomplete="off" required>                                
+                                name="city" autocomplete="off" readonly>                                
                             <br/>
                             <label>Street Name:</label>
                             <input type="text" class="form-control" id="streetName" th:field="*{streetName}"
-                                placeholder="Enter your street name..." required>
+                                placeholder="Enter your street name..." readonly>
                             <br/>
                             <label>Street Number:</label>
                             <input type="number" class="form-control" id="streetNumber" th:field="*{streetNumber}"
-                                placeholder="Enter your street number..." name="streetNumber" autocomplete="off" required>
+                                placeholder="Enter your street number..." name="streetNumber" autocomplete="off" readonly>
                             <br/>
                                 <label>Postal Code:</label>
                             <input type="number" class="form-control" id="postalCode" th:field="*{postalCode}"
-                                placeholder="Enter your postal code..." name="postalCode" autocomplete="off" required>
+                                placeholder="Enter your postal code..." name="postalCode" autocomplete="off" readonly>
 
                         </div>
 
@@ -122,7 +122,8 @@
                             </figcaption>
                         </figure>
                         <label for="exampleFormControlTextarea1">Comments</label>
-                        <textarea class="form-control" id="Description"    th:field="*{comments}"   rows="3" placeholder="Add any comments here about purchasing the product..."></textarea>
+                        <textarea class="form-control" id="Description"    th:field="*{comments}"  
+                                  rows="3" placeholder="Add any comments here about purchasing the product..." readonly=""></textarea>
 
                     </div>
                 </div>
@@ -131,7 +132,7 @@
                         <div class="form-group">
                             <label>First Name:</label>
                             <input type="text" class="form-control" id="firstname" th:field="*{firstName}"placeholder="Enter your first name..."
-                                name="firstname" autocomplete="off" required>
+                                name="firstname" autocomplete="off" readonly>
                                 
                              
                         </div>
@@ -139,25 +140,16 @@
                             <label>Last Name:</label>
                             <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
                             <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="Enter your last name..."
-                                   name="lastname" autocomplete="off" required>
+                                   name="lastname" autocomplete="off" readonly>
                                 
                         
                             <label>Email:</label>
                             <input type="email" class="form-control" id="email" name="email" th:field="*{email}"
-                                placeholder="Enter your email...">
-                            <div  th:if="${user.email == null}">    
-                                
-                                <label>Password:</label>
-                                <input type="password" class="form-control" id="password"
-                                    placeholder="Please enter your password..." name="password"  th:field="*{password}" autocomplete="off">
-                                
-                                <label for="confirm_password" id="confirm_password" name="confirm_password" >Confirm Password:</label>
-                                <input type="password" class="form-control" id="confirm_password" 
-                                    placeholder="Please confirm your password..." name="confirm_password"  autocomplete="off">
-                            </div>    
+                                   placeholder="Enter your email..." readonly>
+                              
                             <label>Phone Number:</label>
                             <input type="text" class="form-control" id="phoneNumber"
-                                placeholder="Enter your phone number..." name="phoneNumber"  th:field="*{telNumber}" autocomplete="off" required>
+                                placeholder="Enter your phone number..." name="phoneNumber"  th:field="*{telNumber}" autocomplete="off" readonly>
                               
                         </div>
 
