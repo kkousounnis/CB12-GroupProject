@@ -142,7 +142,7 @@ public class OrderController {
             
             userAddress = userAddressService.save(userAddress);
             
-            ItemStatus itemStatus = new ItemStatus("Pending");
+            ItemStatus itemStatus = new ItemStatus("Sold");
             
             itemStatus = itemStatusService.save(itemStatus);
             

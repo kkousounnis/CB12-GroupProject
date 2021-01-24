@@ -165,7 +165,19 @@ public class Orders implements Serializable {
 
     @Override
     public String toString() {
-        return "com.company.springboot.entities.Orders[ id=" + id + " ]";
+        StringBuilder sb = new StringBuilder();
+        sb.append("Orders{id=").append(id);
+        sb.append(", comments=").append(comments);
+        sb.append(", trackingNumber=").append(trackingNumber);
+        sb.append(", itemStatusId=").append(itemStatusId);
+        sb.append(", productId=").append(productId);
+        sb.append(", billingAddressId=").append(billingAddressId);
+        sb.append(", shippingAddressId=").append(shippingAddressId);
+        sb.append(", userId=").append(userId);
+        sb.append('}');
+        return sb.toString();
     }
+
+    
 
 }
