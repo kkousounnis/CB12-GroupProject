@@ -127,6 +127,7 @@ function searchFunction() {
 $(document).ready(function () {
     if (window.location.pathname == '/buy') {
         function initPayPalButton() {
+            
             paypal.Buttons({
                 style: {
                     shape: 'pill',
@@ -135,11 +136,14 @@ $(document).ready(function () {
                     label: 'paypal',
 
                 },
-
+                
                 createOrder: function (data, actions) {
+                    let productPrice = document.getElementById("productPrice").innerText;                    
+                    console.log(parseFloat(productPrice.replace(/,/g, '')));
                     return actions.order.create({
+                        
 
-                        purchase_units: [{"amount": {"currency_code": "EUR", "value": 2.99}}]
+                        purchase_units: [{"amount": {"currency_code": "EUR", "value": parseFloat(productPrice.replace(/,/g, ''))}}]
 
                     });
                 },

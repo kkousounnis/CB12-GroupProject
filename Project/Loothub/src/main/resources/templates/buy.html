@@ -70,7 +70,7 @@
     <main>
         <div class="container">
 
-            <form th:action="@{/order}" method="post" th:object="${orderDto}"  id="validationsFront">
+            <form th:action="@{/paypal}" method="post" th:object="${orderDto}"  id="validationsFront">
                 <div th:if="${succesmessage}" class="alert  alert-info text-center">
                     <label th:if="${succesmessage}" id="message" > Succesfull order you can connect with your email and password to check it out.</label>                                        
                 </div>
@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="price-wrap">
                                     <label>Product Price:</label>
-                                    <span class="price h5" th:text="${#numbers.formatDecimal(productPrice, 0, 'COMMA', 2, 'POINT')}" > </span>&euro;
+                                    <span id="productPrice" class="price h5" th:text="${#numbers.formatDecimal(productPrice, 0, 'COMMA', 2, 'POINT')}" > </span>&euro;
                                 </div>
                             </figcaption>
                         </figure>
@@ -236,7 +236,6 @@
     <script src="https://www.paypal.com/sdk/js?client-id=AWW5OjZC9v8ybTtx12n2RRiDa4f6QTixNbTS_eHnmoGEA78p1H5d_2TtXIB0m9gpZdmroOzaWdRvz1Ll&currency=EUR" data-sdk-integration-source="button-factory"></script>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/script.js"></script>
-    <script src="/js/uploadfilescript.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/validations.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

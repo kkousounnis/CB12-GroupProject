@@ -45,4 +45,9 @@ public class OrdersService implements IOrdersServices {
         ordersDao.update(orders);
     }
     
+    @Override
+    public Orders findByUserId(Integer userId){
+        return (ordersDao.findByUserId(userId));
+    }
+    
 }

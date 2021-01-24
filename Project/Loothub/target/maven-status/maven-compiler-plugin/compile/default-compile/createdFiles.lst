@@ -1,4 +1,5 @@
 com/company/springboot/entities/dto/OrderDto.class
+com/company/springboot/services/OrdersService.class
 com/company/springboot/services/IRoleServises.class
 com/company/springboot/dao/IRoleDao.class
 com/company/springboot/services/IUserService.class
@@ -32,6 +33,7 @@ com/company/springboot/controllers/ChatController.class
 com/company/springboot/entities/ItemStatus.class
 com/company/springboot/entities/Role.class
 com/company/springboot/configuration/WebSocketConfig.class
+com/company/springboot/services/IOrdersServices.class
 com/company/springboot/repository/IProductImageRepository.class
 com/company/springboot/dao/ItemStatusDao.class
 com/company/springboot/controllers/UserRegistrationController.class
@@ -47,6 +49,7 @@ com/company/springboot/dao/IProductTagDao.class
 com/company/springboot/controllers/OrderController.class
 com/company/springboot/dao/IUserDao.class
 com/company/springboot/controllers/WebSocketEventListener.class
+com/company/springboot/controllers/PayPalController.class
 com/company/springboot/RegistrationLoginAthaurizationSpringBootApplication.class
 com/company/springboot/controllers/CheckoutController.class
 com/company/springboot/services/IProductService.class

@@ -2,6 +2,7 @@ package com.company.springboot.services;
 
 import com.company.springboot.dao.ItemStatusDao;
 import com.company.springboot.entities.ItemStatus;
+import com.company.springboot.repository.IItemStatusRepository;
 import java.util.List;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
@@ -43,5 +44,7 @@ public class ItemStatusService implements IItemStatusServise {
     public void update(ItemStatus itemStatus) {
         itemStatusDao.update(itemStatus);
     }
+    
+   
     
 }

@@ -42,4 +42,9 @@ public class OrdersDao implements IOrdersDao {
         ordersRepository.save(orders);
     }
     
+    @Override
+    public Orders findByUserId(Integer userId){
+       return  ordersRepository.findByUserId(userId);
+    }
+    
 }

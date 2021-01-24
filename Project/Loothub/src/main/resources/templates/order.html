@@ -145,20 +145,21 @@
                             <label>Email:</label>
                             <input type="email" class="form-control" id="email" name="email" th:field="*{email}"
                                 placeholder="Enter your email...">
+                                <label th:if="${message}" id="message" class="text-danger">Email already Exists</label>
                              <br/>
-                            <div  th:if="${user.email == null}">    
+<!--                            <div  th:if="${user.email == null}">    -->
                                 
                                 <label>Password:</label>
                                 <input type="password" class="form-control" id="password"
                                     placeholder="Please enter your password..." name="password"  th:field="*{password}"  th:errorClass="is-invalid" autocomplete="off">
-                                 <label th:if="${message}" id="message" class="text-danger">Email already Exists</label>
+                                 
                                 <br/>
                                 <label for="confirm_password" id="confirm_password" name="confirm_password" >Confirm Password:</label>
                                 
                                 <input type="password" class="form-control" id="confirm_password" 
                                     placeholder="Please confirm your password..." name="confirm_password"  autocomplete="off">
                                     <br/>
-                            </div>    
+<!--                            </div>    -->
                             <label>Phone Number:</label>
                             <input type="text" class="form-control" id="phoneNumber"
                                 placeholder="Enter your phone number..." name="phoneNumber"  th:field="*{telNumber}" autocomplete="off" required>
@@ -242,8 +243,7 @@
     
     <script src="https://www.paypal.com/sdk/js?client-id=AWW5OjZC9v8ybTtx12n2RRiDa4f6QTixNbTS_eHnmoGEA78p1H5d_2TtXIB0m9gpZdmroOzaWdRvz1Ll&currency=EUR" data-sdk-integration-source="button-factory"></script>
     <script src="/js/jquery.min.js"></script>
-    <script src="/js/script.js"></script>
-    <script src="/js/uploadfilescript.js"></script>
+    <script src="/js/script.js"></script> 
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/validations.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

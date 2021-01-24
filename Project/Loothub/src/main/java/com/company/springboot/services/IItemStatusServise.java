@@ -10,5 +10,6 @@ public interface IItemStatusServise {
     public ItemStatus get(Long id);
     public void delete(Long id);
     public void update(ItemStatus itemStatus);
+     
     
 }

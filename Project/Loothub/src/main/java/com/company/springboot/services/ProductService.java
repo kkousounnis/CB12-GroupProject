@@ -12,13 +12,13 @@ import org.springframework.stereotype.Service;
 @Service
 @Transactional
 public class ProductService implements IProductService {
-    
+
     @Autowired
     private ProductDao productDao;
 
     @Override
     public List<Product> listAll() {
-       return (productDao.listAll());
+        return (productDao.listAll());
     }
 
     @Override
@@ -29,14 +29,14 @@ public class ProductService implements IProductService {
                 productDto.getDescription(),
                 productDto.getCategory()
         );
-        
+
         return productDao.save(product);
     }
-    
-        public Product findByProductName(String name){
+
+    public Product findByProductName(String name) {
         return productDao.productName(name);
     }
-    
+
     @Override
     public Product get(Integer id) {
         return (productDao.get(id));
@@ -46,7 +46,5 @@ public class ProductService implements IProductService {
     public void delete(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
 
 }

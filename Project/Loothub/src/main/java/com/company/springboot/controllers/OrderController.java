@@ -89,7 +89,7 @@ public class OrderController {
 
         modelAndView.addObject("orderDto", orderDto);
         
-        //modelAndView.setViewName("buy");
+        
         if (username.equals("anonymousUser")) {
             
             user.setEmail(null);
@@ -108,20 +108,27 @@ public class OrderController {
             
             modelAndView.setViewName("order");
 
-        } else if (userService.findByEmailAddress(orderDto.getEmail()) != null) {
-            System.out.println("exei la8oi");
+        } else if (userService.findByEmailAddress(orderDto.getEmail()) != null && username.equals("anonymousUser")) {
+            
             modelMap.addAttribute("message", "Username already exists.");
             modelAndView.addObject("Unsuccessful", "Unsuccessful Order Of Product");
             modelAndView.setViewName("order");
         } else {
-            UserRegistrationDto registrationDto = new UserRegistrationDto(
+            
+            
+            
+            if(username.equals("anonymousUser")){
+                
+                UserRegistrationDto registrationDto = new UserRegistrationDto(
                     orderDto.getFirstName(),
                     orderDto.getLastName(),
                     orderDto.getEmail(),
                     orderDto.getPassword(),
                     orderDto.getTelNumber());
-
-            user = userService.save(registrationDto);
+                user = userService.save(registrationDto);
+            }else{
+                user = userService.findByEmailAddress(username);
+            }
             
             UserAddress userAddress = new UserAddress(
                     orderDto.getCountry(), 
