@@ -30,7 +30,7 @@ public class PayPalController {
             @CurrentSecurityContext(expression = "authentication?.name") String username) {
         ModelAndView modelAndView = new ModelAndView();
         
-        
+        System.out.println("%%%%%%%%%%%%"+username);
         
         System.out.println("%%%%%%%%%%%"+ordersService.findByUserId(userService.findByEmailAddress(orderDto.getEmail()).getId()));
         modelAndView.setViewName("loginsignup");
