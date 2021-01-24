@@ -24,12 +24,12 @@ public class OrdersDao implements IOrdersDao {
     }
 
     @Override
-    public Orders get(Long id) {
+    public Orders get(int id) {
         return ordersRepository.findById(id).get(); 
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(int id) {
         try {
         ordersRepository.deleteById(id);
         } catch (EntityNotFoundException e) {

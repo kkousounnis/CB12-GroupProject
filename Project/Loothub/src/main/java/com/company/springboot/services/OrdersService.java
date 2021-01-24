@@ -27,12 +27,12 @@ public class OrdersService implements IOrdersServices {
     }
 
     @Override
-    public Orders get(Long id) {
+    public Orders get(int id) {
         return ordersDao.get(id); 
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(int id) {
         try {
         ordersDao.delete(id);
         } catch (EntityNotFoundException e) {
@@ -46,7 +46,7 @@ public class OrdersService implements IOrdersServices {
     }
     
     @Override
-    public Orders findByUserId(Integer userId){
+    public Orders findByUserId(int userId){
         return (ordersDao.findByUserId(userId));
     }
     
