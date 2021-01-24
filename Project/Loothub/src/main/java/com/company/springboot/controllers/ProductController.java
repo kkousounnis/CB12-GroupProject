@@ -19,7 +19,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -59,11 +58,10 @@ public class ProductController {
         modelAndView.addObject("productdto", productDto);
         modelAndView.setViewName("uploadproduct");
         
-        //Saving the image with user_id-fileName
         String fileName = userService.findByEmailAddress(principal.getName()).getId()+"-"+
                 StringUtils.cleanPath(multipartFile.getOriginalFilename());
         
-        //principal.getName is usrname value
+
         Path uploadPath = Paths.get("src/main/resources/static/img/products");
         
         saveProduct(uploadPath, multipartFile, fileName);
@@ -75,24 +73,17 @@ public class ProductController {
                 userService.findByEmailAddress(principal.getName()).getId(),
                 product);
         productImageService.save(productImage);
-
+        modelAndView.addObject("succesmessage", "Succesfull");
         return (modelAndView);
     }
     
     @RequestMapping(value = {"/products"})
-    //@RequestParam(defaultValue = "test") String id
     public ModelAndView showAllProducts(@RequestParam(value = "searchbar",required = false) String id) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("products");
         return modelAndView; 
     }  
     
-//    @GetMapping(value = {"/products/{id}"})
-//    public ModelAndView showAllProducts2() {
-//        ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.setViewName("products");
-//        return modelAndView; 
-//    }  
     
 
     public void saveProduct(Path uploadPath, MultipartFile multipartFile, String fileName) throws IOException {

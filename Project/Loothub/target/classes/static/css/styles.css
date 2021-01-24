@@ -17,7 +17,13 @@ button.btn.nav-link.text-muted.dropdown-toggle:hover {
 }
 
 
-
+.container1 {
+  max-width: 970px;
+  margin: 0 auto;
+  padding: 15px;
+  display: flex;
+  border-style: inset;
+}
 
 #search{
 

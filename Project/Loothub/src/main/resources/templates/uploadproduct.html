@@ -52,8 +52,10 @@
                                             Manage Actions
                                         </button>
                                         <div class="dropdown-menu ">
-                                            <a class="dropdown-item" href="#">Profile</a>
-                                            <a class="dropdown-item" href="#">Orders</a>
+                                            <a class="dropdown-item" href="profile">Profile</a>
+                                            <a class="dropdown-item" href="ordersdetails">Orders</a>
+                                            <a class="dropdown-item" href="uploadproduct">Sell Product</a>
+                                            <a class="dropdown-item" href="chat">Group LiveChat</a>
                                             <a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="dropdown-item" href="#">Sign out</a>
                                         </div>
                                     </div>
@@ -67,55 +69,57 @@
         </header>
         <main>
 
+            <div th:if="${succesmessage}" class="alert  alert-info text-center">
+                    <label th:if="${succesmessage}" id="message" > Product added successfully!</label>                                        
+                </div>
 
+            <div class="container">
+                <form th:action="@{/uploadProduct}" method="post" enctype="multipart/form-data" th:object="${productdto}">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div id="drop-area">
 
+                                <p>Upload multiple files with the file dialog or by dragging and dropping images onto the
+                                    dashed
+                                    region</p>
+                                <input type="file" name="image" id="fileElem" required multiple accept="image/*"
+                                       onchange="handleFiles(this.files)" >
+
+                                    <label class="button" for="fileElem">Select Product Image</label>                  
+                            </div>
+
+                        </div>
+                        <div class="col-sm" style="padding: 50px;">
+                            <div class="form-group">
+                                <label for="email">Name:</label>
+                                <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Enter name" name="name" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Description</label>
+                                <textarea class="form-control" id="Description"    th:field="*{description}"   rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="sel1">Category:</label>
+                                <select class="form-control" id="sel1" th:field="*{category}" >
+                                    <option  th:value="'Electronics'">Electronics</option>
+                                    <option  th:value="'Collectables'">Collectables</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Price</label>
+                                <input type="number" class="form-control" id="price" th:field="*{price}" placeholder="Enter price" name="price" autocomplete="off">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <div id="gallery"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </main>
-        <div class="container">
-            <form th:action="@{/uploadProduct}" method="post" enctype="multipart/form-data" th:object="${productdto}">
-                <div class="row">
-                    <div class="col-sm">
-                        <div id="drop-area">
-
-                            <p>Upload multiple files with the file dialog or by dragging and dropping images onto the
-                                dashed
-                                region</p>
-                            <input type="file" name="image" id="fileElem" required multiple accept="image/*"
-                                   onchange="handleFiles(this.files)" >
-
-                                <label class="button" for="fileElem">Select Product Image</label>                  
-                        </div>
-
-                    </div>
-                    <div class="col-sm" style="padding: 50px;">
-                        <div class="form-group">
-                            <label for="email">Name:</label>
-                            <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Enter name" name="name" autocomplete="off">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Description</label>
-                            <textarea class="form-control" id="Description"    th:field="*{description}"   rows="3"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="sel1">Category:</label>
-                            <select class="form-control" id="sel1" th:field="*{category}" >
-                                <option  th:value="'Electronics'">Electronics</option>
-                                <option  th:value="'Collectables'">Collectables</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Price</label>
-                            <input type="number" class="form-control" id="price" th:field="*{price}" placeholder="Enter price" name="price" autocomplete="off">
-                        </div>
-                    </div>
-
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <div id="gallery"></div>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <footer class=" container pb-0 mb-0 justify-content-center text-dark border-top">
             <div class="container py-5">

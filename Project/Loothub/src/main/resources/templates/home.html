@@ -20,7 +20,7 @@
                 </button>
                 <div class="container">
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-             
+
                         <div class="navbar-nav ml-auto">   
 
                             <a href="#" class="btn nav-link text-muted"><span sec:authentication="principal.username"> User</span></a>
@@ -31,8 +31,16 @@
                                             Manage Actions
                                         </button>
                                         <div class="dropdown-menu ">
-                                            <a class="dropdown-item" href="#">Profile</a>
-                                            <a class="dropdown-item" href="#">Orders</a>
+                                            <a class="dropdown-item" href="profile">Profile</a>
+                                            <a class="dropdown-item" href="ordersdetails">Orders</a>
+                                              <a class="dropdown-item" href="uploadproduct">Sell Product</a>
+                                             <a class="dropdown-item" href="chat">Group LiveChat</a>
+                                            <div sec:authorize="hasAuthority('ADMIN')"> 
+                                                <a class="dropdown-item" href="admin/adminindex">Admin Dashboard</a>
+                                            </div>
+
+
+
                                             <a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="dropdown-item" href="#">Sign out</a>
                                         </div>
                                     </div>
@@ -47,7 +55,7 @@
         </header>
         <main>
             <div class="container">
-          <div class="row ">
+                <div class="row ">
                     <div class="col-12">
 
                         <div class="text-center justify-content-center text-dark mt-5">
@@ -86,7 +94,7 @@
                     </div>
                 </div>
             </div>
-</div>
+            </div>
 
 
 
@@ -270,7 +278,7 @@
                     </div>
                 </div>
             </div>
-        <br /><br />
+            <br /><br />
         </main>
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <footer class=" container pb-0 mb-0 justify-content-center text-dark border-top">

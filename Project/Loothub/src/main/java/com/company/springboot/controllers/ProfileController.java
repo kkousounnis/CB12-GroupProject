@@ -28,6 +28,7 @@ public class ProfileController {
 
      
         OrderDto orderDto = new OrderDto();
+        UserAddress userAddress = new UserAddress();
         orderDto.setFirstName(userService.findByEmailAddress(username).getFirstName());
         orderDto.setLastName(userService.findByEmailAddress(username).getLastName());
         orderDto.setEmail(userService.findByEmailAddress(username).getEmail());
@@ -53,10 +54,22 @@ public class ProfileController {
         userAddress.setStreetName(orderDto.getStreetName());
         userAddress.setStreetNumber(orderDto.getStreetNumber());
         userAddress.setPostalCode(Integer.parseInt(orderDto.getPostalCode()));
-
-        userAddressService.save(userAddress);
-
         
+
+        userAddressService.save(userAddress); 
+        
+        orderDto.setFirstName(userService.findByEmailAddress(username).getFirstName());
+        orderDto.setLastName(userService.findByEmailAddress(username).getLastName());
+        orderDto.setEmail(userService.findByEmailAddress(username).getEmail());
+        orderDto.setTelNumber((List<ContactNumber>) userService.findByEmailAddress(username).getContactNumbers());
+        orderDto.setCountry(userAddress.getCountry());
+        orderDto.setCity(userAddress.getCity());
+        orderDto.setStreetName(userAddress.getStreetName());
+        orderDto.setStreetNumber(userAddress.getStreetNumber());
+        orderDto.setPostalCode(Integer.toString(userAddress.getPostalCode()));
+        modelAndView.addObject("orderDto", orderDto); 
+        modelAndView.addObject("succesmessage", "Succesfull");
+        modelAndView.setViewName("profile");
         return modelAndView;
     }
 
