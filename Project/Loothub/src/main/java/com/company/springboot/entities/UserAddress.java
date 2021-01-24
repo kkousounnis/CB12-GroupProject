@@ -208,7 +208,19 @@ public class UserAddress implements Serializable {
 
     @Override
     public String toString() {
-        return "com.company.springboot.entities.UserAddress[ id=" + id + " ]";
+        StringBuilder sb = new StringBuilder();
+        sb.append("UserAddress{id=").append(id);
+        sb.append(", country=").append(country);
+        sb.append(", city=").append(city);
+        sb.append(", streetName=").append(streetName);
+        sb.append(", streetNumber=").append(streetNumber);
+        sb.append(", postalCode=").append(postalCode);
+        sb.append(", isShipping=").append(isShipping);
+        sb.append(", isBilling=").append(isBilling);
+        sb.append('}');
+        return sb.toString();
     }
+
+   
     
 }
