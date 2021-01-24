@@ -68,3 +68,4 @@ com\company\springboot\services\IUserService.class
 com\company\springboot\controllers\UserRegistrationController.class
 com\company\springboot\dao\ProductTagDao.class
 com\company\springboot\repository\IProductTagRepository.class
+com\company\springboot\controllers\ÁllProductsRestController.class
