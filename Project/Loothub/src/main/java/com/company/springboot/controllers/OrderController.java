@@ -8,6 +8,7 @@ import com.company.springboot.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +32,6 @@ public class OrderController {
         ModelAndView modelAndView = new ModelAndView();
         OrderDto orderDto = new OrderDto();
         orderDto.setProductId(id);
-
         modelAndView.addObject("orderDto", orderDto);
 
         if (username.equals("anonymousUser")) {
@@ -41,18 +41,14 @@ public class OrderController {
             modelAndView.addObject("username", "");
 
         } else {
-
             modelAndView.addObject("user", userService.findByEmailAddress(username));
             orderDto.setFirstName(userService.findByEmailAddress(username).getFirstName());
             orderDto.setLastName(userService.findByEmailAddress(username).getLastName());
             orderDto.setEmail(userService.findByEmailAddress(username).getEmail());
-
             modelAndView.addObject("username", userService.findByEmailAddress(username).getEmail());
 
         }
-
         modelAndView.addObject("imageInfo", productImageService.findByProductId(productService.get(id)));
-
         modelAndView.addObject("imagePath", "/img/products/" + productImageService.findByProductId(productService.get(id)).getFileName());
 
         modelAndView.addObject("productId", id);
@@ -67,26 +63,32 @@ public class OrderController {
 
     @PostMapping("/buy")
     public ModelAndView uploadImage(@ModelAttribute("orderDto") OrderDto orderDto,
-            @CurrentSecurityContext(expression = "authentication?.name") String username) {
+            @CurrentSecurityContext(expression = "authentication?.name") String username, 
+                BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
-            
-        System.out.println(orderDto.getCountry() + "me lene gewrgio");
-        System.out.println(orderDto.getProductId() + "productId");
-        System.out.println(orderDto.getEmail());
-        System.out.println(orderDto.getTelNumber());
-        System.out.println(orderDto.getCountry());
-        System.out.println(orderDto.getTelNumber());
+
         modelAndView.addObject("orderDto", orderDto);
         modelAndView.addObject("succesmessage", "Succesfull Order Of Product");
         modelAndView.setViewName("buy");
-        modelAndView.addObject("user", userService.findByEmailAddress(username));
+        if (username.equals("anonymousUser")) {
+            User user = new User();
+            user.setEmail(null);
+            modelAndView.addObject("user", user);
+        } else {
+            modelAndView.addObject("user", userService.findByEmailAddress(username));
+        }
         modelAndView.addObject("imageInfo", productImageService.findByProductId(productService.get(orderDto.getProductId())));
-
         modelAndView.addObject("imagePath", "/img/products/" + productImageService.findByProductId(productService.get(orderDto.getProductId())).getFileName());
         modelAndView.addObject("productId", orderDto.getProductId());
         modelAndView.addObject("productName", productService.get(orderDto.getProductId()).getName());
-        
+
         modelAndView.addObject("productPrice", productService.get(orderDto.getProductId()).getPrice());
+        
+        
+        
+        
+        
+        
         return modelAndView;
     }
 
