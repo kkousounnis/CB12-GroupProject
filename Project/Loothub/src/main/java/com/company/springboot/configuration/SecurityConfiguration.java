@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.setUserDetailsService(iuserService);
 
         auth.setPasswordEncoder(passwordEncoder());
-        
+
         return auth;
     }
 
@@ -47,11 +47,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(
-                "/registration**",              
-                "/buy**",              
-                "/error**",              
-                "/order**",              
-                "/{id}/**",              
+                "/registration**",
+                "/buy**",
+                "/error**",
+                "/order**",
+                "/{id}/**",
                 "/products**",
                 "/api/productList**",
                 "/js/**",
@@ -59,6 +59,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 "/img/**").permitAll()
                 .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()
+                .and()
+                .csrf().disable().cors()
                 .and()
                 .formLogin()
                 .loginPage("/loginsignup") //HERE I WILL ADD MY LOGIN PAGE
