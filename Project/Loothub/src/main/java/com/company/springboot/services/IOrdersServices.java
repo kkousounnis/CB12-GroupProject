@@ -10,6 +10,6 @@ public interface IOrdersServices {
     public Orders get(int id);
     public void delete(int id);
     public void update(Orders orders);
-    public Orders findByUserId(int userId);
+    
     
 }

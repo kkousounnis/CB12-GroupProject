@@ -43,11 +43,7 @@ public class OrdersService implements IOrdersServices {
     @Override
     public void update(Orders orders) {
         ordersDao.update(orders);
-    }
-    
-    @Override
-    public Orders findByUserId(int userId){
-        return (ordersDao.findByUserId(userId));
-    }
+    }    
+     
     
 }

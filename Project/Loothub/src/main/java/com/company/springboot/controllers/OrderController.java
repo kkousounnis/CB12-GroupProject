@@ -35,14 +35,13 @@ public class OrderController {
 
     @Autowired
     private ProductImageService productImageService;
-    
+
     @Autowired
     private ItemStatusService itemStatusService;
-    
-    
+
     @Autowired
     private UserAddressService userAddressService;
-    
+
     @Autowired
     private OrdersService orderService;
 
@@ -88,50 +87,32 @@ public class OrderController {
         ModelAndView modelAndView = new ModelAndView();
 
         modelAndView.addObject("orderDto", orderDto);
-        
-        
-        if (username.equals("anonymousUser")) {
-            
-            user.setEmail(null);
-            modelAndView.addObject("user", user);
-        } else {
-            modelAndView.addObject("user", userService.findByEmailAddress(username));
-        }
-        modelAndView.addObject("imageInfo", productImageService.findByProductId(productService.get(orderDto.getProductId())));
-        modelAndView.addObject("imagePath", "/img/products/" + productImageService.findByProductId(productService.get(orderDto.getProductId())).getFileName());
-        modelAndView.addObject("productId", orderDto.getProductId());
-        modelAndView.addObject("productName", productService.get(orderDto.getProductId()).getName());
 
-        modelAndView.addObject("productPrice", productService.get(orderDto.getProductId()).getPrice());
+        modelAndView = checkUser(modelAndView, username, user);
+        modelAndView = setImageProduct(modelAndView, orderDto);
 
         if (bindingResult.hasErrors()) {
-            
             modelAndView.setViewName("order");
-
         } else if (userService.findByEmailAddress(orderDto.getEmail()) != null && username.equals("anonymousUser")) {
-            
             modelMap.addAttribute("message", "Username already exists.");
             modelAndView.addObject("Unsuccessful", "Unsuccessful Order Of Product");
             modelAndView.setViewName("order");
         } else {
-            
-            
-            
-            if(username.equals("anonymousUser")){
-                
+
+            if (username.equals("anonymousUser")) {
+
                 UserRegistrationDto registrationDto = new UserRegistrationDto(
-                    orderDto.getFirstName(),
-                    orderDto.getLastName(),
-                    orderDto.getEmail(),
-                    orderDto.getPassword(),
-                    orderDto.getTelNumber());
+                        orderDto.getFirstName(),
+                        orderDto.getLastName(),
+                        orderDto.getEmail(),
+                        orderDto.getPassword(),
+                        orderDto.getTelNumber());
                 user = userService.save(registrationDto);
-            }else{
+            } else {
                 user = userService.findByEmailAddress(username);
             }
-            
             UserAddress userAddress = new UserAddress(
-                    orderDto.getCountry(), 
+                    orderDto.getCountry(),
                     orderDto.getCity(),
                     orderDto.getStreetName(),
                     orderDto.getStreetNumber(),
@@ -139,19 +120,16 @@ public class OrderController {
                     true,
                     true,
                     user);
-            
+
             userAddress = userAddressService.save(userAddress);
-            
-            ItemStatus itemStatus = new ItemStatus("Sold");
-            
+            ItemStatus itemStatus = new ItemStatus("Pending");
             itemStatus = itemStatusService.save(itemStatus);
-            
-            String trackingNumber = orderDto.getProductId()+
-                    ""+user.getId();
+            String trackingNumber = orderDto.getProductId()
+                    + "" + user.getId();
             Orders order = new Orders(
-                    orderDto.getComments(), 
-                    trackingNumber, 
-                    itemStatus, 
+                    orderDto.getComments(),
+                    trackingNumber,
+                    itemStatus,
                     productService.get(orderDto.getProductId()),
                     userAddress,
                     userAddress,
@@ -163,6 +141,38 @@ public class OrderController {
         }
 
         return modelAndView;
+    }
+
+    public ModelAndView checkUser(ModelAndView modelAndView,
+            String userName,
+            User user) {
+        if (userName.equals("anonymousUser")) {
+
+            user.setEmail(null);
+            modelAndView.addObject("user", user);
+        } else {
+            modelAndView.addObject("user", userService.findByEmailAddress(userName));
+        }
+
+        return (modelAndView);
+    }
+
+    public ModelAndView setImageProduct(ModelAndView modelAndView,
+            OrderDto orderDto) {
+
+        modelAndView.addObject("imageInfo",
+                productImageService.findByProductId(productService.get(orderDto.getProductId())));
+        modelAndView.addObject("imagePath",
+                "/img/products/" + productImageService.findByProductId(productService.get(orderDto.getProductId())).getFileName());
+        modelAndView.addObject("productId",
+                orderDto.getProductId());
+        modelAndView.addObject("productName",
+                productService.get(orderDto.getProductId()).getName());
+
+        modelAndView.addObject("productPrice",
+                productService.get(orderDto.getProductId()).getPrice());
+
+        return (modelAndView);
     }
 
 }

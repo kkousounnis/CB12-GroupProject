@@ -10,5 +10,5 @@ public interface IOrdersDao {
     public Orders get(int id);
     public void delete(int id);
     public void update(Orders orders);
-    public Orders findByUserId(Integer userId);
+    
 }
