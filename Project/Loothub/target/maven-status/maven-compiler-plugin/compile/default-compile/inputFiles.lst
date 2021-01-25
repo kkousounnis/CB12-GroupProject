@@ -31,6 +31,7 @@
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/ProductDao.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/services/IOrdersServices.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/User.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/ForgotPasswordController.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/RoleDao.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/dto/UserRegistrationDto.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/OrderDetailsController.java
@@ -47,11 +48,13 @@
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/Role.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/IUserDao.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/models/ChatMessagePojo.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/exceptions/UserNotFoundException.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/dto/OrderDto.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/IUserAddressDao.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/services/ContactNumberServise.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/services/IContactNumberServise.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/repository/IProductRepository.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/utilities/Utility.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/IOrdersDao.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/services/ItemStatusService.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/ContactNumber.java

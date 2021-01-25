@@ -13,6 +13,8 @@ public class RoleDao implements IRoleDao {
     @Autowired
     private IRoleRepository roleRepository;
 
+    
+    
     @Override
     public List<Role> listAll() {
         return roleRepository.findAll(); 

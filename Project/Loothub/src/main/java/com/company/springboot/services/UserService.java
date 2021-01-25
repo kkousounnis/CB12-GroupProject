@@ -12,16 +12,17 @@ import org.springframework.stereotype.Service;
 import com.company.springboot.dao.UserDao;
 import java.util.List;
 import java.util.Optional;
+import com.company.springboot.exceptions.UserNotFoundException;
 
 @Service
 public class UserService implements IUserService {
 
     @Autowired
     private UserDao userDao;
-
+    
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
-
+    
     public UserService(UserDao userdao) {
         this.userDao = userdao;
     }
@@ -66,4 +67,29 @@ public class UserService implements IUserService {
         return userDao.findbyId(id);
     }
 
+    
+     public void updateResetPasswordToken(String token, String email) throws UserNotFoundException{
+        User user = userDao.findByEmailAddress(email);
+        if (user != null) {
+            user.setResetPasswordToken(token);
+            userDao.save(user);
+        } else {
+             throw new UserNotFoundException("Could not find any customer with the email " + email);
+        }
+    }
+     
+    public User getByResetPasswordToken(String token) {
+        return userDao.findByResetPasswordToken(token);
+    }
+     
+    public void updatePassword(User user, String newPassword) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(newPassword);
+        user.setPassword(encodedPassword);
+         
+        user.setResetPasswordToken(null);
+        userDao.save(user);
+    }
+
+  
 }
