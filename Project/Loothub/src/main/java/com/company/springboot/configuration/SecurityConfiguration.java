@@ -15,6 +15,10 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
 @Configuration
+@EnableGlobalMethodSecurity(
+  prePostEnabled = true, 
+  securedEnabled = true, 
+  jsr250Enabled = true)
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -60,7 +64,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 "/js/**",
                 "/css/**",
                 "/img/**").permitAll()
-                .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
+                .antMatchers("/admin/**",
+                        "/api/getAllUsers/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable().cors()
