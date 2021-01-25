@@ -61,7 +61,7 @@ public class Orders implements Serializable {
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false)
     private User userId;
-    
+
     public Orders() {
     }
 
@@ -142,7 +142,7 @@ public class Orders implements Serializable {
     public void setUserId(User userId) {
         this.userId = userId;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -166,18 +166,10 @@ public class Orders implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Orders{id=").append(id);
-        sb.append(", comments=").append(comments);
-        sb.append(", trackingNumber=").append(trackingNumber);
-        sb.append(", itemStatusId=").append(itemStatusId);
-        sb.append(", productId=").append(productId);
-        sb.append(", billingAddressId=").append(billingAddressId);
-        sb.append(", shippingAddressId=").append(shippingAddressId);
-        sb.append(", userId=").append(userId);
+        sb.append("Orders{productId=").append(productId);
+        sb.append(", BuyerId=").append(userId);
         sb.append('}');
         return sb.toString();
     }
-
-    
 
 }
