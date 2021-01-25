@@ -166,10 +166,11 @@ public class Orders implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Orders{productId=").append(productId);
-        sb.append(", BuyerId=").append(userId);
+        sb.append("Orders{id=").append(id);
         sb.append('}');
         return sb.toString();
     }
+
+    
 
 }

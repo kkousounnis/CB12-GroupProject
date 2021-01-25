@@ -8,6 +8,8 @@ import javax.validation.constraints.Size;
 
 public class OrderDto {
 
+   
+
     @NotBlank(message = "Enter first Name")
     @Size(min = 6, max = 15)
     private String firstName;
@@ -35,6 +37,8 @@ public class OrderDto {
 
     public OrderDto() {
     }
+    
+    
 
     public OrderDto(String firstName, String lastName, String email, String password, List<ContactNumber> telNumber, String country, String city, String streetName, String streetNumber, String postalCode, String comments, Integer productId) {
         this.firstName = firstName;
@@ -146,6 +150,8 @@ public class OrderDto {
     public void setProductId(Integer productId) {
         this.productId = productId;
     }
+
+    
 
     @Override
     public String toString() {

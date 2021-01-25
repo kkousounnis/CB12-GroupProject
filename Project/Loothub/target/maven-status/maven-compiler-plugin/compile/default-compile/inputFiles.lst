@@ -43,6 +43,7 @@
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/UserAddress.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/OrdersDao.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/ContactNumberDao.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/dto/OrderDetailsDto.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/RegistrationLoginAthaurizationSpringBootApplication.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/CheckoutController.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/Role.java
@@ -65,6 +66,7 @@
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/services/IProductImageService.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/entities/ProductImage.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/PayPalController.java
+/home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/OrderDetailsRestController.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/ErrorsController.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/controllers/AllUserRestController.java
 /home/konstantinos/GitHub/CB12-GroupProject/Project/Loothub/src/main/java/com/company/springboot/dao/UserAddressDao.java

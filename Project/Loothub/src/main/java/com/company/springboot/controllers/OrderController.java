@@ -1,5 +1,6 @@
 package com.company.springboot.controllers;
 
+import com.company.springboot.entities.ContactNumber;
 import com.company.springboot.entities.ItemStatus;
 import com.company.springboot.entities.Orders;
 import com.company.springboot.entities.User;
@@ -12,6 +13,7 @@ import com.company.springboot.services.ProductImageService;
 import com.company.springboot.services.ProductService;
 import com.company.springboot.services.UserAddressService;
 import com.company.springboot.services.UserService;
+import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
@@ -63,6 +65,8 @@ public class OrderController {
             orderDto.setFirstName(userService.findByEmailAddress(username).getFirstName());
             orderDto.setLastName(userService.findByEmailAddress(username).getLastName());
             orderDto.setEmail(userService.findByEmailAddress(username).getEmail());
+            orderDto.setTelNumber((List<ContactNumber>) userService.findByEmailAddress(username).getContactNumbers());
+            
             modelAndView.addObject("username", userService.findByEmailAddress(username).getEmail());
 
         }

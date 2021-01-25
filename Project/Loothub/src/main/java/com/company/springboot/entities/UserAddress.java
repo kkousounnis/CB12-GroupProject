@@ -5,6 +5,7 @@
  */
 package com.company.springboot.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
@@ -70,15 +71,20 @@ public class UserAddress implements Serializable {
     @NotNull
     @Column(name = "postal_code", nullable = false)
     private int postalCode;
+    @JsonIgnore
     @Column(name = "is_shipping")
     private Boolean isShipping;
+    @JsonIgnore
     @Column(name = "is_billing")
     private Boolean isBilling;
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    @JsonIgnore
     @ManyToOne(optional = false)
     private User userId;
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "billingAddressId")
     private List<Orders> ordersList;
+     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "shippingAddressId")
     private List<Orders> ordersList1;
 
