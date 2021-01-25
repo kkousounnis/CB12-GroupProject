@@ -35,7 +35,7 @@ public class PayPalController {
 
     @Autowired
     private ProductService productService;
-    
+
     @PostMapping("/paypal")
     public ModelAndView orderProduct(@ModelAttribute("orderDto") OrderDto orderDto,
             @CurrentSecurityContext(expression = "authentication?.name") String username) {
@@ -51,21 +51,17 @@ public class PayPalController {
         orders = ordersService.listAll();
 
         for (Orders order : orders) {
-            
-            if(order.getUserId().getId().equals(userService.findByEmailAddress(orderDto.getEmail()).getId())){
-                System.out.println(order.getUserId());
-                System.out.println(userService.findByEmailAddress(orderDto.getEmail()).getId());
-                System.out.println(order.getProductId());
-                System.out.println("*********");
-                if(order.getProductId().getId().equals(orderDto.getProductId())){
-                    System.out.println("(((((((((((((");
-                    ItemStatus itemStatus = new ItemStatus(order.getItemStatusId().getId(), 
-                                            "Sold");
+
+            if (order.getUserId().getId().equals(userService.findByEmailAddress(orderDto.getEmail()).getId())) {
+
+                if (order.getProductId().getId().equals(orderDto.getProductId())) {
+
+                    ItemStatus itemStatus = new ItemStatus(order.getItemStatusId().getId(),
+                            "Sold");
                     itemStatusService.update(itemStatus);
-                    
+
                 }
-               
-                
+
             }
         }
 

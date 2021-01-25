@@ -1,11 +1,13 @@
 package com.company.springboot.controllers;
 
+import com.company.springboot.entities.Orders;
 import com.company.springboot.entities.Product;
 import com.company.springboot.entities.ProductImage;
-import com.company.springboot.entities.User;
 import com.company.springboot.entities.dto.ProductDto;
 import com.company.springboot.entities.dto.ProductImagePathDto;
 import com.company.springboot.repository.IProductRepository;
+import com.company.springboot.services.ItemStatusService;
+import com.company.springboot.services.OrdersService;
 import com.company.springboot.services.ProductImageService;
 import com.company.springboot.services.ProductService;
 import java.util.ArrayList;
@@ -22,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = {"/api"})
 public class ΑllProductsRestController {
-    
+
     @Autowired
     public IProductRepository productRepository;
 
@@ -32,12 +34,21 @@ public class ΑllProductsRestController {
     @Autowired
     public ProductImageService productImageService;
 
+    @Autowired
+    private OrdersService ordersService;
+
+    @Autowired
+    private ItemStatusService itemStatusService;
+
     @CrossOrigin("http://localhost:8080")
     @GetMapping("/productList")
     public List<ProductImagePathDto> get() {
         List<Product> products = productService.listAll();
 
         List<ProductImagePathDto> listproductsImagePathDto = new ArrayList<>();
+
+        List<Orders> orders = new ArrayList<>();
+        orders = ordersService.listAll();
 
         ProductDto productDto = new ProductDto();
         ProductImage productImagePath = new ProductImage();
@@ -50,30 +61,43 @@ public class ΑllProductsRestController {
 
             productImagePath = productImageService.findByProductId(product1);
 
-            listproductsImagePathDto.add(new ProductImagePathDto(
-                    product1.getId(),
-                    product1.getName(),
-                    product1.getPrice(),
-                    product1.getDescription(),
-                    product1.getCategory(),
-                    productImagePath.getId(),
-                    productImagePath.getImagePath(),
-                    productImagePath.getFileName(),
-                    productImagePath.getUserId()
-            ));
+            if (checkStatusOrder(orders, product1) == false) {
+                listproductsImagePathDto.add(new ProductImagePathDto(
+                        product1.getId(),
+                        product1.getName(),
+                        product1.getPrice(),
+                        product1.getDescription(),
+                        product1.getCategory(),
+                        productImagePath.getId(),
+                        productImagePath.getImagePath(),
+                        productImagePath.getFileName(),
+                        productImagePath.getUserId()
+                ));
+            }
         }
         System.out.println(listproductsImagePathDto);
 
         return listproductsImagePathDto;
     }
-    
+
     @DeleteMapping("/deleteProduct/{id}")
-    public void deleteProduct(@PathVariable(value="id") int id)
-    {
+    public void deleteProduct(@PathVariable(value = "id") int id) {
         Optional<Product> product = productRepository.findById(id);
         Product productNew = product.get();
         productRepository.delete(productNew);
-        
+
+    }
+
+    public boolean checkStatusOrder(List<Orders> orders, Product product) {
+        boolean x = false;
+        for (Orders order : orders) {
+            if (order.getProductId().getId().equals(product.getId())) {
+
+                x = true;
+            }
+
+        }
+        return x;
     }
 
 }
