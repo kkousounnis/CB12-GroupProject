@@ -6,13 +6,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+
 @Configuration
+@EnableGlobalMethodSecurity(
+  prePostEnabled = true, 
+  securedEnabled = true, 
+  jsr250Enabled = true)
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -29,19 +35,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
         auth.setUserDetailsService(iuserService);
-
         auth.setPasswordEncoder(passwordEncoder());
-
+        
         return auth;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        auth.userDetailsService(iuserService);
-
+      
         auth.authenticationProvider(authenticationProvider());
-
+        
+        auth.userDetailsService(iuserService);
+        
+        
     }
 
     @Override
@@ -50,14 +57,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 "/registration**",
                 "/buy**",
                 "/error**",
+                "/order/{id}",
                 "/order**",
-                "/{id}/**",
                 "/products**",
                 "/api/productList**",
                 "/js/**",
                 "/css/**",
                 "/img/**").permitAll()
-                .antMatchers("/admin/**").hasAnyAuthority("ADMIN")
+                .antMatchers("/admin/**",
+                        "/api/getAllUsers/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable().cors()

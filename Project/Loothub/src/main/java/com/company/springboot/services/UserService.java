@@ -19,10 +19,10 @@ public class UserService implements IUserService {
 
     @Autowired
     private UserDao userDao;
-
+    
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
-
+    
     public UserService(UserDao userdao) {
         this.userDao = userdao;
     }

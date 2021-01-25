@@ -70,7 +70,7 @@ public class ForgotPasswordController {
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
 
-        helper.setFrom("loothub.market@gmail.com", "LootHub Support");
+        helper.setFrom("loothub.market@gmail.com", "Loothub Support");
         helper.setTo(recipientEmail);
 
         String subject = "Here's the link to reset your password";
