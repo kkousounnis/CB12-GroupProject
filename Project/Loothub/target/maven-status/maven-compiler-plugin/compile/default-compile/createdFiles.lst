@@ -4,6 +4,7 @@ com\company\springboot\services\ProductTagServise.class
 com\company\springboot\dao\RoleDao.class
 com\company\springboot\controllers\ProductController.class
 com\company\springboot\services\ItemStatusService.class
+com\company\springboot\exceptions\UserNotFoundException.class
 com\company\springboot\dao\ProductDao.class
 com\company\springboot\services\RoleServises.class
 com\company\springboot\dao\ItemStatusDao.class
@@ -24,6 +25,7 @@ com\company\springboot\controllers\ErrorsController.class
 com\company\springboot\models\ChatMessagePojo$MessageType.class
 com\company\springboot\dao\IProductTagDao.class
 com\company\springboot\repository\IRoleRepository.class
+com\company\springboot\controllers\OrderDetailsController.class
 com\company\springboot\services\ProductImageService.class
 com\company\springboot\services\UserService.class
 com\company\springboot\services\IProductTagServise.class
@@ -47,6 +49,7 @@ com\company\springboot\repository\IItemStatusRepository.class
 com\company\springboot\controllers\CheckoutController.class
 com\company\springboot\entities\UserAddress.class
 com\company\springboot\controllers\OrderController.class
+com\company\springboot\controllers\ForgotPasswordController.class
 com\company\springboot\entities\Orders.class
 com\company\springboot\entities\Role.class
 com\company\springboot\services\IOrdersServices.class
@@ -58,6 +61,7 @@ com\company\springboot\RegistrationLoginAthaurizationSpringBootApplication.class
 com\company\springboot\dao\ProductImageDao.class
 com\company\springboot\entities\dto\UserRegistrationDto.class
 com\company\springboot\repository\IUserRepository.class
+com\company\springboot\utilities\Utility.class
 com\company\springboot\repository\IUserAddressRepository.class
 com\company\springboot\controllers\PayPalController.class
 com\company\springboot\dao\IUserDao.class

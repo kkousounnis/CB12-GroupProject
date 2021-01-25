@@ -96,6 +96,8 @@ public class User implements Serializable {
                     name = "role_id", referencedColumnName = "id"))
     @JsonIgnore
     private Collection<Role> roles;
+    @Column(name = "reset_password_token")
+    private String resetPasswordToken;
 
     public User() {
     }
@@ -229,6 +231,14 @@ public class User implements Serializable {
         sb.append(", roles=").append(roles);
         sb.append('}');
         return sb.toString();
+    }
+
+    public String getResetPasswordToken() {
+        return resetPasswordToken;
+    }
+
+    public void setResetPasswordToken(String resetPasswordToken) {
+        this.resetPasswordToken = resetPasswordToken;
     }
     
     
