@@ -94,7 +94,10 @@ public class UserDao implements IUserDao {
     public void delete(int id) {
         userRepository.deleteById(id);
     }
-
     
-
+    public User findByResetPasswordToken(String token) {
+            
+    return userRepository.findByResetPasswordToken(token);
+    
+    }
 }
