@@ -132,40 +132,37 @@
                     <div class="col-sm" style="padding: 50px;">
                         <div class="form-group">
                             <label>First Name:</label>
-                            <input type="text" class="form-control" id="firstname" th:field="*{firstName}"placeholder="Enter your first name..."
-                                name="firstname" autocomplete="off" required>
-                                
-                             
+                            <input type="text" class="form-control" id="firstnameR" th:field="*{firstName}"placeholder="Enter your first name..."
+                                name="firstname" autocomplete="off" required>    
                         </div>
                         <div class="form-group">
                             <label>Last Name:</label>
                             <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
-                            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="Enter your last name..."
+                            <input type="text" class="form-control" id="lastNameR" th:field="*{lastName}" placeholder="Enter your last name..."
                                    name="lastname" autocomplete="off" required>
                              <br/>  
+                             <label>Phone Number:</label>
+                            <input type="text" class="form-control" id="phoneNumberR"
+                                placeholder="Enter your phone number..." name="phoneNumber"  th:field="*{telNumber}" autocomplete="off" required>
+                            <br/> 
                         
                             <label>Email:</label>
-                            <input type="email" class="form-control" id="email" name="email" th:field="*{email}"
+                            <input type="email" class="form-control" id="emailCheck" name="email" th:field="*{email}"
                                 placeholder="Enter your email...">
                                 <label th:if="${message}" id="message" class="text-danger">Email already Exists</label>
                              <br/>
-<!--                            <div  th:if="${user.email == null}">    -->
                                 
-                                <label>Password:</label>
-                                <input type="password" class="form-control" id="password"
+                                <label id="passwordLabel">Password:</label>
+                                <input type="password" class="form-control" id="passwordHide"
                                     placeholder="Please enter your password..." name="password"  th:field="*{password}"  th:errorClass="is-invalid" autocomplete="off">
                                  
                                 <br/>
-                                <label for="confirm_password" id="confirm_password" name="confirm_password" >Confirm Password:</label>
+                                <label for="confirm_password" id="confirm_passwordLabel" name="confirm_password" >Confirm Password:</label>
                                 
-                                <input type="password" class="form-control" id="confirm_password" 
+                                <input type="password" class="form-control" id="confirm_passwordHide" 
                                     placeholder="Please confirm your password..." name="confirm_password"  autocomplete="off">
-                                    <br/>
-<!--                            </div>    -->
-                            <label>Phone Number:</label>
-                            <input type="text" class="form-control" id="phoneNumber"
-                                placeholder="Enter your phone number..." name="phoneNumber"  th:field="*{telNumber}" autocomplete="off" required>
-                            <br/> 
+                                   
+                            
                         </div>
 
 

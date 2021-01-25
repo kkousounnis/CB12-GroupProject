@@ -91,12 +91,12 @@
                         </div>
                         <div class="col-sm" style="padding: 50px;">
                             <div class="form-group">
-                                <label for="email">Name:</label>
-                                <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Enter name" name="name" autocomplete="off">
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" id="name" th:field="*{name}" required placeholder="Enter name" name="name" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Description</label>
-                                <textarea class="form-control" id="Description"    th:field="*{description}"   rows="3"></textarea>
+                                <textarea class="form-control" id="Description"   required  th:field="*{description}"   rows="3"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="sel1">Category:</label>
@@ -106,8 +106,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="email">Price</label>
-                                <input type="number" class="form-control" id="price" th:field="*{price}" placeholder="Enter price" name="price" autocomplete="off">
+                                <label for="price">Price</label>
+                                <input type="number" class="form-control" id="price" required th:field="*{price}" placeholder="Enter price" name="price" autocomplete="off">
                             </div>
                         </div>
 

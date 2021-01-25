@@ -162,3 +162,18 @@ $(document).ready(function () {
     }
 })
 
+var displayPassword = document.getElementById("emailCheck").value;
+console.log(displayPassword);
+if(displayPassword !==''){
+    
+    document.getElementById("passwordHide").style.visibility = "hidden";
+    document.getElementById("confirm_passwordHide").style.visibility = "hidden";
+    document.getElementById("confirm_passwordHide").style.visibility = "hidden";
+    document.getElementById("confirm_passwordLabel").style.visibility = "hidden";
+    document.getElementById("passwordLabel").style.visibility = "hidden";
+    document.getElementById("firstnameR").readOnly = true;
+    document.getElementById("lastNameR").readOnly = true;
+    document.getElementById("emailCheck").readOnly = true;
+    document.getElementById("phoneNumberR").readOnly = true;
+}
+
