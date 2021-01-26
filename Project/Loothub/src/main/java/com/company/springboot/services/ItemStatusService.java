@@ -2,7 +2,8 @@ package com.company.springboot.services;
 
 import com.company.springboot.dao.ItemStatusDao;
 import com.company.springboot.entities.ItemStatus;
-import com.company.springboot.repository.IItemStatusRepository;
+import com.company.springboot.entities.Orders;
+import com.company.springboot.entities.Product;
 import java.util.List;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
@@ -45,6 +46,21 @@ public class ItemStatusService implements IItemStatusServise {
         itemStatusDao.update(itemStatus);
     }
     
-   
+    public boolean checkStatusOrder(List<Orders> orders, Product product) {
+        boolean x = false;
+        for (Orders order : orders) {
+            if (order.getProductId().getId().equals(product.getId())) {
+                ItemStatus itemStatus = new ItemStatus();
+                itemStatus = this.get(order.getProductId().getId());
+                if (itemStatus.getStatus().equals("Sold")) {
+                    
+                    x = true;
+                }
+
+            }
+
+        }
+        return x;
+    }
     
 }

@@ -52,7 +52,6 @@ public class ΑllProductsRestController {
         List<Orders> orders = new ArrayList<>();
         orders = ordersService.listAll();
 
-        ProductDto productDto = new ProductDto();
         ProductImage productImagePath = new ProductImage();
 
         Product product1 = new Product();
@@ -63,7 +62,7 @@ public class ΑllProductsRestController {
 
             productImagePath = productImageService.findByProductId(product1);
 
-            if (checkStatusOrder(orders, product1) == false) {
+            if (itemStatusService.checkStatusOrder(orders, product1) == false) {
 
                 listproductsImagePathDto.add(new ProductImagePathDto(
                         product1.getId(),
@@ -91,21 +90,6 @@ public class ΑllProductsRestController {
 
     }
 
-    public boolean checkStatusOrder(List<Orders> orders, Product product) {
-        boolean x = false;
-        for (Orders order : orders) {
-            if (order.getProductId().getId().equals(product.getId())) {
-                ItemStatus itemStatus = new ItemStatus();
-                itemStatus = itemStatusService.get(order.getProductId().getId());
-                if (itemStatus.getStatus().equals("Sold")) {
-
-                    x = true;
-                }
-
-            }
-
-        }
-        return x;
-    }
+  
 
 }
