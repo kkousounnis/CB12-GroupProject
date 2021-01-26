@@ -43,7 +43,7 @@
                     </div>
                     <div  th:if="${user.email != null}">  
                         <div class="navbar-nav">
-                            <a href="#" class="btn nav-link text-muted"><span  th:text="${user.email}"></span></a>
+                            <a href="#" class="btn nav-link text-muted"><span id="connecteduser" th:text="${user.email}"></span></a>
                             <div class="container ">
                                 <div id="cardprofile" class="  pull-right">
                                     <div class="dropdown">
@@ -53,7 +53,7 @@
                                         </button>
                                         <div class="dropdown-menu ">
                                             <a class="dropdown-item" href="profile">Profile</a>
-                                            <a class="dropdown-item" href="ordersdetails">Orders</a>
+                                            <a class="dropdown-item" href="orderDetails">Orders</a>
                                               <a class="dropdown-item" href="uploadproduct">Sell Product</a>
                                             <a class="dropdown-item" href="chat">Group LiveChat</a>
                                             <a th:href="@{/logout}" sec:authorize="isAuthenticated()" class="dropdown-item"
@@ -132,17 +132,17 @@
                     <div class="col-sm" style="padding: 50px;">
                         <div class="form-group">
                             <label>First Name:</label>
-                            <input type="text" class="form-control" id="firstnameR" th:field="*{firstName}"placeholder="Enter your first name..."
+                            <input type="text" class="form-control" id="firstname" th:field="*{firstName}"placeholder="Enter your first name..."
                                 name="firstname" autocomplete="off" required>    
                         </div>
                         <div class="form-group">
                             <label>Last Name:</label>
                             <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
-                            <input type="text" class="form-control" id="lastNameR" th:field="*{lastName}" placeholder="Enter your last name..."
+                            <input type="text" class="form-control" id="lastName" th:field="*{lastName}" placeholder="Enter your last name..."
                                    name="lastname" autocomplete="off" required>
                              <br/>  
-                             <label>Phone Number:</label>
-                            <input type="text" class="form-control" id="phoneNumberR"
+                             <label id="phoneNumberLabel">Phone Number:</label>
+                            <input type="text" class="form-control" id="phoneNumber"
                                 placeholder="Enter your phone number..." name="phoneNumber"  th:field="*{telNumber}" autocomplete="off" required>
                             <br/> 
                         

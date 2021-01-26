@@ -124,7 +124,7 @@ function searchFunction() {
 $(document).ready(function () {
     if (window.location.pathname == '/buy') {
         function initPayPalButton() {
-            
+
             paypal.Buttons({
                 style: {
                     shape: 'pill',
@@ -133,12 +133,11 @@ $(document).ready(function () {
                     label: 'paypal',
 
                 },
-                
+
                 createOrder: function (data, actions) {
-                    let productPrice = document.getElementById("productPrice").innerText;                    
+                    let productPrice = document.getElementById("productPrice").innerText;
                     console.log(parseFloat(productPrice.replace(/,/g, '')));
                     return actions.order.create({
-                        
 
                         purchase_units: [{"amount": {"currency_code": "EUR", "value": parseFloat(productPrice.replace(/,/g, ''))}}]
 
@@ -160,22 +159,8 @@ $(document).ready(function () {
         initPayPalButton();
 
     }
-})
+});
 
-var displayPassword = document.getElementById("emailCheck").value;
-console.log(displayPassword);
-if(displayPassword !==''){
-    
-//    document.getElementById("passwordHide").style.visibility = "hidden";
-//    document.getElementById("confirm_passwordHide").style.visibility = "hidden";
-//    document.getElementById("confirm_passwordHide").style.visibility = "hidden";
-//    document.getElementById("confirm_passwordLabel").style.visibility = "hidden";
-//    document.getElementById("passwordLabel").style.visibility = "hidden";
-//    document.getElementById("firstnameR").readOnly = true;
-//    document.getElementById("lastNameR").readOnly = true;
-//    document.getElementById("emailCheck").readOnly = true;
-//    document.getElementById("phoneNumberR").readOnly = true;
-}
 
 function checkPasswordMatch(fieldConfirmPassword) {
     if (fieldConfirmPassword.value != $("#password").val()) {
@@ -184,3 +169,41 @@ function checkPasswordMatch(fieldConfirmPassword) {
         fieldConfirmPassword.setCustomValidity("");
     }
 }
+
+
+$(document).ready(function () {
+    if (window.location.pathname.includes('/order/')) {
+        var connecteUser = document.getElementById("connecteduser").innerHTML;
+        console.log(connecteUser);
+        if (connecteUser !== null) {
+            var displayPassword = document.getElementById("emailCheck").value;
+
+            console.log(displayPassword);
+            if (displayPassword !== '') {
+
+                document.getElementById("passwordLabel").style.visibility = "hidden";
+                document.getElementById("confirm_password").style.visibility = "hidden";
+                document.getElementById("confirm_passwordLabel").style.visibility = "hidden";
+                document.getElementById("password").style.visibility = "hidden";
+
+
+                document.getElementById("firstname").readOnly = true;
+                document.getElementById("lastName").readOnly = true;
+                document.getElementById("emailCheck").readOnly = true;
+                document.getElementById("phoneNumber").readOnly = true;
+
+                document.getElementById("password").value = "123456";
+                document.getElementById("confirm_password").value = "123456";
+
+                if (document.getElementById("phoneNumber").value === '') {
+
+                    document.getElementById("phoneNumber").style.display = "none";
+                    document.getElementById("phoneNumberLabel").style.display = "none";
+                    document.getElementById("phoneNumber").value = "666666666";
+                }
+
+            }
+        }
+    }
+});
+
