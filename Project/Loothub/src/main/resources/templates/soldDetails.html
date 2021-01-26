@@ -5,13 +5,12 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
-        <title>Loothub</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <title>Loothub - User Management</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>         
         <link rel="stylesheet" href="css/styles.css"/>
-        <link rel="stylesheet" href="css/uploadfilestyle.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-    </head>
 
+    </head>
     <body>
         <header>
             <nav class="navbar navbar-expand-md navbar-light border-bottom">
@@ -65,62 +64,48 @@
                     </div>
                 </div>
             </nav>
-
         </header>
+
         <main>
-
-            <div th:if="${succesmessage}" class="alert  alert-info text-center">
-                    <label th:if="${succesmessage}" id="message" > Product added successfully!</label>                                        
-                </div>
-
-            <div class="container">
-                <form th:action="@{/uploadProduct}" method="post" enctype="multipart/form-data" th:object="${productdto}">
-                    <div class="row">
-                        <div class="col-sm">
-                            <div id="drop-area">
-
-                                <p>Upload multiple files with the file dialog or by dragging and dropping images onto the
-                                    dashed
-                                    region</p>
-                                <input type="file" name="image" id="fileElem" required multiple accept="image/*"
-                                       onchange="handleFiles(this.files)" >
-
-                                    <label class="button" for="fileElem">Select Product Image</label>                  
-                            </div>
-
-                        </div>
-                        <div class="col-sm" style="padding: 50px;">
-                            <div class="form-group">
-                                <label for="name">Name:</label>
-                                <input type="text" class="form-control" id="name" th:field="*{name}" required placeholder="Enter name" name="name" autocomplete="off">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Description</label>
-                                <textarea class="form-control" id="Description"   required  th:field="*{description}"   rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="sel1">Category:</label>
-                                <select class="form-control" id="sel1" th:field="*{category}" >
-                                    <option  th:value="'Electronics'">Electronics</option>
-                                    <option  th:value="'Collectables'">Collectables</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Price</label>
-                                <input type="number" step="0.01" class="form-control" id="price" required th:field="*{price}" placeholder="Enter price" name="price" autocomplete="off">
-                            </div>
-                        </div>
-
+            <h1 style="text-align: center;"><b>Orders Details</b></h1>
+            <br /><br />
+            <div class="container1">
+                <div>	
+                    <div> 	
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link" href="orderDetails">Bought</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="sellDetails">Selling</a>
+                            </li>
+                             <li class="nav-item">
+                                <a class="nav-link active" href="#">Sold</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="card" style="width: 18rem;">
-                        <div id="gallery"></div>
+                    <div id="aaaa">
+                        <table class="table table-sm table-striped">
+                            <thead class="thead-primary">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Order ID</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Tracking Num.</th>
+                                    <th scope="col">Shipping Address</th>
+                                    <th scope="col">Billing Address</th>
+                                    <th scope="col">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody class="orderListTable">
+                                   
+                            </tbody>
+                        </table> 
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                </div> 
             </div>
         </main>
-        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
         <footer class=" container pb-0 mb-0 justify-content-center text-dark border-top">
             <div class="container py-5">
                 <div class="col-11">
@@ -173,8 +158,8 @@
         </footer>
 
         <script src="js/jquery.min.js"></script>
+        <script src="js/soldDetailsRest.js"></script>
         <script src="js/script.js"></script>
-        <script src="js/uploadfilescript.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
@@ -186,7 +171,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
     </body>
 
 </html>
