@@ -180,10 +180,10 @@ $(document).ready(function () {
             console.log(displayPassword);
             if (displayPassword !== '') {
 
-                document.getElementById("passwordLabel").style.visibility = "hidden";
-                document.getElementById("confirm_password").style.visibility = "hidden";
-                document.getElementById("confirm_passwordLabel").style.visibility = "hidden";
-                document.getElementById("password").style.visibility = "hidden";
+                document.getElementById("passwordLabel").style.display = "none";
+                document.getElementById("confirm_password").style.display = "none";
+                document.getElementById("confirm_passwordLabel").style.display = "none";
+                document.getElementById("password").style.display = "none";
 
 
                 document.getElementById("firstname").readOnly = true;
@@ -192,15 +192,7 @@ $(document).ready(function () {
                 document.getElementById("phoneNumber").readOnly = true;
 
                 document.getElementById("password").value = "123456";
-                document.getElementById("confirm_password").value = "123456";
-
-                if (document.getElementById("phoneNumber").value === '') {
-
-                    document.getElementById("phoneNumber").style.display = "none";
-                    document.getElementById("phoneNumberLabel").style.display = "none";
-                    document.getElementById("phoneNumber").value = "666666666";
-                }
-
+                document.getElementById("confirm_password").value = "123456"; 
             }
         }
     }
