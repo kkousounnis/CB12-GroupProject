@@ -1,6 +1,7 @@
 package com.company.springboot.dao;
 
 import com.company.springboot.entities.Orders;
+import com.company.springboot.entities.Product;
 import com.company.springboot.repository.IOrdersRepository;
 import java.util.List;
 import javax.persistence.EntityNotFoundException;
@@ -42,6 +43,10 @@ public class OrdersDao implements IOrdersDao {
         ordersRepository.save(orders);
     }
     
-     
+    public Orders findByProductId(Product productId) {
+            
+    return ordersRepository.findByProductId(productId);
+    
+    }
     
 }

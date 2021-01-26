@@ -81,8 +81,19 @@ public class SellDetailsDto {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("SellDetailsDto{productName=").append(productName);
+        sb.append(", trackingNumber=").append(trackingNumber);
+        sb.append(", shippingAddress=").append(shippingAddress);
+        sb.append(", billingAddress=").append(billingAddress);
+        sb.append(", price=").append(price);
+        sb.append(", status=").append(status);
+        sb.append('}');
+        return sb.toString();
+    }
+       
     
 }

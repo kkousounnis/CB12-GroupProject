@@ -2,6 +2,7 @@ package com.company.springboot.services;
 
 import com.company.springboot.dao.OrdersDao;
 import com.company.springboot.entities.Orders;
+import com.company.springboot.entities.Product;
 import java.util.List;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
@@ -44,6 +45,10 @@ public class OrdersService implements IOrdersServices {
     public void update(Orders orders) {
         ordersDao.update(orders);
     }    
+    
+      public Orders findByProductId(Product productId) {
+       return ordersDao.findByProductId(productId);
+    }   
   
     
 }

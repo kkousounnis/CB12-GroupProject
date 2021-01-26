@@ -10,6 +10,7 @@ C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\dao\UserAddressDao.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\repository\IRoleRepository.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\dao\IRoleDao.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\SellController.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\services\ContactNumberServise.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\AdminController.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\services\IOrdersServices.java
@@ -63,12 +64,14 @@ C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\ItemStatus.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\services\ProductImageService.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\OrderController.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\dto\SellDetailsDto.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\Orders.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\services\IProductTagServise.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\ForgotPasswordController.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\ErrorsController.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\dao\ProductTagDao.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\ProductTag.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\SellDetailsRestController.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\models\ChatMessagePojo.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\dto\OrderDto.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\repository\IProductTagRepository.java

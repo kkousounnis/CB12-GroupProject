@@ -16,6 +16,7 @@ com\company\springboot\dao\UserAddressDao.class
 com\company\springboot\entities\Product.class
 com\company\springboot\entities\dto\ProductDto.class
 com\company\springboot\entities\User.class
+com\company\springboot\controllers\SellController.class
 com\company\springboot\entities\dto\ProductImagePathDto.class
 com\company\springboot\repository\IOrdersRepository.class
 com\company\springboot\configuration\WebSocketConfig.class
@@ -49,6 +50,7 @@ com\company\springboot\dao\IOrdersDao.class
 com\company\springboot\entities\dto\UserDto.class
 com\company\springboot\repository\IItemStatusRepository.class
 com\company\springboot\controllers\CheckoutController.class
+com\company\springboot\entities\dto\SellDetailsDto.class
 com\company\springboot\entities\UserAddress.class
 com\company\springboot\controllers\OrderController.class
 com\company\springboot\controllers\ForgotPasswordController.class
@@ -63,6 +65,7 @@ com\company\springboot\RegistrationLoginAthaurizationSpringBootApplication.class
 com\company\springboot\dao\ProductImageDao.class
 com\company\springboot\entities\dto\UserRegistrationDto.class
 com\company\springboot\repository\IUserRepository.class
+com\company\springboot\controllers\SellDetailsRestController.class
 com\company\springboot\utilities\Utility.class
 com\company\springboot\repository\IUserAddressRepository.class
 com\company\springboot\controllers\PayPalController.class

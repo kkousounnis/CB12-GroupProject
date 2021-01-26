@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = {"/api"})
 public class SellDetailsRestController {
-    
+
     @Autowired
     private OrdersService orderService;
 
@@ -38,17 +38,16 @@ public class SellDetailsRestController {
 
     @Autowired
     private ItemStatusService itemStatusService;
-    
+
     @Autowired
     private OrdersService ordersService;
-    
+
     @Autowired
     private ProductImageService productImageService;
-    
+
     @Autowired
     private IOrdersRepository orderRepository;
-    
-    
+
     @CrossOrigin("http://localhost:8080")
     @GetMapping("/getSellDetails")
     public List<SellDetailsDto> getAllSells(
@@ -59,41 +58,21 @@ public class SellDetailsRestController {
         List<SellDetailsDto> sellDetails = new ArrayList<>();
         List<ProductImage> productImages = new ArrayList<>();
 
-    for(ProductImage image : productImageService.listAll())  { 
-        System.out.println(orderRepository.findByProductId(image.getProductId().getId()).getTrackingNumber() + "KKKKK");
-//        if(userSeller.getId().equals(image.getUserId())) {
-//            sellDetails.add(new SellDetailsDto(image.getProductId().getName(),
-//                           orderRepository.findByProductId(image.getProductId().getId()).getTrackingNumber()) )
-//        }   
-    }  
-     return (sellDetails);
-}
-    
-//     private String productName;
-//    private String trackingNumber;
-//    private UserAddress shippingAddress;
-//    private UserAddress billingAddress;
-//    private BigDecimal price;
-//    private String status;
-
-    
-//        for (Orders order : orderService.listAll()) {
-//            System.out.println(productImageService.findByProductId(order.getProductId()) + "MMMMMM");
-//            if (userSeller.getId().equals(productImageService.findByProductId(order.getProductId()).getUserId())) {
-//                System.out.println("KKKKKKKKKK");
-//                if (itemStatusService.checkStatusOrder(orders, order.getProductId())) {
-//                    ordersDetails.add(new OrderDetailsDto(order.getId(),
-//                            order.getProductId().getName(),
-//                            order.getTrackingNumber(),
-//                            order.getBillingAddressId(),
-//                            order.getShippingAddressId(),
-//                            order.getProductId().getPrice()));
-//                    System.out.println(order);
-//                }
-//            }
-//        }
-//        return (ordersDetails);
-//    }
-        
-    
+        for (ProductImage image : productImageService.listAll()) {
+ System.out.println("first if JJJJJJ" + ordersService.findByProductId(image.getProductId()));
+            if (userSeller.getId().equals(image.getUserId())) {
+                System.out.println("first if KKKKKKK" + ordersService.findByProductId(image.getProductId()));
+                if (ordersService.findByProductId(image.getProductId()) != null) {
+                    System.out.println("second if MMMMMM");
+                    sellDetails.add(new SellDetailsDto(image.getProductId().getName(),
+                            ordersService.findByProductId(image.getProductId()).getTrackingNumber(),
+                            ordersService.findByProductId(image.getProductId()).getShippingAddressId(),
+                            ordersService.findByProductId(image.getProductId()).getBillingAddressId(),
+                            image.getProductId().getPrice(),
+                            ordersService.findByProductId(image.getProductId()).getItemStatusId().getStatus()));
+                }
+            }
+        }
+        return (sellDetails);
+    }
 }
