@@ -24,12 +24,12 @@ public class ItemStatusDao implements IItemStatusDao {
     }
 
     @Override
-    public ItemStatus get(Long id) {
+    public ItemStatus get(int id) {
         return itemStatusRepository.findById(id).get(); 
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(int id) {
         try {
         itemStatusRepository.deleteById(id);
         } catch (EntityNotFoundException e) {

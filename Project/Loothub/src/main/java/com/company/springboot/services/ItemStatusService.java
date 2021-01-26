@@ -27,12 +27,12 @@ public class ItemStatusService implements IItemStatusServise {
     }
 
     @Override
-    public ItemStatus get(Long id) {
+    public ItemStatus get(int id) {
         return itemStatusDao.get(id); 
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(int id) {
         try {
         itemStatusDao.delete(id);
         } catch (EntityNotFoundException e) {

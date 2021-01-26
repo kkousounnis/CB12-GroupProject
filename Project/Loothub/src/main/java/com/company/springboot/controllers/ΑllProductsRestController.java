@@ -1,5 +1,6 @@
 package com.company.springboot.controllers;
 
+import com.company.springboot.entities.ItemStatus;
 import com.company.springboot.entities.Orders;
 import com.company.springboot.entities.Product;
 import com.company.springboot.entities.ProductImage;
@@ -63,6 +64,7 @@ public class ΑllProductsRestController {
             productImagePath = productImageService.findByProductId(product1);
 
             if (checkStatusOrder(orders, product1) == false) {
+
                 listproductsImagePathDto.add(new ProductImagePathDto(
                         product1.getId(),
                         product1.getName(),
@@ -76,15 +78,13 @@ public class ΑllProductsRestController {
                 ));
             }
         }
-        System.out.println(listproductsImagePathDto);
 
         return listproductsImagePathDto;
     }
 
     @DeleteMapping("/deleteProduct/{id}")
     @PreAuthorize("hasAuthority('ADMIN')")
-    public void deleteProduct(@PathVariable(value="id") int id)
-    {
+    public void deleteProduct(@PathVariable(value = "id") int id) {
         Optional<Product> product = productRepository.findById(id);
         Product productNew = product.get();
         productRepository.delete(productNew);
@@ -95,8 +95,13 @@ public class ΑllProductsRestController {
         boolean x = false;
         for (Orders order : orders) {
             if (order.getProductId().getId().equals(product.getId())) {
+                ItemStatus itemStatus = new ItemStatus();
+                itemStatus = itemStatusService.get(order.getProductId().getId());
+                if (itemStatus.getStatus().equals("Sold")) {
 
-                x = true;
+                    x = true;
+                }
+
             }
 
         }
