@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 public class UserRegistrationDto {
 
     @NotBlank(message = "Enter first Name")
-    @Size(min = 6, max = 15)
+    @Size(min = 2, max = 15)
     private String firstName;
     @NotBlank(message = "Enter last Name")
     private String lastName;
@@ -20,7 +20,7 @@ public class UserRegistrationDto {
     private String email;
 
     @NotBlank(message = "Enter your password.")
-    @Size(min = 6, max = 30)
+    @Size(min = 2, max = 30)
     private String password;
 
     private List<ContactNumber> telNumber;

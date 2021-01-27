@@ -198,3 +198,16 @@ $(document).ready(function () {
     }
 });
 
+$('#addAddress').on('show.bs.modal', function (event) {
+    let button = $(event.relatedTarget); // Button that triggered the modal
+    let country = button.data('country'); // Extract info from data-* attributes
+    let city = button.data('city'); // Extract info from data-* attributes
+
+    document.getElementById("country").value = country; 
+    document.getElementById("product-description").innerHTML = city; 
+     
+
+
+
+
+});
