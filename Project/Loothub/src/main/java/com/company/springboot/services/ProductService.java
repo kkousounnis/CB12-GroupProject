@@ -2,7 +2,6 @@ package com.company.springboot.services;
 
 import com.company.springboot.dao.ProductDao;
 import com.company.springboot.entities.Product;
-import com.company.springboot.entities.ProductImage;
 import com.company.springboot.entities.dto.ProductDto;
 import java.util.List;
 import javax.transaction.Transactional;

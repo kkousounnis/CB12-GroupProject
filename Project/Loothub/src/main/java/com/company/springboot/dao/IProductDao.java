@@ -1,8 +1,6 @@
 package com.company.springboot.dao;
 
-import com.company.springboot.services.*;
 import com.company.springboot.entities.Product;
-import com.company.springboot.entities.dto.ProductDto;
 import java.util.List;
 
 public interface IProductDao {

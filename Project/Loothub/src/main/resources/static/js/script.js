@@ -1,6 +1,5 @@
 $(document).ready(function () {
     // executes when HTML-Document is loaded and DOM is ready
-    console.log("document is ready");
 
 
     $(".card").hover(
@@ -136,7 +135,7 @@ $(document).ready(function () {
 
                 createOrder: function (data, actions) {
                     let productPrice = document.getElementById("productPrice").innerText;
-                    console.log(parseFloat(productPrice.replace(/,/g, '')));
+
                     return actions.order.create({
 
                         purchase_units: [{"amount": {"currency_code": "EUR", "value": parseFloat(productPrice.replace(/,/g, ''))}}]
@@ -173,11 +172,11 @@ function checkPasswordMatch(fieldConfirmPassword) {
 $(document).ready(function () {
     if (window.location.pathname.includes('/order/')) {
         var connecteUser = document.getElementById("connecteduser").innerHTML;
-        console.log(connecteUser);
+
         if (connecteUser !== null) {
             var displayPassword = document.getElementById("emailCheck").value;
 
-            console.log(displayPassword);
+
             if (displayPassword !== '') {
 
                 document.getElementById("passwordLabel").style.display = "none";

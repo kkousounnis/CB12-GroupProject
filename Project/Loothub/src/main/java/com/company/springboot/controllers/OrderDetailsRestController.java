@@ -50,8 +50,7 @@ public class OrderDetailsRestController {
                             order.getTrackingNumber(),
                             order.getBillingAddressId(),
                             order.getShippingAddressId(),
-                            order.getProductId().getPrice()));
-                    System.out.println(order);
+                            order.getProductId().getPrice()));   
                 }
             }
         }

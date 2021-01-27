@@ -1,8 +1,6 @@
 package com.company.springboot.entities.dto;
 
-import com.company.springboot.entities.ProductImage;
 import java.math.BigDecimal;
-import java.util.List;
 
 public class ProductDto {
 

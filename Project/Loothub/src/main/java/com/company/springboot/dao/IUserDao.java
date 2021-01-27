@@ -1,8 +1,6 @@
 package com.company.springboot.dao;
 
-import com.company.springboot.services.*;
 import com.company.springboot.entities.User;
-import com.company.springboot.entities.dto.UserRegistrationDto;
 import java.util.List;
 import org.springframework.security.core.userdetails.UserDetailsService;
 

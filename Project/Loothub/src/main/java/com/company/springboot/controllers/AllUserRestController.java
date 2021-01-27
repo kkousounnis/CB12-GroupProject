@@ -6,10 +6,8 @@
 package com.company.springboot.controllers;
 
 import com.company.springboot.entities.User;
-import com.company.springboot.entities.dto.UserDto;
 import com.company.springboot.repository.IUserRepository;
 import com.company.springboot.services.UserService;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;

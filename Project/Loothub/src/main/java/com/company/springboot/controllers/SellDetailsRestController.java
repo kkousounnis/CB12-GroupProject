@@ -8,8 +8,6 @@ package com.company.springboot.controllers;
 import com.company.springboot.entities.ProductImage;
 import com.company.springboot.entities.User;
 import com.company.springboot.entities.dto.SellDetailsDto;
-import com.company.springboot.repository.IOrdersRepository;
-import com.company.springboot.services.ItemStatusService;
 import com.company.springboot.services.OrdersService;
 import com.company.springboot.services.ProductImageService;
 import com.company.springboot.services.UserService;

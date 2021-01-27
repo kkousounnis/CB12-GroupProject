@@ -1,7 +1,6 @@
 package com.company.springboot.controllers;
 
 import com.company.springboot.entities.ContactNumber;
-import com.company.springboot.entities.User;
 import com.company.springboot.entities.UserAddress;
 import com.company.springboot.entities.dto.ProfileDto;
 import com.company.springboot.services.UserAddressService;

@@ -5,7 +5,6 @@
  */
 package com.company.springboot.entities.dto;
 
-import com.company.springboot.entities.UserAddress;
 import java.math.BigDecimal;
 
 /**

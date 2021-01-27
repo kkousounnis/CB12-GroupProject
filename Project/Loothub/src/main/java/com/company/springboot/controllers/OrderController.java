@@ -74,7 +74,6 @@ public class OrderController {
         modelAndView.addObject("imagePath", "/img/products/" + productImageService.findByProductId(productService.get(id)).getFileName());
         modelAndView.addObject("productId", id);
         modelAndView.addObject("productName", productService.get(id).getName());
-        System.out.println(productService.get(id).getPrice());
         modelAndView.addObject("productPrice", productService.get(id).getPrice());
 
         modelAndView.setViewName("order");

@@ -1,6 +1,5 @@
 package com.company.springboot.dao;
 
-import com.company.springboot.services.*;
 import com.company.springboot.entities.ProductImage;
 import java.util.List;
 

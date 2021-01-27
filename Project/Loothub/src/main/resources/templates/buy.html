@@ -80,61 +80,9 @@
                     <label th:if="${succesbuymessage}" id="message" > Succesfull payment you can connect with your email and password to see your order's details.</label>                                        
                 </div>
                 <div class="row">
-
-                    <div class="col-sm" style="padding: 50px;">
-                        <div class="form-group needs-validation">
-                            <label>Country:</label>
-                            <input type="text" class="form-control" th:field="*{country}"  placeholder="Enter your country..."
-                                name="country" autocomplete="off" readonly >                                 
-                            <br/>
-                            <label>City:</label>
-                            <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
-                            <input type="text" class="form-control" id="city" th:field="*{city}" placeholder="Enter your city..."
-                                name="city" autocomplete="off" readonly>                                
-                            <br/>
-                            <label>Street Name:</label>
-                            <input type="text" class="form-control" id="streetName" th:field="*{streetName}"
-                                placeholder="Enter your street name..." readonly>
-                            <br/>
-                            <label>Street Number:</label>
-                            <input type="number" class="form-control" id="streetNumber" th:field="*{streetNumber}"
-                                placeholder="Enter your street number..." name="streetNumber" autocomplete="off" readonly>
-                            <br/>
-                                <label>Postal Code:</label>
-                            <input type="number" class="form-control" id="postalCode" th:field="*{postalCode}"
-                                placeholder="Enter your postal code..." name="postalCode" autocomplete="off" readonly>
-
-                        </div>
-
-
-                    </div>
-                    <div class="col-sm" style="padding: 50px;">
-                        <figure class="card card-product-grid card-lg ">
-                            <input type="hidden" class="form-control" id="productId" th:field="*{productId}" 
-                                name="productId" autocomplete="off">
-                            <img style="width: 200px;height: 200px"  th:src="${imagePath}">
-                            <figcaption class="info-wrap">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <label >Product Name:</label>
-                                        <h6 th:text="${productName}">filename</h6>
-                                    </div>
-                                </div>
-                                <div class="price-wrap">
-                                    <label>Product Price:</label>
-                                    <span id="productPrice" class="price h5" th:text="${#numbers.formatDecimal(productPrice, 0, 'COMMA', 2, 'POINT')}" > </span>&euro;
-                                </div>
-                            </figcaption>
-                        </figure>
-                        <label for="exampleFormControlTextarea1">Comments</label>
-                        <textarea class="form-control" id="Description"    th:field="*{comments}"  
-                                  rows="3" placeholder="Add any comments here about purchasing the product..." readonly=""></textarea>
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm" style="padding: 50px;">
+                <div class="col-sm" style="padding: 50px;">
                         <div class="form-group">
+                            <h3>User Details</h3>
                             <label>First Name:</label>
                             <input type="text" class="form-control" id="firstname" th:field="*{firstName}"placeholder="Enter your first name..."
                                 name="firstname" autocomplete="off" readonly>
@@ -160,8 +108,65 @@
 
 
                     </div>
+
+                    <div class="col-sm" style="padding: 50px;">
+                        <figure class="card card-product-grid card-lg ">
+                            <input type="hidden" class="form-control" id="productId" th:field="*{productId}" 
+                                name="productId" autocomplete="off">
+                            <img style="width: 200px;height: 200px"  th:src="${imagePath}">
+                            <figcaption class="info-wrap">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <label >Product Name:</label>
+                                        <h6 th:text="${productName}">filename</h6>
+                                    </div>
+                                </div>
+                                <div class="price-wrap">
+                                    <label>Product Price:</label>
+                                    <span id="productPrice" class="price h5" th:text="${#numbers.formatDecimal(productPrice, 0, 'COMMA', 2, 'POINT')}" > </span>&euro;
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <label for="exampleFormControlTextarea1">Comments</label>
+                        <textarea class="form-control" id="Description"    th:field="*{comments}"  
+                                  rows="3" placeholder="Add any comments here about purchasing the product..." readonly=""></textarea>
+
+                    </div>
+                </div>
+                <div class="row">
+   
+                                        <div class="col-sm" style="padding: 50px;">
+                        <div class="form-group needs-validation">
+                             <h3>Billing/Shipping Address</h3>
+                            <label>Country:</label>
+                            <input type="text" class="form-control" th:field="*{country}"  placeholder="Enter your country..."
+                                name="country" autocomplete="off" readonly >                                 
+                            <br/>
+                            <label>City:</label>
+                            <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
+                            <input type="text" class="form-control" id="city" th:field="*{city}" placeholder="Enter your city..."
+                                name="city" autocomplete="off" readonly>                                
+                            <br/>
+                            <label>Street Name:</label>
+                            <input type="text" class="form-control" id="streetName" th:field="*{streetName}"
+                                placeholder="Enter your street name..." readonly>
+                            <br/>
+                            <label>Street Number:</label>
+                            <input type="number" class="form-control" id="streetNumber" th:field="*{streetNumber}"
+                                placeholder="Enter your street number..." name="streetNumber" autocomplete="off" readonly>
+                            <br/>
+                                <label>Postal Code:</label>
+                            <input type="number" class="form-control" id="postalCode" th:field="*{postalCode}"
+                                placeholder="Enter your postal code..." name="postalCode" autocomplete="off" readonly>
+
+                        </div>
+
+
+                    </div>
+                    
                     
                     <div class="col-sm" style="padding: 50px;">
+                        <h3>Procceed to pay for your product</h3>
                         <div id="smart-button-container">
                             <div style="text-align: center;">
                                 <div id="paypal-button-container"></div>

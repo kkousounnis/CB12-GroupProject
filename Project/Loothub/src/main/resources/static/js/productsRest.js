@@ -8,7 +8,7 @@ $(document).ready(function () {
             $.each(data, function (index, element) {
                 let fileName = element.fileName;
                 let cardName = element.name;
-                console.log(cardName);
+
                 
                 const queryString = window.location.search;
                 const urlParams = new URLSearchParams(queryString);
@@ -16,8 +16,6 @@ $(document).ready(function () {
                 let y = urlid.trim().toLowerCase().replace(/\s/g,'') ;
                 let z = cardName.trim().toLowerCase().replace(/\s/g,'') ;
                 let d = z.includes(y);
-                //console.log(y);
-                //console.log(z);
 
                 if(!urlid){
                     let x= el(fileName,element);
@@ -35,7 +33,7 @@ $(document).ready(function () {
 });
 
 function el(fileName,element){
-    console.log(element.category);
+
     let newElement = $(
                         '' +
                         '<div class="col-md-4">' +

@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // executes when HTML-Document is loaded and DOM is ready
-    console.log("document is ready");
+
 
 
     $(".card").hover(
@@ -135,7 +135,6 @@ $(document).ready(function () {
 
             // Use Ajax to submit form data
             $.post($form.attr('action'), $form.serialize(), function (result) {
-                console.log(result);
             }, 'json');
         });
 });

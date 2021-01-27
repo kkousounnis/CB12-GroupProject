@@ -1,7 +1,6 @@
 package com.company.springboot.entities.dto;
 
 import com.company.springboot.entities.ContactNumber;
-import java.util.Collection;
 import java.util.List;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

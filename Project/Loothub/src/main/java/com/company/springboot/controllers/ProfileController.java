@@ -10,7 +10,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -70,8 +69,7 @@ public class ProfileController {
 
         UserAddress userAddress = new UserAddress();
         setUserAddress(userAddress, username, userAddressDto);
-        System.out.println(userAddressDto + "MMMMMMM");
-        System.out.println(userAddress + "KKKKKK");
+
         userAddressService.save(userAddress);
 
         setProfileDto(profileDto, username);

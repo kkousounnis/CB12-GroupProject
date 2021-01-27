@@ -73,15 +73,6 @@ public class ProductImage implements Serializable {
         this.imagePath = imagePath;
     }
 
-//    public ProductImage(String imagePath, Product productId) {
-//        this.imagePath = imagePath;
-//        this.productId = productId;
-//    }
-//    public ProductImage(String imagePath, Integer userId, Product productId) {
-//        this.imagePath = imagePath;
-//        this.userId = userId;
-//        this.productId = productId;
-//    }
     public ProductImage(String imagePath, String fileName, Integer userId, Product productId) {
         this.imagePath = imagePath;
         this.fileName = fileName;
