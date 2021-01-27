@@ -62,6 +62,10 @@ public class ErrorsController implements ErrorController {
                     pageTitle = "Service Unavailable";
                     errorPage = "error/503";
                     LOGGER.error("Error 503");
+                }else if(statusCode == HttpStatus.BAD_REQUEST.value()){
+                    pageTitle = "Bad Request";
+                    errorPage = "error/400";
+                    LOGGER.error("Error 400");
                 }
             }
             
