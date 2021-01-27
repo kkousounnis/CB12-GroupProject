@@ -77,40 +77,32 @@
                     <label th:if="${Unsuccessful}" id="message" > Unsuccesfull Order - Email Already Exists - Please Retype</label>                                        
                 </div>
                 <div class="row">
-                      
-               
+
                     <div class="col-sm" style="padding: 50px;">
                         <div class="form-group needs-validation">
-                            <label id="countrylbl">Country:</label>
-                            <input type="text" class="form-control" id="country" th:field="*{country}"  placeholder="Enter your country..."
+                            <label>Country:</label>
+                            <input type="text" class="form-control" th:field="*{country}"  placeholder="Enter your country..."
                                 name="country" autocomplete="off" required>                                 
                             <br/>
-                            <label id="citylbl">City:</label>
+                            <label>City:</label>
                             <!--<textarea class="form-control" id="Description" rows="3"></textarea>-->
                             <input type="text" class="form-control" id="city" th:field="*{city}" placeholder="Enter your city..."
                                 name="city" autocomplete="off" required>                                
                             <br/>
-                            <label id="snamelbl">Street Name:</label>
+                            <label>Street Name:</label>
                             <input type="text" class="form-control" id="streetName" th:field="*{streetName}"
                                 placeholder="Enter your street name..." required>
                             <br/>
-                            <label id="snumberlbl">Street Number:</label>
+                            <label>Street Number:</label>
                             <input type="number" class="form-control" id="streetNumber" th:field="*{streetNumber}"
                                 placeholder="Enter your street number..." name="streetNumber" autocomplete="off" required>
                             <br/>
-                                <label id="postal">Postal Code:</label>
+                                <label>Postal Code:</label>
                             <input type="number" class="form-control" id="postalCode" th:field="*{postalCode}"
                                 placeholder="Enter your postal code..." name="postalCode" autocomplete="off" required>
-                    
+
                         </div>
-                        
-                        <div class="container" id="selectc">
-                            <h4>Shipping/Billing Address</h4>
-                        <select class="btn-outline rounded-pill" id="saddress" name="operator">
-                            <option value="0">Select Address</option>
-                            <option th:each="operator : ${orderDto.userAddress}" th:value="${operator.id}" th:text="${operator}"></option>
-                        </select>
-                        </div>
+
 
                     </div>
                     <div class="col-sm" style="padding: 50px;">

@@ -172,11 +172,11 @@ function checkPasswordMatch(fieldConfirmPassword) {
 
 $(document).ready(function () {
     if (window.location.pathname.includes('/order/')) {
-        document.getElementById("selectc").style.display = "none";
         var connecteUser = document.getElementById("connecteduser").innerHTML;
         console.log(connecteUser);
         if (connecteUser !== null) {
             var displayPassword = document.getElementById("emailCheck").value;
+
             console.log(displayPassword);
             if (displayPassword !== '') {
 
@@ -193,20 +193,6 @@ $(document).ready(function () {
 
                 document.getElementById("password").value = "123456";
                 document.getElementById("confirm_password").value = "123456";
-
-                document.getElementById("country").style.display = "none";
-                document.getElementById("city").style.display = "none";
-                document.getElementById("streetName").style.display = "none";
-                document.getElementById("streetNumber").style.display = "none";
-                document.getElementById("postalCode").style.display = "none";
-
-                document.getElementById("countrylbl").style.display = "none";
-                document.getElementById("citylbl").style.display = "none";
-                document.getElementById("snamelbl").style.display = "none";
-                document.getElementById("snumberlbl").style.display = "none";
-                document.getElementById("postal").style.display = "none";
-                document.getElementById("selectc").style.display = "block";
-
             }
         }
     }

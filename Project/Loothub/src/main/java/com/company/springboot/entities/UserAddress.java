@@ -237,11 +237,15 @@ public class UserAddress implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("").append(country);
-        sb.append(", ").append(city);
-        sb.append(", ").append(streetName);
-        sb.append(", ").append(streetNumber);
-        sb.append(", ").append(postalCode);
+        sb.append("UserAddress{id=").append(id);
+        sb.append(", country=").append(country);
+        sb.append(", city=").append(city);
+        sb.append(", streetName=").append(streetName);
+        sb.append(", streetNumber=").append(streetNumber);
+        sb.append(", postalCode=").append(postalCode);
+        sb.append(", isShipping=").append(isShipping);
+        sb.append(", isBilling=").append(isBilling);
+        sb.append('}');
         return sb.toString();
     }
 
