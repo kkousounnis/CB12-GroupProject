@@ -24,6 +24,7 @@ com\company\springboot\controllers\WebSocketEventListener.class
 com\company\springboot\dao\IProductImageDao.class
 com\company\springboot\dao\IUserAddressDao.class
 com\company\springboot\controllers\ErrorsController.class
+com\company\springboot\controllers\SoldDetailsRestController.class
 com\company\springboot\models\ChatMessagePojo$MessageType.class
 com\company\springboot\dao\IProductTagDao.class
 com\company\springboot\repository\IRoleRepository.class
@@ -48,6 +49,7 @@ com\company\springboot\entities\ContactNumber.class
 com\company\springboot\entities\ItemStatus.class
 com\company\springboot\dao\IOrdersDao.class
 com\company\springboot\entities\dto\UserDto.class
+com\company\springboot\entities\dto\SoldDetailsDto.class
 com\company\springboot\repository\IItemStatusRepository.class
 com\company\springboot\controllers\CheckoutController.class
 com\company\springboot\entities\dto\SellDetailsDto.class
@@ -65,6 +67,7 @@ com\company\springboot\RegistrationLoginAthaurizationSpringBootApplication.class
 com\company\springboot\dao\ProductImageDao.class
 com\company\springboot\entities\dto\UserRegistrationDto.class
 com\company\springboot\repository\IUserRepository.class
+com\company\springboot\controllers\SoldController.class
 com\company\springboot\controllers\SellDetailsRestController.class
 com\company\springboot\utilities\Utility.class
 com\company\springboot\repository\IUserAddressRepository.class

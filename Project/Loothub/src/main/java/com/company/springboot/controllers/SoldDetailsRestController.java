@@ -28,18 +28,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = {"/api"})
 public class SoldDetailsRestController {
 
-
     @Autowired
     private UserService userService;
-
 
     @Autowired
     private OrdersService ordersService;
 
     @Autowired
     private ProductImageService productImageService;
-
- 
 
     @CrossOrigin("http://localhost:8080")
     @GetMapping("/getSoldDetails")
@@ -53,13 +49,15 @@ public class SoldDetailsRestController {
         for (ProductImage image : productImageService.listAll()) {
             if (userSeller.getId().equals(image.getUserId())) {
                 if (ordersService.findByProductId(image.getProductId()) != null) {
-                    soldDetails.add(new SoldDetailsDto(ordersService.findByProductId(image.getProductId()).getId(),
-                            image.getProductId().getName(),
-                            ordersService.findByProductId(image.getProductId()).getTrackingNumber(),
-                            ordersService.findByProductId(image.getProductId()).getShippingAddressId(),
-                            ordersService.findByProductId(image.getProductId()).getBillingAddressId(),
-                            image.getProductId().getPrice(),
-                            ordersService.findByProductId(image.getProductId()).getItemStatusId().getStatus()));
+                    if (ordersService.findByProductId(image.getProductId()).getItemStatusId().getStatus().equals("Sold") == true) {
+                        soldDetails.add(new SoldDetailsDto(ordersService.findByProductId(image.getProductId()).getId(),
+                                image.getProductId().getName(),
+                                ordersService.findByProductId(image.getProductId()).getTrackingNumber(),
+                                ordersService.findByProductId(image.getProductId()).getShippingAddressId(),
+                                ordersService.findByProductId(image.getProductId()).getBillingAddressId(),
+                                image.getProductId().getPrice(),
+                                ordersService.findByProductId(image.getProductId()).getItemStatusId().getStatus()));
+                    }
                 }
             }
         }

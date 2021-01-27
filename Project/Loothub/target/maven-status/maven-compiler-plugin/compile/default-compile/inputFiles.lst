@@ -36,6 +36,7 @@ C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\UserRegistrationController.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\services\UserAddressService.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\dao\ProductDao.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\dto\SoldDetailsDto.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\dao\IProductTagDao.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\dto\ProductImagePathDto.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\dao\IUserDao.java
@@ -45,6 +46,7 @@ C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\configuration\SecurityConfiguration.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\services\ProductTagServise.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\AllUserRestController.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\SoldDetailsRestController.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\dao\IProductImageDao.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\dto\UserRegistrationDto.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\repository\IContactNumberRepository.java
@@ -68,6 +70,7 @@ C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\Orders.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\services\IProductTagServise.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\ForgotPasswordController.java
+C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\SoldController.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\controllers\ErrorsController.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\dao\ProductTagDao.java
 C:\Users\dukec\Documents\Software Projects\CB12-GroupProject\Project\Loothub\src\main\java\com\company\springboot\entities\ProductTag.java
