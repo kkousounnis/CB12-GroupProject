@@ -127,7 +127,7 @@ public class OrderController {
             userAddress = userAddressService.save(userAddress);
             ItemStatus itemStatus = new ItemStatus("Pending");
             itemStatus = itemStatusService.save(itemStatus);
-            String trackingNumber = "-";
+            String trackingNumber = orderDto.getProductId() + "" + user.getId();
             Orders order = new Orders(
                     orderDto.getComments(),
                     trackingNumber,
