@@ -74,6 +74,9 @@
                 <div th:if="${succesmessage}" class="alert  alert-info text-center">
                     <label th:if="${succesmessage}" id="message" > Address updated successfully!</label>                                        
                 </div>
+                <div th:if="${succesmessagenew}" class="alert  alert-info text-center">
+                    <label th:if="${succesmessagenew}" id="message" >New address added successfully!</label>                                        
+                </div>
                      <div class="row">
                     <div class="col-sm" style="padding: 50px;">
                         <div class="form-group">
@@ -128,6 +131,11 @@
                                                  data-city=''+${userAddrress.city}+'',
                                                  data-streetn =''+${userAddrress.streetName}+'', data-streetnu=''+${userAddrress.streetNumber}+'',
                                                  data-postal=''+${userAddrress.postalCode}+'' " class="btn btn-primary btn-default btn-sm text-white">Edit</button></td>
+                                     <td>
+                                         <button type="button" class="btn btn-danger btn-default btn-sm text-white" 
+                                                 th:attr="onclick=|deleteAddress('${userAddrress.id}')|" > Delete
+                                         </button>
+                                     </td>
                                  </tr>
                              </tbody>
                          </table> 
@@ -165,64 +173,66 @@
                                              <input type="number" class="form-control" id="postalCode"
                                                     placeholder="Enter your postal code..." name="postalCode" autocomplete="off" required/>
                                          
-                                     </div>
+                                    
                                      <div class="modal-footer">
                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                          <button  id="productBuy" type="submit" class="btn btn-primary">Save Address</button>
                                      </div>
-                                     </form>
+                                              </form>
+                                 </div>                                 
                                  </div>
-                             </div>
+                             </div>            
+ 
                          </div>
-                    </div>
-                
-                
-<!--                <div class="row">
-
-                    <div class="col-sm" style="padding: 50px;">
-                        <div class="form-group needs-validation">
-                            <label>Country:</label>
-                            <input type="text" class="form-control" th:field="*{country}"  placeholder="Enter your country..."
-                                name="country" autocomplete="off" required>                                 
-                            <br/>
-                            <label>City:</label>
-                           
-                            <input type="text" class="form-control" id="city" th:field="*{city}" placeholder="Enter your city..."
-                                name="city" autocomplete="off" required>                                
-                            <br/>
-                            <label>Street Name:</label>
-                            <input type="text" class="form-control" id="streetName" th:field="*{streetName}"
-                                placeholder="Enter your street name..." required>
-                            <br/>
-                            <label>Street Number:</label>
-                            <input type="number" class="form-control" id="streetNumber" th:field="*{streetNumber}"
-                                placeholder="Enter your street number..." name="streetNumber" autocomplete="off" required>
-                            <br/>
-                                <label>Postal Code:</label>
-                            <input type="number" class="form-control" id="postalCode" th:field="*{postalCode}"
-                                placeholder="Enter your postal code..." name="postalCode" autocomplete="off" required>
-
-                                
-                                     <div class="col-sm" style="padding: 50px;">
-                        <input type="submit" id="editButton" class="btn btn-primary btn-lg btn-block rounded-pill text-white" value="Edit"/>
-                                                
-                    </div>
-                        </div>
-                        
-                 
-
-
-                    </div>
-                   
-                </div>-->
-           
+                         <form th:action="@{/addaddress}" method="post" id="validationsFront">  
+                             <div>
+                                 <button  id="addAddressBtn" type="button" data-toggle="modal" data-target="#addAddress" class="btn btn-primary">Add New Address</button>
+                             </div>
+                        <div class="modal fade" id="addAddress" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                             <div class="modal-dialog">
+                                 <div class="modal-content">
+                                     <div class="modal-header">
+                                         <h5 class="modal-title" id="product-title">Add New Address</h5>
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                             <span aria-hidden="true">&times;</span>
+                                         </button>
+                                     </div>
+                                     <div class="modal-body">                                         
+                                          <form th:object="${userAddressDto}">
+                                             <label>Country:</label>
+                                             <input class="form-control" id="country" placeholder="Enter your country..."
+                                                    name="country" autocomplete="off" required/>
+                                             <br/>
+                                             <label>City:</label>
+                                             <input type="text" class="form-control" id="city" placeholder="Enter your city..."
+                                                    name="city" autocomplete="off" required/>  
+                                             <br/>
+                                             <label>Street Name</label>
+                                             <input type="text" class="form-control" id="streetName"
+                                                    name="streetName" placeholder="Enter your street name..." required/>
+                                             <br/>
+                                             <label>Street Number:</label>
+                                             <input type="number" class="form-control" id="streetNumber" 
+                                                    placeholder="Enter your street number..." name="streetNumber" autocomplete="off" required/>
+                                             <br/>
+                                             <label>Postal Code:</label>
+                                             <input type="number" class="form-control" id="postalCode"
+                                                    placeholder="Enter your postal code..." name="postalCode" autocomplete="off" required/>
+                                         
                                     
+                                     <div class="modal-footer">
+                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                         <button  id="productBuy" type="submit" class="btn btn-primary">Save Address</button>
+                                     </div>
+                                              </form>
+                                 </div>                                 
+                                 </div>
+                             </div>            
+ 
+                         </div>
+                         </form>
+                    </div>
                 </div>                
-  
-             
-            </form>
-    
-
         </div>
 
             </main>
@@ -279,6 +289,7 @@
         </footer>
 
         <script src="js/jquery.min.js"></script>
+        <script src="js/profileDetailsRest.js"></script>
         <script src="js/script.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -220,5 +220,4 @@ $('#editAddress').on('show.bs.modal', function (event) {
     document.getElementById("streetName").value = streetName;
     document.getElementById("streetNumber").value = parseInt(streetNumber);
     document.getElementById("postalCode").value = postalCode;
-
 });

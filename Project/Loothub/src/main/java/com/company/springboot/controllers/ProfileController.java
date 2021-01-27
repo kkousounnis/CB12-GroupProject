@@ -60,6 +60,32 @@ public class ProfileController {
 
         return modelAndView;
     }
+    
+    @PostMapping("/addaddress")
+    public ModelAndView addAddress(@ModelAttribute("userAddressDto") UserAddressDto userAddressDto,
+            @ModelAttribute("productDto") ProfileDto profileDto,
+            @CurrentSecurityContext(expression = "authentication?.name") String username) {
+        ModelAndView modelAndView = new ModelAndView();
+
+        UserAddress userAddress = new UserAddress();
+        setUserAddress(userAddress, username, userAddressDto);
+        System.out.println(userAddressDto + "MMMMMMM");
+        System.out.println(userAddress + "KKKKKK");
+        userAddressService.save(userAddress);
+
+        setProfileDto(profileDto, username);
+
+        modelAndView.addObject("succesmessagenew", "Succesfull");
+        modelAndView.addObject("productDto", profileDto);
+        modelAndView.addObject("userAddressDto", userAddressDto);
+        modelAndView.setViewName("profile");
+
+        return modelAndView;
+    }
+    
+    
+    
+    
 
     private void setUserAddress(UserAddress userAddress, String username, UserAddressDto userAddressDto) throws NumberFormatException {
         userAddress.setUserId(userService.findByEmailAddress(username));
