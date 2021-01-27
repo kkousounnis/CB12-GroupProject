@@ -54,7 +54,6 @@ com\company\springboot\dao\IOrdersDao.class
 com\company\springboot\entities\dto\UserDto.class
 com\company\springboot\entities\dto\SoldDetailsDto.class
 com\company\springboot\repository\IItemStatusRepository.class
-com\company\springboot\controllers\CheckoutController.class
 com\company\springboot\entities\dto\SellDetailsDto.class
 com\company\springboot\entities\UserAddress.class
 com\company\springboot\controllers\OrderController.class
