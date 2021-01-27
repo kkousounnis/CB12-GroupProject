@@ -105,6 +105,17 @@ public class UserAddress implements Serializable {
         this.isBilling = isBilling;
         this.userId = userId;
     }
+
+    public UserAddress(User userId, String country, String city, String streetName, String streetNumber, int postalCode) {
+        this.userId = userId;
+        this.country = country;
+        this.city = city;
+        this.streetName = streetName;
+        this.streetNumber = streetNumber;
+        this.postalCode = postalCode;
+    }
+    
+    
     
     public UserAddress(Integer id, String country, String city, int postalCode) {
         this.id = id;

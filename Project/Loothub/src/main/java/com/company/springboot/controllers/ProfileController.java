@@ -26,20 +26,13 @@ public class ProfileController {
 
     @GetMapping("/profile")
     public ModelAndView profileView(@CurrentSecurityContext(expression = "authentication?.name") String username) {
-    
+
         ProfileDto profileDto = new ProfileDto();
-        
+
         UserAddressDto userAddressDto = new UserAddressDto();
-             
-        profileDto.setFirstName(userService.findByEmailAddress(username).getFirstName());
-        profileDto.setLastName(userService.findByEmailAddress(username).getLastName());
-        profileDto.setEmail(userService.findByEmailAddress(username).getEmail());
-        profileDto.setTelNumber((List<ContactNumber>) userService.findByEmailAddress(username).getContactNumbers());
-        profileDto.setUserAddress((List<UserAddress>) userService.findByEmailAddress(username).getUserAddressList());
-        
-        
-        
-        
+
+        setProfileDto(profileDto, username);
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("productDto", profileDto);
         modelAndView.addObject("userAddressDto", userAddressDto);
@@ -48,44 +41,42 @@ public class ProfileController {
 
     }
 
-    @PostMapping("/edituser")
-    public ModelAndView editUser(@ModelAttribute("profileDto") ProfileDto profileDto,
+    @PostMapping("/editaddress")
+    public ModelAndView editAddress(@ModelAttribute("userAddressDto") UserAddressDto userAddressDto,
+            @ModelAttribute("productDto") ProfileDto profileDto,
             @CurrentSecurityContext(expression = "authentication?.name") String username) {
         ModelAndView modelAndView = new ModelAndView();
 
         UserAddress userAddress = new UserAddress();
+        setUserAddress(userAddress, username, userAddressDto);
+        userAddressService.update(userAddress.getId(), userAddress);
 
-        System.out.println(profileDto + "asasdsad");
-        
-        
-        
-        
-        
-//        userAddress.setUserId(userService.findByEmailAddress(username));
-//        userAddress.setCountry(orderDto.getCountry());
-//        userAddress.setCity(orderDto.getCity());
-//        userAddress.setStreetName(orderDto.getStreetName());
-//        userAddress.setStreetNumber(orderDto.getStreetNumber());
-//        userAddress.setPostalCode(Integer.parseInt(orderDto.getPostalCode()));
-//
-//        userAddressService.save(userAddress);
+        setProfileDto(profileDto, username);
 
-           
-        
-        
-//        orderDto.setFirstName(userService.findByEmailAddress(username).getFirstName());
-//        orderDto.setLastName(userService.findByEmailAddress(username).getLastName());
-//        orderDto.setEmail(userService.findByEmailAddress(username).getEmail());
-//        orderDto.setTelNumber((List<ContactNumber>) userService.findByEmailAddress(username).getContactNumbers());
-//        orderDto.setCountry(userAddress.getCountry());
-//        orderDto.setCity(userAddress.getCity());
-//        orderDto.setStreetName(userAddress.getStreetName());
-//        orderDto.setStreetNumber(userAddress.getStreetNumber());
-//        orderDto.setPostalCode(Integer.toString(userAddress.getPostalCode()));
-//        modelAndView.addObject("orderDto", orderDto);
         modelAndView.addObject("succesmessage", "Succesfull");
+        modelAndView.addObject("productDto", profileDto);
+        modelAndView.addObject("userAddressDto", userAddressDto);
         modelAndView.setViewName("profile");
+
         return modelAndView;
+    }
+
+    private void setUserAddress(UserAddress userAddress, String username, UserAddressDto userAddressDto) throws NumberFormatException {
+        userAddress.setUserId(userService.findByEmailAddress(username));
+        userAddress.setId(userAddressDto.getId());
+        userAddress.setCountry(userAddressDto.getCountry());
+        userAddress.setCity(userAddressDto.getCity());
+        userAddress.setStreetName(userAddressDto.getStreetName());
+        userAddress.setStreetNumber(userAddressDto.getStreetNumber());
+        userAddress.setPostalCode(Integer.parseInt(userAddressDto.getPostalCode()));
+    }
+
+    private void setProfileDto(ProfileDto profileDto, String username) {
+        profileDto.setFirstName(userService.findByEmailAddress(username).getFirstName());
+        profileDto.setLastName(userService.findByEmailAddress(username).getLastName());
+        profileDto.setEmail(userService.findByEmailAddress(username).getEmail());
+        profileDto.setTelNumber((List<ContactNumber>) userService.findByEmailAddress(username).getContactNumbers());
+        profileDto.setUserAddress((List<UserAddress>) userService.findByEmailAddress(username).getUserAddressList());
     }
 
 }

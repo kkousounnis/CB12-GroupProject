@@ -10,7 +10,8 @@ package com.company.springboot.entities.dto;
  * @author Dim.Kasimatis
  */
 public class UserAddressDto {
-
+    
+    private int id;
     private String country;
     private String city;
     private String streetName;
@@ -20,7 +21,8 @@ public class UserAddressDto {
     public UserAddressDto() {
     }
 
-    public UserAddressDto(String country, String city, String streetName, String streetNumber, String postalCode) {
+    public UserAddressDto(int id, String country, String city, String streetName, String streetNumber, String postalCode) {
+        this.id = id;
         this.country = country;
         this.city = city;
         this.streetName = streetName;
@@ -68,10 +70,20 @@ public class UserAddressDto {
         this.postalCode = postalCode;
     }
 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("UserAddressDto{country=").append(country);
+        sb.append("UserAddressDto{id=").append(id);
+        sb.append(", country=").append(country);
         sb.append(", city=").append(city);
         sb.append(", streetName=").append(streetName);
         sb.append(", streetNumber=").append(streetNumber);

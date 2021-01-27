@@ -24,12 +24,12 @@ public class UserAddressDao implements IUserAddressDao {
     }
 
     @Override
-    public UserAddress get(Long id) {
-        return userAddressRepository.findById(id).get(); 
+    public UserAddress get(int id) {
+        return userAddressRepository.findById(id); 
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(int id) {
         try {
         userAddressRepository.deleteById(id);
         } catch (EntityNotFoundException e) {
@@ -38,8 +38,10 @@ public class UserAddressDao implements IUserAddressDao {
     }
 
     @Override
-    public void update(UserAddress userAddress) {
-        userAddressRepository.save(userAddress);
+    public void update(int id, UserAddress userAddress) {
+        UserAddress myUserAddress = userAddressRepository.findById(id);
+        myUserAddress = userAddress;
+        userAddressRepository.save(myUserAddress);
     }
     
 }

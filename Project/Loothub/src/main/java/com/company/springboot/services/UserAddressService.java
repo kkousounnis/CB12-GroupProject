@@ -26,12 +26,12 @@ public class UserAddressService implements IUserAddressServise {
     }
 
     @Override
-    public UserAddress get(Long id) {
+    public UserAddress get(int id) {
         return userAddressDao.get(id); 
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(int id) {
         try {
         userAddressDao.delete(id);
         } catch (EntityNotFoundException e) {
@@ -41,8 +41,8 @@ public class UserAddressService implements IUserAddressServise {
     }
 
     @Override
-    public void update(UserAddress userAddress) {
-     userAddressDao.update(userAddress);
+    public void update(int id, UserAddress userAddress) {
+     userAddressDao.update(id, userAddress);
     }
     
 }

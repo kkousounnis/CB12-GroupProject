@@ -11,11 +11,11 @@ public interface IUserAddressServise {
 
     public UserAddress save(UserAddress useradress);
 
-    public UserAddress get(Long id);
+    public UserAddress get(int id);
 
-    public void delete(Long id);
+    public void delete(int id);
     
-    public void update(UserAddress useradress);
+    public void update(int id, UserAddress useradress);
 }
     
 

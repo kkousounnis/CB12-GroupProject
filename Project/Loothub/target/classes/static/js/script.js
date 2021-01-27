@@ -198,19 +198,27 @@ $(document).ready(function () {
     }
 });
 
-$('#addAddress').on('show.bs.modal', function (event) {
+$(document).ready(function () {
+    if (window.location.pathname.includes('/profile')) {
+        document.getElementById("id").style.display = "none";
+
+}
+});
+
+$('#editAddress').on('show.bs.modal', function (event) {
     let button = $(event.relatedTarget); // Button that triggered the modal
+    let id = button.data('id'); // Extract info from data-* attributes
     let country = button.data('country'); // Extract info from data-* attributes
     let city = button.data('city'); // Extract info from data-* attributes
     let streetName = button.data('streetn'); // Extract info from data-* attributes
     let streetNumber = button.data('streetnu'); // Extract info from data-* attributes
     let postalCode = button.data('postal'); // Extract info from data-* attributes
     
+    document.getElementById("id").value = id;
     document.getElementById("country").value = country;
     document.getElementById("city").value = city;
     document.getElementById("streetName").value = streetName;
     document.getElementById("streetNumber").value = parseInt(streetNumber);
     document.getElementById("postalCode").value = postalCode;
-
 
 });

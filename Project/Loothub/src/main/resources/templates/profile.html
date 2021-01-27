@@ -70,9 +70,9 @@
         <main>
              <div class="container col-5">
 
-            <form th:action="@{/edituser}" method="post" th:object="${productDto}" id="validationsFront">
+            <form th:action="@{/editaddress}" method="post" th:object="${productDto}" id="validationsFront">
                 <div th:if="${succesmessage}" class="alert  alert-info text-center">
-                    <label th:if="${succesmessage}" id="message" > Address added successfully!</label>                                        
+                    <label th:if="${succesmessage}" id="message" > Address updated successfully!</label>                                        
                 </div>
                      <div class="row">
                     <div class="col-sm" style="padding: 50px;">
@@ -123,14 +123,15 @@
                                      <td th:text="${userAddrress.streetName}" />
                                      <td th:text="${userAddrress.streetNumber}" />
                                      <td th:text="${userAddrress.postalCode}" />
-                                     <td><button type="button" id="search" data-toggle="modal"  data-target="#addAddress" 
-                                                 th:attr="data-country=''+${userAddrress.country}+'', data-city=''+${userAddrress.city}+'',
+                                     <td><button type="button" id="editaddress" data-toggle="modal"  data-target="#editAddress" 
+                                                 th:attr="data-id=''+${userAddrress.id}+'', data-country=''+${userAddrress.country}+'', 
+                                                 data-city=''+${userAddrress.city}+'',
                                                  data-streetn =''+${userAddrress.streetName}+'', data-streetnu=''+${userAddrress.streetNumber}+'',
-                                                 data-postal=''+${userAddrress.postalCode}+'' " class="btn btn-outline-secondary btn-default btn-sm text-white">Edit</button></td>
+                                                 data-postal=''+${userAddrress.postalCode}+'' " class="btn btn-primary btn-default btn-sm text-white">Edit</button></td>
                                  </tr>
                              </tbody>
                          </table> 
-                         <div class="modal fade" id="addAddress" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                         <div class="modal fade" id="editAddress" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                              <div class="modal-dialog">
                                  <div class="modal-content">
                                      <div class="modal-header">
@@ -140,9 +141,12 @@
                                          </button>
                                      </div>
                                      <div class="modal-body">                                         
-                                          <form th:action="@{/edituser}" method="post"  th:object="${userAddressDto}">
+                                          <form th:object="${userAddressDto}">
+                                             <input class="form-control" id="id" placeholder="Enter your country..."
+                                                    name="id" autocomplete="off" required/>
+                                             <br/> 
                                              <label>Country:</label>
-                                             <input th:field="*{country}" class="form-control" id="country" placeholder="Enter your country..."
+                                             <input class="form-control" id="country" placeholder="Enter your country..."
                                                     name="country" autocomplete="off" required/>
                                              <br/>
                                              <label>City:</label>
@@ -151,7 +155,7 @@
                                              <br/>
                                              <label>Street Name</label>
                                              <input type="text" class="form-control" id="streetName"
-                                                    placeholder="Enter your street name..." required/>
+                                                    name="streetName" placeholder="Enter your street name..." required/>
                                              <br/>
                                              <label>Street Number:</label>
                                              <input type="number" class="form-control" id="streetNumber" 
@@ -164,7 +168,7 @@
                                      </div>
                                      <div class="modal-footer">
                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                         <button  id="productBuy" type="submit" class="btn btn-primary">Add Address</button>
+                                         <button  id="productBuy" type="submit" class="btn btn-primary">Save Address</button>
                                      </div>
                                      </form>
                                  </div>
