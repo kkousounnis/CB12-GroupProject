@@ -70,7 +70,7 @@
         <main>
              <div class="container col-5">
 
-            <form th:action="@{/edituser}" method="post" th:object="${productDto}"  id="validationsFront">
+            <form th:action="@{/edituser}" method="post" th:object="${productDto}" id="validationsFront">
                 <div th:if="${succesmessage}" class="alert  alert-info text-center">
                     <label th:if="${succesmessage}" id="message" > Address added successfully!</label>                                        
                 </div>
@@ -123,7 +123,10 @@
                                      <td th:text="${userAddrress.streetName}" />
                                      <td th:text="${userAddrress.streetNumber}" />
                                      <td th:text="${userAddrress.postalCode}" />
-                                     <td><button type="button" id="search" data-toggle="modal"  data-target="#addAddress" th:attr="data-country=''+${userAddrress.country}+'', data-city=''+${userAddrress.city}+'' " class="btn btn-outline-secondary btn-default btn-sm text-white">Edit</button></td>
+                                     <td><button type="button" id="search" data-toggle="modal"  data-target="#addAddress" 
+                                                 th:attr="data-country=''+${userAddrress.country}+'', data-city=''+${userAddrress.city}+'',
+                                                 data-streetn =''+${userAddrress.streetName}+'', data-streetnu=''+${userAddrress.streetNumber}+'',
+                                                 data-postal=''+${userAddrress.postalCode}+'' " class="btn btn-outline-secondary btn-default btn-sm text-white">Edit</button></td>
                                  </tr>
                              </tbody>
                          </table> 
@@ -137,20 +140,33 @@
                                          </button>
                                      </div>
                                      <div class="modal-body">                                         
-                                         <form>
+                                          <form th:action="@{/edituser}" method="post"  th:object="${userAddressDto}">
                                              <label>Country:</label>
-                                             <input type="text" class="form-control" id="country" placeholder="Enter your country..."
-                                                    name="country" autocomplete="off" required>
+                                             <input th:field="*{country}" class="form-control" id="country" placeholder="Enter your country..."
+                                                    name="country" autocomplete="off" required/>
+                                             <br/>
                                              <label>City:</label>
-                                             <input type="text" class="form-control" id="city" th:field="*{city}" placeholder="Enter your city..."
-                                                        name="city" autocomplete="off" required>  
-                                             
-                                         </form>
+                                             <input type="text" class="form-control" id="city" placeholder="Enter your city..."
+                                                    name="city" autocomplete="off" required/>  
+                                             <br/>
+                                             <label>Street Name</label>
+                                             <input type="text" class="form-control" id="streetName"
+                                                    placeholder="Enter your street name..." required/>
+                                             <br/>
+                                             <label>Street Number:</label>
+                                             <input type="number" class="form-control" id="streetNumber" 
+                                                    placeholder="Enter your street number..." name="streetNumber" autocomplete="off" required/>
+                                             <br/>
+                                             <label>Postal Code:</label>
+                                             <input type="number" class="form-control" id="postalCode"
+                                                    placeholder="Enter your postal code..." name="postalCode" autocomplete="off" required/>
+                                         
                                      </div>
                                      <div class="modal-footer">
                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                         <a  id="productBuy" type="button" class="btn btn-primary">Add Address</a>
+                                         <button  id="productBuy" type="submit" class="btn btn-primary">Add Address</button>
                                      </div>
+                                     </form>
                                  </div>
                              </div>
                          </div>
@@ -260,7 +276,6 @@
 
         <script src="js/jquery.min.js"></script>
         <script src="js/script.js"></script>
-        <script src="js/profileDetailsRest.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"

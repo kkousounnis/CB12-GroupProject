@@ -64,7 +64,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 "/api/productList**",
                 "/js/**",
                 "/css/**",
-                "/img/**").permitAll()
+                "/img/**",
+                "/forgot_password",
+                "/reset_password").permitAll()
                 .antMatchers("/admin/**",
                         "/api/getAllUsers/**").hasAnyAuthority("ADMIN")
                 .anyRequest().authenticated()

@@ -145,7 +145,7 @@ $(document).ready(function () {
                 },
 
                 onApprove: function (data, actions) {
-                    return actions.order.capture().then(function (details) {                        
+                    return actions.order.capture().then(function (details) {
                         document.getElementById("hiddenpaybutton").click();
                     });
                 },
@@ -192,7 +192,7 @@ $(document).ready(function () {
                 document.getElementById("phoneNumber").readOnly = true;
 
                 document.getElementById("password").value = "123456";
-                document.getElementById("confirm_password").value = "123456"; 
+                document.getElementById("confirm_password").value = "123456";
             }
         }
     }
@@ -202,12 +202,15 @@ $('#addAddress').on('show.bs.modal', function (event) {
     let button = $(event.relatedTarget); // Button that triggered the modal
     let country = button.data('country'); // Extract info from data-* attributes
     let city = button.data('city'); // Extract info from data-* attributes
-
-    document.getElementById("country").value = country; 
-    document.getElementById("product-description").innerHTML = city; 
-     
-
-
+    let streetName = button.data('streetn'); // Extract info from data-* attributes
+    let streetNumber = button.data('streetnu'); // Extract info from data-* attributes
+    let postalCode = button.data('postal'); // Extract info from data-* attributes
+    
+    document.getElementById("country").value = country;
+    document.getElementById("city").value = city;
+    document.getElementById("streetName").value = streetName;
+    document.getElementById("streetNumber").value = parseInt(streetNumber);
+    document.getElementById("postalCode").value = postalCode;
 
 
 });
