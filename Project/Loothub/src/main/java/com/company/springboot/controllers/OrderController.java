@@ -66,6 +66,7 @@ public class OrderController {
             orderDto.setLastName(userService.findByEmailAddress(username).getLastName());
             orderDto.setEmail(userService.findByEmailAddress(username).getEmail());
             orderDto.setTelNumber((List<ContactNumber>) userService.findByEmailAddress(username).getContactNumbers());
+            orderDto.setUserAddress((List<UserAddress>) userService.findByEmailAddress(username).getUserAddressList());
             
             modelAndView.addObject("username", userService.findByEmailAddress(username).getEmail());
 

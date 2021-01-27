@@ -1,6 +1,7 @@
 package com.company.springboot.entities.dto;
 
 import com.company.springboot.entities.ContactNumber;
+import com.company.springboot.entities.UserAddress;
 import java.util.List;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -32,8 +33,8 @@ public class OrderDto {
     private String streetNumber;
     private String postalCode;
     private String comments;
-
     private Integer productId;
+    private List<UserAddress> userAddress;
 
     public OrderDto() {
     }
@@ -54,6 +55,32 @@ public class OrderDto {
         this.comments = comments;
         this.productId = productId;
     }
+
+    public OrderDto(String firstName, String lastName, String email, String password, List<ContactNumber> telNumber, String country, String city, String streetName, String streetNumber, String postalCode, String comments, Integer productId, List<UserAddress> userAddress) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.telNumber = telNumber;
+        this.country = country;
+        this.city = city;
+        this.streetName = streetName;
+        this.streetNumber = streetNumber;
+        this.postalCode = postalCode;
+        this.comments = comments;
+        this.productId = productId;
+        this.userAddress = userAddress;
+    }
+
+    public List<UserAddress> getUserAddress() {
+        return userAddress;
+    }
+
+    public void setUserAddress(List<UserAddress> userAddress) {
+        this.userAddress = userAddress;
+    }
+    
+    
 
     public String getFirstName() {
         return firstName;
@@ -151,8 +178,6 @@ public class OrderDto {
         this.productId = productId;
     }
 
-    
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -168,8 +193,13 @@ public class OrderDto {
         sb.append(", postalCode=").append(postalCode);
         sb.append(", comments=").append(comments);
         sb.append(", productId=").append(productId);
+        sb.append(", userAddress=").append(userAddress);
         sb.append('}');
         return sb.toString();
     }
+
+    
+
+  
 
 }
