@@ -47,20 +47,6 @@ CREATE TABLE `product_images` (
         ON DELETE CASCADE ON UPDATE CASCADE
 )  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
 
-CREATE TABLE `product_tags` (
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `tag_name` VARCHAR(255) NOT NULL,
-    `product_id` INT NOT NULL,
-    PRIMARY KEY (`id`),
-    KEY `fk_product_tags_product_id__products_id` (`product_id`),
-    CONSTRAINT `fk_product_tags_product_id__products_id` FOREIGN KEY (`product_id`)
-        REFERENCES `products` (`id`)
-        ON DELETE CASCADE ON UPDATE CASCADE
-)  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
-
-
-
-
 
 CREATE TABLE `roles` (
     `id` INT NOT NULL AUTO_INCREMENT,
