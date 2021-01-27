@@ -1,6 +1,7 @@
 package com.company.springboot.controllers;
 
 import com.company.springboot.entities.Orders;
+import com.company.springboot.entities.Product;
 import com.company.springboot.entities.User;
 import com.company.springboot.entities.dto.OrderDetailsDto;
 import com.company.springboot.services.ItemStatusService;
@@ -44,7 +45,7 @@ public class OrderDetailsRestController {
         
         for (Orders order : orderService.listAll()) {
             if (userBuyer.getId().equals(order.getUserId().getId())) {
-                if (itemStatusService.checkStatusOrder(orders, order.getProductId())) {
+                if (checkStatusOrder(orders, order.getProductId())) {
                     ordersDetails.add(new OrderDetailsDto(order.getId(),
                             order.getProductId().getName(),
                             order.getTrackingNumber(),
@@ -56,4 +57,17 @@ public class OrderDetailsRestController {
         }
         return (ordersDetails);
     }
+
+
+  public boolean checkStatusOrder(List<Orders> orders, Product product) {
+        boolean x = false;
+        for (Orders order : orders) {
+            if (order.getProductId().getId().equals(product.getId())) {
+
+                x = true;
+            }
+
+        }
+        return x;
+   } 
 }

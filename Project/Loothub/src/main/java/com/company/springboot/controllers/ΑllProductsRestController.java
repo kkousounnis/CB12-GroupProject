@@ -65,7 +65,7 @@ public class ΑllProductsRestController {
 
             productImagePath = productImageService.findByProductId(product1);
 
-            if (itemStatusService.checkStatusOrder(orders, product1) == false) {
+            if (checkStatusOrder(orders, product1) == false) {
 
                 listproductsImagePathDto.add(new ProductImagePathDto(
                         product1.getId(),
@@ -94,6 +94,16 @@ public class ΑllProductsRestController {
 
     }
 
-  
+    public boolean checkStatusOrder(List<Orders> orders, Product product) {
+        boolean x = false;
+        for (Orders order : orders) {
+            if (order.getProductId().getId().equals(product.getId())) {
+
+                x = true;
+            }
+
+        }
+        return x;
+    }
 
 }

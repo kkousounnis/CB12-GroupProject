@@ -46,21 +46,6 @@ public class ItemStatusService implements IItemStatusServise {
         itemStatusDao.update(itemStatus);
     }
     
-    public boolean checkStatusOrder(List<Orders> orders, Product product) {
-        boolean x = false;
-        for (Orders order : orders) {
-            if (order.getProductId().getId().equals(product.getId())) {
-                ItemStatus itemStatus = new ItemStatus();
-                itemStatus = this.get(order.getProductId().getId());
-                if (itemStatus.getStatus().equals("Sold")) {
-                    
-                    x = true;
-                }
 
-            }
-
-        }
-        return x;
-    }
     
 }
