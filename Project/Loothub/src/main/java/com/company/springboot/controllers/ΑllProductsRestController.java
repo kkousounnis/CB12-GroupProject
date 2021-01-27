@@ -1,16 +1,15 @@
 package com.company.springboot.controllers;
 
-import com.company.springboot.entities.ItemStatus;
 import com.company.springboot.entities.Orders;
 import com.company.springboot.entities.Product;
 import com.company.springboot.entities.ProductImage;
-import com.company.springboot.entities.dto.ProductDto;
 import com.company.springboot.entities.dto.ProductImagePathDto;
 import com.company.springboot.repository.IProductRepository;
 import com.company.springboot.services.ItemStatusService;
 import com.company.springboot.services.OrdersService;
 import com.company.springboot.services.ProductImageService;
 import com.company.springboot.services.ProductService;
+import com.company.springboot.services.UserService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -41,6 +40,9 @@ public class ΑllProductsRestController {
 
     @Autowired
     private ItemStatusService itemStatusService;
+    
+    @Autowired
+    private UserService userService;
 
     @CrossOrigin("http://localhost:8080")
     @GetMapping("/productList")
@@ -53,7 +55,8 @@ public class ΑllProductsRestController {
         orders = ordersService.listAll();
 
         ProductImage productImagePath = new ProductImage();
-
+        
+        
         Product product1 = new Product();
         int i = 0;
         for (Product product : products) {
@@ -73,7 +76,8 @@ public class ΑllProductsRestController {
                         productImagePath.getId(),
                         productImagePath.getImagePath(),
                         productImagePath.getFileName(),
-                        productImagePath.getUserId()
+                        productImagePath.getUserId(),
+                        userService.get(productImagePath.getUserId()).getFirstName()
                 ));
             }
         }

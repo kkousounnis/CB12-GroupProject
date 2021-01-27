@@ -66,7 +66,7 @@ function el(fileName,element){
                         '</div>' +
                         '</figcaption>' +
                         '<div class="bottom-wrap"> <a href="/order/' + element.productId + '"  type="submit" id="search" class="btn btn-primary float-right" data-abc="true" value="Buy now">Buy now </a>' +
-                        '<div class="price-wrap"> <span class="price h5" value="' + element.price + '">' + element.price + '&euro;</span> <br> <small class="text-success">Free shipping</small> </div>' +
+                        '<div class="price-wrap"> <span class="price h5" value="' + element.price + '">' + element.price + '&euro;</span> <br> <small class="text-success"> Seller: ' +  element.firstName + element.userId +'</small> </div>' +
                         '</div>' +
                         '</figure>' +
                         '</div>' +
