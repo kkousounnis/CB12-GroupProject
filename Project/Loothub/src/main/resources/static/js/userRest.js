@@ -18,7 +18,7 @@ $(document).ready(function () {
                         '<td>' +
                         '<button type="button" class="btn btn-outline-info btn-circle btn-lg btn-circle">' +
                         '<i class="fa fa-key"></i> </button>' +
-                        '<button type="button"' +
+                        '<button id="editbtn" type="button"' +
                         'class="delete btn btn-outline-info btn-circle btn-lg btn-circle ml-2" onclick="deleteUser(' + this.id + ')">' +
                         '<i class="fa fa-trash"></i> </button>' +
                         '<button type="button"'
@@ -42,7 +42,5 @@ $.ajax({
     }
 });
 };
-
-
 
 

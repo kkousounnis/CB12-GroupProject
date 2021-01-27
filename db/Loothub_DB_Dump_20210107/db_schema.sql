@@ -128,7 +128,7 @@ CREATE TABLE `orders` (
     KEY `fk_order_details_shipping_address_id__user_addresses_id_idx` (`shipping_address_id`),
     CONSTRAINT `fk_auctions_auction_status_id__auctions_status_id` FOREIGN KEY (`item_status_id`)
         REFERENCES `item_status` (`id`)
-        ON DELETE RESTRICT ON UPDATE RESTRICT,
+        ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT `fk_auctions_product_id__products_id` FOREIGN KEY (`product_id`)
         REFERENCES `products` (`id`)
         ON DELETE RESTRICT ON UPDATE RESTRICT,

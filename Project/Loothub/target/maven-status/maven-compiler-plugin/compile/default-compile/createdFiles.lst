@@ -6,6 +6,7 @@ com\company\springboot\controllers\ProductController.class
 com\company\springboot\services\ItemStatusService.class
 com\company\springboot\exceptions\UserNotFoundException.class
 com\company\springboot\dao\ProductDao.class
+com\company\springboot\entities\dto\UserAddressDto.class
 com\company\springboot\services\RoleServises.class
 com\company\springboot\controllers\OrderDetailsRestController.class
 com\company\springboot\dao\ItemStatusDao.class
