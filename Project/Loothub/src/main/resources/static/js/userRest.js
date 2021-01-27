@@ -30,6 +30,7 @@ $(document).ready(function () {
 });
 
 function deleteUser(id) {
+    if(id !== 1) {
 $.ajax({
     url: 'http://localhost:8080/api/deleteUser/' + id,
     type: 'DELETE',
@@ -38,6 +39,9 @@ $.ajax({
         location.reload(); 
     }
 });
+    } else {
+        alert("You can't delete yourself dummy!");
+    }
 };
 
 
