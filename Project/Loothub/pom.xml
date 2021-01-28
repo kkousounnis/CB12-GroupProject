@@ -4,13 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
+        <artifactId>spring-boot-starter-parent</artifactId>        
         <version>2.4.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.company</groupId>
     <artifactId>Loothub</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>Loothub</name>
     <description>Loothub</description>
 
@@ -94,13 +95,45 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
+            <!--            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>-->
+            <plugin>
+
+                <groupId>org.apache.maven.plugins</groupId>
+
+                <artifactId>maven-war-plugin</artifactId>
+
+                <version>3.1.0</version>
+
+                <executions>
+
+                    <execution>
+
+                        <id>default-war</id>
+
+                        <phase>prepare-package</phase>
+
+                        <configuration>
+
+                            <failOnMissingWebXml>false</failOnMissingWebXml>
+
+                        </configuration>
+
+                    </execution>
+
+                </executions>
+
             </plugin>
         </plugins>
     </build>
