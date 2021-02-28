@@ -10,3 +10,6 @@ Technologies: Spring Boot/Security, JPA/Hibernate, MySQL, Rest API, Thymeleaf, J
 
 * Search by Electronics category
 ![image](https://user-images.githubusercontent.com/39504405/109416391-9ed24d00-79c6-11eb-95cc-6e789277d091.png)
+
+* Upload Product
+![image](https://user-images.githubusercontent.com/39504405/109416464-16a07780-79c7-11eb-9099-3445eb5e2f99.png)
