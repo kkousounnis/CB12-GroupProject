@@ -15,4 +15,4 @@ Technologies: Spring Boot/Security, JPA/Hibernate, MySQL, Rest API, Thymeleaf, J
 ![image](https://user-images.githubusercontent.com/39504405/109416464-16a07780-79c7-11eb-9099-3445eb5e2f99.png)
 
 * Administrator Dashboard
-![image](https://user-images.githubusercontent.com/39504405/109416526-7565f100-79c7-11eb-869f-c08199466678.png)
+![image](https://user-images.githubusercontent.com/39504405/109416610-050b9f80-79c8-11eb-9b53-99f181aebbf7.png)
