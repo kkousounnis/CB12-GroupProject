@@ -5,4 +5,5 @@ Loothub is an online marketplace where product is provided by multiple third par
 
 Technologies: Spring Boot/Security, JPA/Hibernate, MySQL, Rest API, Thymeleaf, JavaScript, Ajax and jQuery.
 
-![image](https://user-images.githubusercontent.com/39504405/109416180-48b0da00-79c5-11eb-8218-17929cc7b7bd.png)
+
+![image](https://user-images.githubusercontent.com/39504405/109416222-89a8ee80-79c5-11eb-9b3c-3047ceb66fff.png)
